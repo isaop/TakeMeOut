@@ -5,13 +5,13 @@ using TakeMeOut.Database.Models;
 
 namespace TakeMeOut.Database;
 
-public partial class TakeMeOutDbContext : DbContext
+public partial class TakeMeOutContext : DbContext
 {
-    public TakeMeOutDbContext()
+    public TakeMeOutContext()
     {
     }
 
-    public TakeMeOutDbContext(DbContextOptions<TakeMeOutDbContext> options)
+    public TakeMeOutContext(DbContextOptions<TakeMeOutContext> options)
         : base(options)
     {
     }
@@ -38,7 +38,7 @@ public partial class TakeMeOutDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-KT0HP0M\\SQLEXPRESS;Initial Catalog=TakeMeOutDB;Integrated Security=True;trusted_connection=true;encrypt=false");
+        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-KT0HP0M\\SQLEXPRESS;Initial Catalog=TakeMeOut;Integrated Security=True;trusted_connection=true;encrypt=false");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
