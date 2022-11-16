@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\isabel.opris\\Desktop\\TakeMeOut\\TakeMeOut\\TakeMeOut\\TakeMeOut.csproj": {}
+    "C:\\Users\\isabel.opris\\Desktop\\TakeMeOut\\TakeMeOut\\BackEnd\\TakeMeOut\\TakeMeOut\\TakeMeOut.csproj": {}
   },
   "projects": {
-    "C:\\Users\\isabel.opris\\Desktop\\TakeMeOut\\TakeMeOut\\TakeMeOut\\TakeMeOut.csproj": {
+    "C:\\Users\\isabel.opris\\Desktop\\TakeMeOut\\TakeMeOut\\BackEnd\\TakeMeOut\\TakeMeOut\\TakeMeOut.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\isabel.opris\\Desktop\\TakeMeOut\\TakeMeOut\\TakeMeOut\\TakeMeOut.csproj",
+        "projectUniqueName": "C:\\Users\\isabel.opris\\Desktop\\TakeMeOut\\TakeMeOut\\BackEnd\\TakeMeOut\\TakeMeOut\\TakeMeOut.csproj",
         "projectName": "TakeMeOut",
-        "projectPath": "C:\\Users\\isabel.opris\\Desktop\\TakeMeOut\\TakeMeOut\\TakeMeOut\\TakeMeOut.csproj",
+        "projectPath": "C:\\Users\\isabel.opris\\Desktop\\TakeMeOut\\TakeMeOut\\BackEnd\\TakeMeOut\\TakeMeOut\\TakeMeOut.csproj",
         "packagesPath": "C:\\Users\\isabel.opris\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\isabel.opris\\Desktop\\TakeMeOut\\TakeMeOut\\TakeMeOut\\obj\\",
+        "outputPath": "C:\\Users\\isabel.opris\\Desktop\\TakeMeOut\\TakeMeOut\\BackEnd\\TakeMeOut\\TakeMeOut\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,6 +44,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
