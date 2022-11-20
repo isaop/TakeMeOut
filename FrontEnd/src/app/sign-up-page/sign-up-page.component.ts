@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up-page',
@@ -7,18 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpPageComponent implements OnInit {
 
-  name:string | undefined;
-  surname:string | undefined;
-  phone:number|undefined;
-  password:string | undefined;
-  venue:string | undefined;
-  email:string | undefined;
-  address:string | undefined;
-  city:string | undefined;
-  country:string | undefined;
+  name=new FormControl('');
+  surname=new FormControl('');
+  phone=new FormControl('');
+  password=new FormControl('');
+  venue=new FormControl('');
+  email=new FormControl('');
+  address=new FormControl('');
+  city=new FormControl('');
+  country=new FormControl('');
   displayU=false;
   displayB=false;
-
 
   constructor() { }
 
