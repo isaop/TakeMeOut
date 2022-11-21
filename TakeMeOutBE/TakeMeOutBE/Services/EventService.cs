@@ -23,7 +23,7 @@ namespace TakeMeOutBE.Services
             return true;
         }
 
-        public Task<List<Event>> GetAllEvents(string eventName)
+        public Task<List<Event>> GetAllEventsByName(string eventName)
         {
             return _context.Events.Where(e => e.EventName == eventName).ToListAsync();
         }
@@ -32,6 +32,16 @@ namespace TakeMeOutBE.Services
         {
             var quiz = _context.Events.OrderByDescending(q => q.IdEvent).FirstOrDefaultAsync();
             return await quiz;
+        }
+
+        public Task<List<Event>> GetAllEvents()
+        {
+            return _context.Events.ToListAsync();
+        }
+
+        public Task<Event> GetEventById(int id)
+        {
+            return _context.Events.Where(e => e.IdEvent == id).FirstOrDefaultAsync();
         }
     }
 }
