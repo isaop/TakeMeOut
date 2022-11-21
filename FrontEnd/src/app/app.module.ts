@@ -8,7 +8,6 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 
-import * as $ from 'jquery';
 @NgModule({
   declarations: [
     AppComponent,
