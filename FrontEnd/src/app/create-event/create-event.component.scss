@@ -1,6 +1,4 @@
-/*custom font*/
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); 
 /*basic reset*/
 * {
     margin: 0;
@@ -9,12 +7,11 @@
 
 html {
     height: 100%;
-    background: #F2E9E4; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #F2E9E4, #F2E9E4); /* Chrome 10-25, Safari 5.1-6 */
+    background-color: #080710; /* fallback for old browsers */
 }
 
 body {
-    font-family: montserrat, arial, verdana;
+    font-family: 'Poppins', sans-serif;
     background: transparent;
 }
 
@@ -40,9 +37,9 @@ body {
 }
 
 /*Hide all except first fieldset*/
-#msform fieldset:not(:first-of-type) {
+/*#msform fieldset:not(:first-of-type) {
     display: none;
-}
+}*/
 
 /*inputs*/
 #msform input, #msform textarea {
@@ -182,26 +179,4 @@ body {
 #progressbar li.active:before, #progressbar li.active:after {
     background: #22223B;
     color: white;
-}
-
-
-/* Not relevant to this form */
-.dme_link {
-    margin-top: 30px;
-    text-align: center;
-}
-.dme_link a {
-    background: #FFF;
-    font-weight: bold;
-    color: #ee0979;
-    border: 0 none;
-    border-radius: 25px;
-    cursor: pointer;
-    padding: 5px 25px;
-    font-size: 12px;
-}
-
-.dme_link a:hover, .dme_link a:focus {
-    background: #C5C5F1;
-    text-decoration: none;
 }
