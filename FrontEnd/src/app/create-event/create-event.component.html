@@ -1,50 +1,42 @@
 <!-- MultiStep Form -->
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-      <form id="msform">
-          <!-- progressbar -->
-          <ul id="progressbar">
-              <li class="active">place & time</li>
-              <li>description & category</li>
-          </ul>
-          <!-- fieldsets -->
-          <fieldset>
-              <h2 class="fs-title">When & where is the event ?</h2>
+    <div class="col-md-6 col-md-offset-3">
+        <form id="msform">
+            <!-- progressbar 
+            <ul id="progressbar">
+                <li class="active">place & time</li>
+                <li>description & category</li>
+            </ul-->
+            <!-- fieldsets -->
+            <fieldset>
+                <h2 class="fs-title">When & where is the event ?</h2>
+               
+                <input type="text" name="name" placeholder="Event name" required/>
+                <input type="text" name="venue" placeholder="Venue" required/>
+                <input type="date" name="event-start" value="" min="2022-01-01" max="2054-12-31" required>
+                <input type="time" name="time" min="00:00" max="23:59" placeholder="Event time" required/>
+              
+                <h2 class="fs-title">Tell us about your event</h2>
+                <h3 class="fs-subtitle">In a few words, please tell us what your event is about</h3>
+                <textarea name = "description" class="textarea" placeholder="Description..." required></textarea>
+              <br>
+                <select name="category" id="category-select" required>
+                    <option value="">Please choose a category </option>
+                    <option value="cultural">cultural</option>
+                    <option value="nightLife">nightLife</option>
+                    <option value="social">social</option>
+                    <option value="entertainment">entertainment</option>
+                    <option value="sports">sports</option>
+                    <option value="expositions">expositions</option>
+                    <option value="otherh">other</option>
+                </select>
+              <br>
+          <br>
+                <!-- fieldsets input type="button" name="previous" class="previous action-button-previous" value="Previous" (click)="PreviousClick()"/-->
+                <input type="submit" name="submit" class="submit action-button" value="Submit" (click)="SubmitClick()"/>
+        </fieldset>
+        </form>
 
-              <input type="text" name="name" placeholder="Event name"/>
-              <input type="text" name="venue" placeholder="Venue"/>
-            <input type="date" name="event-start"
-     value=""
-     min="2022-01-01" max="2054-12-31">
-              <input type="time" name="time" min="00:00" max="23:59" placeholder="Event time" required/>
-
-              <input type="button" name="next" class="next action-button" value="Next"/>
-          </fieldset>
-          <fieldset>
-              <h2 class="fs-title">Tell us about your event</h2>
-              <h3 class="fs-subtitle">In a few words, please tell us what your event is about</h3>
-              <textarea name = "description" class="textarea" placeholder="Description..."></textarea>
-            <br>
-              <select name="category" id="category-select">
-                  <option value="">Please choose a category </option>
-                  <option value="cultural">cultural</option>
-                  <option value="nightLife">nightLife</option>
-                  <option value="social">social</option>
-                  <option value="entertainment">entertainment</option>
-                  <option value="sports">sports</option>
-                  <option value="expositions">expositions</option>
-                  <option value="otherh">other</option>
-              </select>
-            <br>
-        <br>
-              <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-              <input type="submit" name="submit" class="submit action-button" value="Submit"/>
-          </fieldset>
-
-      </form>
-      <!-- link to designify.me code snippets -->
-
-      <!-- /.link to designify.me code snippets -->
-  </div>
+    </div>
 </div>
 <!-- /.MultiStep Form -->
