@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TakeMeOutBE.Database;
 
@@ -11,9 +12,11 @@ using TakeMeOutBE.Database;
 namespace TakeMeOutBE.Migrations
 {
     [DbContext(typeof(TakeMeOutContext))]
-    partial class TakeMeOutContextModelSnapshot : ModelSnapshot
+    [Migration("20221121140605_AddPasswordBA")]
+    partial class AddPasswordBA
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
