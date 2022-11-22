@@ -4,6 +4,19 @@ using TakeMeOutBE.Services;
 
 namespace TakeMeOutBE.Controllers
 {
+    public struct EventStruct
+    {
+        public EventStruct(string name, string description)
+        {
+            Name = name;
+            Description = description;
+        }
+
+        public string Name { get; }
+        public string Description { get; }
+
+        public override string ToString() => $"({Name}, {Description})";
+    }
     public class EventController : ControllerBase
     {
         private readonly IEventService _eventService;
@@ -79,10 +92,23 @@ namespace TakeMeOutBE.Controllers
 
         [HttpGet("get-all-events")]
         
-        public async Task<ActionResult<List<Event>>> GetAllEvents()
+        public async Task<ActionResult<List<EventStruct>>> GetAllEvents()
         {
+            List<string> names = new List<string>();
+            List<string> descriptions = new List<string>();
+            List<EventStruct> eventStruct = new List<EventStruct>();
+
             var events = await _eventService.GetAllEvents();
-            return (events == null) ? NotFound("No events found") : events;
+            for (int i = 0; i < events.Count; i++)
+            {
+
+                EventStruct e = new EventStruct(events[i].EventName, events[i].Description);
+                eventStruct.Add(e);
+
+            }
+
+
+            return (eventStruct == null) ? NotFound("No events found") : eventStruct;
         }
 
         [HttpGet("get-event-by-id")]

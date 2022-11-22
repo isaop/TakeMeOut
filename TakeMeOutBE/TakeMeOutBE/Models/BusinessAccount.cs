@@ -6,7 +6,6 @@ namespace TakeMeOutBE.Models;
 public partial class BusinessAccount
 {
     public int IdBa { get; set; }
-    public string? Password { get; set; }
 
     public string? Name { get; set; }
 
