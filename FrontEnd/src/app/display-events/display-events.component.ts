@@ -15,15 +15,19 @@ export class DisplayEventsComponent implements OnInit {
       // public eventService: EventService,
      ) { }
 
+    name:any;
     events:any;
     ngOnInit(): void {
     this.getListEvents().subscribe((response) => {
       localStorage.setItem('events', JSON.stringify(response));
+      this.name = response.at(0);
     });
     this.events = localStorage.getItem('events');
-    console.log(this.events);
-
-
+    // console.log(this.events);
+    console.log(this.name);
+    var arrayOfEvents = JSON.parse(this.events);
+    console.log(arrayOfEvents);
+    this.events = arrayOfEvents;
    }
 
    getListEvents() {
