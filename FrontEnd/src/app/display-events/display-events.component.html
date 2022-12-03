@@ -1,0 +1,26 @@
+
+
+<div class="cards" style="display:flex">
+
+  <div *ngFor="let event of events; let i = index">
+
+  <div class="card">
+    <div class="card__image-holder">
+      <img class="card__image" src="../assets/images/museum.jpg" alt="beach" />
+    </div>
+    <div class="card-title">
+      <a href="#" class="toggle-info btn">
+        <span class="left"></span>
+        <span class="right"></span>
+      </a>
+      <h2>
+          {{event.name}}
+          <small>{{event.description}}</small>
+      </h2>
+    </div>
+
+
+
+</div>
+
+
