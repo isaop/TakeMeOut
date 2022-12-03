@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FrontEnd';
+
+  mainImg:string = "C:\Users\opris\TakeMeOut\TakeMeOut\FrontEnd\src\assets\images\background-main-page.jpeg"
 }

@@ -1,118 +1,145 @@
 body {
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 1em;
-    box-sizing: border-box;
-    display: flex;
-    background-image: url("/assets/images/background-image.jpg");
-    min-height: 100%;
-    width: 100%;
-    height: auto;
-    align-items: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    margin:0px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1em;
+  box-sizing: border-box;
+  display: flex;
+  background-image: url("/assets/images/background-main-page.jpeg");
+  min-height: 100%;
+  width: 100%;
+  height: auto;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  margin:0px;
 }
 
+
 #header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
 
 #logo {
-    text-decoration: none;
-    color: white;
-    font-size: 5vh;
-    font-weight: bold;
-    margin-left:-59px;
-    height: 100px;
-    border-radius: 100px;
-    margin-top: 20px;
+  text-decoration: none;
+  color: white;
+  font-size: 5vh;
+  font-weight: bold;
+  margin-left:-59px;
+  height: 100px;
+  border-radius: 100px;
+  margin-top: 20px;
 }
 
 #menu-icon {
-    font-family: Geneva, sans-serif;
-    font-size: 9vh;
-    color: #f2e9e4;
-    height: 50px;
-    font-weight:bolder;
-    margin-right:-100px
+  font-family: Geneva, sans-serif;
+  font-size: 9vh;
+  color: #f2e9e4;
+  height: 50px;
+  font-weight:bolder;
+  margin-right:-100px
 
 }
 
 .title{
-    -webkit-text-stroke: 2px #310A31;
-    color:#f2e9e4;
+  -webkit-text-stroke: 2px #310A31;
+  color:#f2e9e4;
 }
 
 @media only screen and (min-width: 32em) { .title { font-size: 16vh; } }
 
 .footer {
-	display: flex;
-	margin-bottom: 1em;
-    font:Georgia ;
+display: flex;
+margin-bottom: 1em;
+  font:Georgia ;
 }
 
 .button {
-	padding: 1em 1.80em;
-	color: #f2e9e4;
-	text-decoration: none;
-	border: .1em solid #f2e9e4;
-    margin-top:35px;
-    font-weight:900;
-    font-size: large;
-    border-width: 3.5px;
+padding: 1em 1.80em;
+color: #f2e9e4;
+text-decoration: none;
+border: .1em solid #f2e9e4;
+  margin-top:35px;
+  font-weight:900;
+  font-size: large;
+  border-width: 3.5px;
 }
 
 .button-primary {
-    color: black;
-    background-color: #f2e9e4;
-    margin-left: -60px;
+  color: black;
+  background-color: #f2e9e4;
+  margin-left: -60px;
+}
+
+.sign-up-btn {
+  color: black;
+  background-color: #f2e9e4;
+  margin-left: -60px;
 }
 
 article {
-    max-width: 36em;
-    padding: 1em;
+  max-width: 36em;
+  padding: 1em;
+}
+
+.display_create_btns{
+  display: flex;
+  
 }
 
 .description{
-    margin-left:28em;
-    background-color: #f2e9e4;
-    border-radius:20px;
-    width:40%;
-    padding-left: 10px;
-    padding-right:10px;
-    padding-top:5px;
-    padding-bottom:5px;
-    color:#310A31;
-    margin-left: 700px;
+  
+  margin-left:28em;
+  background-color: #f2e9e4;
+  border-radius:20px;
+  width:40%;
+  padding-left: 10px;
+  padding-right:10px;
+  padding-top:5px;
+  padding-bottom:5px;
+  color:#310A31;
+  margin-left: 700px;
 
 
-    .description-title{
-    font-family:Georgia,serif;
-    font-size: 1em;
-    font-weight: bold;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    }
+  .description-title{
+  font-family:Georgia,serif;
+  font-size: 1em;
+  font-weight: bold;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  }
 
-    .description-paragraph{
-    font-size: 75%;
-    margin-top:0px;
-    font: "Merriweather Regular";
-    letter-spacing:1px;
-    }
+  .description-paragraph{
+  font-size: 75%;
+  margin-top:0px;
+  font: "Merriweather Regular";
+  letter-spacing:1px;
+  }
 }
-
 
 .display-all-button{
   border-radius: 10px;
   border-bottom:10px;
 
   margin-left: 10px;
+}
+
+@media screen and (min-height: 1000px), (min-width: 1900px){
+  .button {
+
+    margin-top: 180px;
+    
+
+  }
+
+  article {
+    max-width: 60em;
+    margin-top: 60px;
+  }
+  
 }

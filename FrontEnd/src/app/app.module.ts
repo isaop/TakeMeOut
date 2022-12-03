@@ -9,15 +9,15 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { DisplayEventsComponent } from './display-events/display-events.component';
+import { UserPageComponent } from './user-page/user-page.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     LoginPageComponent,
-    SignUpPageComponent,
-    CreateEventComponent,
-    DisplayEventsComponent
+    SignUpPageComponent
   ],
   imports: [
     BrowserModule,
