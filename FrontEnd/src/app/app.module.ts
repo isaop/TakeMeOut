@@ -10,6 +10,7 @@ import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { DisplayEventsComponent } from './display-events/display-events.component';
 import { UserPageComponent } from './user-page/user-page.component';
+import { VenueViewComponent } from './venue-view/venue-view.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { UserPageComponent } from './user-page/user-page.component';
     AppComponent,
     HomePageComponent,
     LoginPageComponent,
-    SignUpPageComponent
+    SignUpPageComponent,
+    VenueViewComponent
   ],
   imports: [
     BrowserModule,
