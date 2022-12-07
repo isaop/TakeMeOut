@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BackEnd.Models;
+namespace TakeMeOutBE.Models;
 
 public partial class Review
 {

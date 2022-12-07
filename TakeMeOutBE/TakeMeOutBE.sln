@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackEnd", "BackEnd\BackEnd.csproj", "{DDB33A73-1F52-432B-B3B2-21CDFFF2187A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeMeOutBE", "TakeMeOutBE\TakeMeOutBE.csproj", "{B2D9F120-61A5-4DED-BC6D-93EAC8B1D3EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DDB33A73-1F52-432B-B3B2-21CDFFF2187A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DDB33A73-1F52-432B-B3B2-21CDFFF2187A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DDB33A73-1F52-432B-B3B2-21CDFFF2187A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DDB33A73-1F52-432B-B3B2-21CDFFF2187A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2D9F120-61A5-4DED-BC6D-93EAC8B1D3EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2D9F120-61A5-4DED-BC6D-93EAC8B1D3EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2D9F120-61A5-4DED-BC6D-93EAC8B1D3EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2D9F120-61A5-4DED-BC6D-93EAC8B1D3EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D02117A3-4D41-40FD-99A7-8B122322203F}
+		SolutionGuid = {127F12F5-43FF-4C66-9CAC-F89CE73D06F3}
 	EndGlobalSection
 EndGlobal
