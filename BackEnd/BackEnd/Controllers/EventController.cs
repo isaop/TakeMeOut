@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TakeMeOutBE.Models;
-using TakeMeOutBE.Services;
+using BackEnd.Models;
+using BackEnd.Services;
 
 namespace TakeMeOutBE.Controllers
 {
@@ -27,7 +27,8 @@ namespace TakeMeOutBE.Controllers
         }
 
         [HttpPost("add-event")]
-        public async Task<ActionResult<int>> AddEvent(string name, int eventStatus, int idBA, int idUser, int idCategory, string description, int idVenue)
+        public async Task<ActionResult<int>> AddEvent(string eventName, int idBA,
+            int startingHour, int endingHour, int day, int month, int year, int idUser, int idCategory, string description, int idVenue)
         {
             /*Console.WriteLine(my_event);
             bool result = await _eventService.AddEventToDatabase(my_event);
@@ -53,17 +54,16 @@ namespace TakeMeOutBE.Controllers
             {
                 return BadRequest("failed");
             }*/
-            DateTime date1 = new DateTime(2010, 1, 1, 8, 0, 15);
-            DateTime date2 = new DateTime(2010, 1, 1, 8, 1, 20);
-            TimeSpan interval = date2 - date1;
+
+            DateTime startingDate = new DateTime(year, month, day, startingHour, 0, 0);
+            DateTime endingDate = new DateTime(year, month, day, endingHour, 0, 0);
+            TimeSpan timeInterval = endingDate - startingDate;
+
             Event e = new Event();
-            e.IdEvent = null;
-            e.EventName = name;
-            e.IdEventStatus = eventStatus;
-            e.IdBa = idBA;
-            e.IdUser = idUser;
-            e.Date = date1;
-            e.Time = interval;
+            e.EventName = eventName;
+            e.IdBusinessAccount = idBA;
+            e.Date = startingDate;
+            e.Time = timeInterval;
             e.IdCategory = idCategory;
             e.Description = description;
             e.IdVenue = idVenue;
@@ -91,7 +91,7 @@ namespace TakeMeOutBE.Controllers
         }
 
         [HttpGet("get-all-events")]
-        
+
         public async Task<ActionResult<List<EventStruct>>> GetAllEvents()
         {
             List<string> names = new List<string>();

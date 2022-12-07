@@ -1,6 +1,6 @@
-﻿using TakeMeOutBE.Models;
+﻿using BackEnd.Models;
 
-namespace TakeMeOutBE.Services
+namespace BackEnd.Services
 {
     public interface IEventService
     {

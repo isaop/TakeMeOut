@@ -24,9 +24,7 @@ export class DisplayEventsComponent implements OnInit {
     });
     this.events = localStorage.getItem('events');
     // console.log(this.events);
-    console.log(this.name);
     var arrayOfEvents = JSON.parse(this.events);
-    console.log(arrayOfEvents);
     this.events = arrayOfEvents;
    }
 
