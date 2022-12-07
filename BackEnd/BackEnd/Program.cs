@@ -1,8 +1,8 @@
 //using BackEnd.Database;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
-using TakeMeOutBE.Database;
-using TakeMeOutBE.Services;
+using BackEnd.Database;
+using BackEnd.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,7 +27,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<IEventService, EventService>();
 
-builder.Services.AddDbContext<TakeMeOutContext>(options => {
+builder.Services.AddDbContext<TakeMeOutDbContext>(options => {
     options.UseLazyLoadingProxies();
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
