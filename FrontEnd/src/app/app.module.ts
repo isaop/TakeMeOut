@@ -20,6 +20,9 @@ import { VenueEditComponent } from './venue-edit/venue-edit.component';
     HomePageComponent,
     LoginPageComponent,
     SignUpPageComponent,
+    UserPageComponent,
+    CreateEventComponent,
+    DisplayEventsComponent,
     VenueViewComponent,
     VenueEditComponent
   ],

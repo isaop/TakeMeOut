@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TakeMeOutBE.Models;
+namespace BackEnd.Models;
 
 public partial class Venue
 {
@@ -10,8 +10,6 @@ public partial class Venue
     public string? Name { get; set; }
 
     public string? Address { get; set; }
-
-    public string? UniqueIden { get; set; }
 
     public string? ContactNumber { get; set; }
 
