@@ -1,0 +1,131 @@
+*{transition: all 0.2s;}
+
+#MobileView{
+  font-family: "Noto Sans";
+  width: 80%;
+  height:80%;
+  margin:0 auto; 
+}
+
+#MobileView > #Content{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+}
+
+#MobileView > #Content > #UserImg{
+  width:110px;
+  height:110px;
+  background-color:#CCC;
+  background-image: url("/assets/images/user-image.jpg");
+  background-size: cover;
+  border-radius:100%;
+  position: relative;
+  margin-bottom: 12px;
+}
+
+#MobileView > #Content > #UserImg > #SocialIcon{
+  width:30px;
+  height:30px;
+  background-color: #3b5998;
+  position:absolute;
+  border-radius: 100%;
+  bottom: 5px;
+  right: 5px;
+  color:#FFF;
+  text-align:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#MobileView > #Content > h3#Title{
+  font-size: 21px;
+  margin-bottom:8px;
+}
+
+#MobileView > #Content > h3#Title > strong{
+  font-weight:bold;
+}
+
+#MobileView > #Content > nav{
+  font-size:18px;
+  margin-bottom: 12px;
+}
+
+#MobileView > #Content > nav > a{
+  color: #666;
+  text-decoration: none;
+}
+
+#MobileView > #Content > nav > a:nth-child(2){
+  font-weight:bold;
+  color: #E71212;
+}
+
+#MobileView > #Content > nav > a:nth-child(2):before{
+  content: " | ";
+  color: #CCC;
+}
+
+.HR{
+  width: 100%;
+  clear:both;
+  display: block;
+  border-top: 1px solid #EAEAEA;
+  margin: 20px 0;
+}
+
+#MobileView > #Content > menu{
+  width:90%;
+  margin:0 auto;
+}
+
+#MobileView > #Content > menu > ul > li{
+  text-align:left;
+  display:flex;
+  border:1px solid #EAEAEA; 
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 90%;
+  margin-bottom: 8px;
+}
+
+#MobileView > #Content > menu > ul > li:active{
+  box-shadow: 0 0 14px #EAEAEA inset;
+  border-color: #CCC;
+}
+
+#MobileView > #Content > menu > ul > li > #Icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #EAEAEA;
+  padding-right: 12px;
+  margin-right: 12px;
+  text-align:center;
+}
+
+#MobileView > #Content > menu > ul > li > #Icon > i{
+  font-size: 28px;
+  color: #444;
+}
+
+#MobileView > #Content > menu > ul > li > #Content{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#MobileView > #Content > menu > ul > li > #Content > h4{
+  font-size: 25px;
+  color: #444;
+}
+
+#MobileView > #Content > menu > ul > li > #Content > span{
+  font-size: 20px;
+  color: #666;
+}

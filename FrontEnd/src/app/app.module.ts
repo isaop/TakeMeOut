@@ -9,6 +9,10 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { DisplayEventsComponent } from './display-events/display-events.component';
+import { UserPageComponent } from './user-page/user-page.component';
+import { VenueViewComponent } from './venue-view/venue-view.component';
+import { VenueEditComponent } from './venue-edit/venue-edit.component';
+
 
 @NgModule({
   declarations: [
@@ -16,8 +20,8 @@ import { DisplayEventsComponent } from './display-events/display-events.componen
     HomePageComponent,
     LoginPageComponent,
     SignUpPageComponent,
-    CreateEventComponent,
-    DisplayEventsComponent
+    VenueViewComponent,
+    VenueEditComponent
   ],
   imports: [
     BrowserModule,
