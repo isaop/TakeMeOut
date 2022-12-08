@@ -26,6 +26,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<IEventService, EventService>();
+builder.Services.AddTransient<ISignUpService, SignUpService>();
 
 builder.Services.AddDbContext<TakeMeOutDbContext>(options => {
     options.UseLazyLoadingProxies();

@@ -23,19 +23,19 @@ namespace BackEnd.Services
             return true;
         }
 
-        public Task<List<Event>> GetAllEvents()
+        public async Task<List<Event>> GetAllEvents()
         {
-            return _context.Events.ToListAsync();
+            return await _context.Events.ToListAsync();
         }
 
-        public Task<List<Event>> GetAllEventsByName(string eventName)
+        public async Task<List<Event>> GetAllEventsByName(string eventName)
         {
-            return _context.Events.Where(e => e.EventName == eventName).ToListAsync();
+            return await _context.Events.Where(e => e.EventName == eventName).ToListAsync();
         }
 
-        public Task<Event> GetEventById(int id)
+        public async Task<Event> GetEventById(int id)
         {
-            return _context.Events.Where(e => e.IdEvent == id).FirstOrDefaultAsync();
+            return await _context.Events.Where(e => e.IdEvent == id).FirstOrDefaultAsync();
         }
 
         public async Task<Event> GetLastEvent()
