@@ -2,7 +2,7 @@
 using BackEnd.Models;
 using BackEnd.Services;
 
-namespace TakeMeOutBE.Controllers
+namespace BackEnd.Controllers
 {
     public struct EventStruct
     {
