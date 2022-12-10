@@ -12,7 +12,9 @@ import { DisplayEventsComponent } from './display-events/display-events.componen
 import { UserPageComponent } from './user-page/user-page.component';
 import { VenueViewComponent } from './venue-view/venue-view.component';
 import { VenueEditComponent } from './venue-edit/venue-edit.component';
-
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { FormsModule } from '@angular/forms';
+import { ReviewComponent } from './review/review.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +26,15 @@ import { VenueEditComponent } from './venue-edit/venue-edit.component';
     CreateEventComponent,
     DisplayEventsComponent,
     VenueViewComponent,
-    VenueEditComponent
+    VenueEditComponent,
+    ForgotPasswordComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

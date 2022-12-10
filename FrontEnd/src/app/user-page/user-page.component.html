@@ -1,48 +1,76 @@
 <div id="MobileView">
-    <div id="Content">
-      <div id="UserImg"></div>
-      <h3 id="Title"><strong>*name* *surname*</strong></h3>
+  <div id="Content">
+    <div id="UserImg"></div>
+    <h3 id="Title"><strong>{{initialText.name}} {{initialText.surname}}</strong></h3>
 
-      <div class="HR"></div>
-  
-      <menu>
-        <ul>
-          <li>
-            <div id="Content">
-              <h4>Email</h4>
-              <span>*email*</span>
+    <div class="HR"></div>
+
+    <menu>
+      <ul>
+        <li>
+          <div id="Content">
+            <h4>Email</h4>
+            <span #textToEdit [contentEditable]="editing">{{ initialText.email }}</span>
+          </div>
+        </li>
+
+        <li>
+          <div id="Content">
+            <h4>Phone Number</h4>
+            <span #textToEdit [contentEditable]="editing">{{ initialText.phone_number }}</span>
+          </div>
+        </li>
+
+        <li>
+          <div id="Content">
+            <h4>City</h4>
+            <span #textToEdit [contentEditable]="editing">{{ initialText.city }}</span>
+          </div>
+        </li>
+
+        <li>
+          <div id="Content">
+            <h4>Country</h4>
+            <span #textToEdit [contentEditable]="editing">{{ initialText.country }}</span>
+          </div>
+        </li>
+
+        <li>
+          <div id="Content">
+            <h4>Address</h4>
+            <span #textToEdit [contentEditable]="editing">{{ initialText.address }}</span>
+          </div>
+        </li>
+
+        <li *ngIf="ChangePass">
+          <div id="ContentPassReq">
+            <div *ngIf="checkPassword">
+              <h4>Enter your current password to know that it's you</h4>
+              <input type="text" [(ngModel)]="inputText" />
+              <button id="ConfirmPass" *ngIf="editing" (click)="CheckInputText(initialText)">Confirm</button>
+              <h1 *ngIf="WrongPassword" style="color: red;">Wrong Password. Try again!</h1>
             </div>
-          </li>
-          
-          <li>
-            <div id="Content">
-              <h4>Phone Number</h4>
-              <span>*phone number*</span>
+            <div *ngIf="ContentPass" ContentPassReq>
+              <h4>Please Enter New password</h4>
+              <input type="text" [(ngModel)]="inputPassword" />
+              <h4>Please Re-Enter New password</h4>
+              <input type="text" [(ngModel)]="inputPasswordVerification" />
+              <button id="ConfirmPass" (click)="ResetPassword()">Confirm Reset</button>
+              <h1 *ngIf="WrongPassword" style="color: red;">Wrong Password. Try again!</h1>
             </div>
-          </li>
-          
-          <li>
-            <div id="Content">
-              <h4>City</h4>
-              <span>*city*</span>
-            </div>
-          </li>
-          
-          <li>
-            <div id="Content">
-              <h4>Country</h4>
-              <span>*country*</span>
-            </div>
-          </li>
-          
-          <li>
-            <div id="Content">
-              <h4>Address</h4>
-              <span>*address*</span>
-            </div>
-          </li>
-          
-        </ul>
-      </menu>
+          </div>
+        </li>
+
+      </ul>
+    </menu>
+    <div id="EditingButtons">
+      <button *ngIf="!editing" (click)="editing = true">Edit</button>
+      <button *ngIf="editing" (click)="saveText()">Save Modifications</button>
+      <button *ngIf="editing" (click)="cancelEdit()">Cancel Modifications</button>
+      <button *ngIf="editing" (click)="ChangePass=true;checkPassword=true">Change Password</button>
+    </div>
+    <div *ngIf="successfullyReset">
+      <h1 style="color: red;">Password successfully reset</h1>
     </div>
   </div>
+</div>

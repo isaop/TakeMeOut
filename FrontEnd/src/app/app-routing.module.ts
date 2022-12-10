@@ -8,6 +8,8 @@ import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { VenueViewComponent } from './venue-view/venue-view.component';
 import { VenueEditComponent } from './venue-edit/venue-edit.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ReviewComponent } from './review/review.component';
 
 const routes: Routes = [
   {
@@ -49,7 +51,17 @@ const routes: Routes = [
     path: 'venue-edit',
     component: VenueEditComponent,
     title: 'TakeMeOut',
-  }
+  },
+  {
+    path: 'forgot-password',
+    component: ForgotPasswordComponent,
+    title: 'TakeMeOut',
+  },
+  {
+    path: 'review',
+    component: ReviewComponent,
+    title: 'TakeMeOut',
+  },
 ];
 
 @NgModule({
