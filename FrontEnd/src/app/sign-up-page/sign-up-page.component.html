@@ -8,25 +8,25 @@
       <div class="centeringDiv" style="margin-right: 15px;">
           <div class="input">
               <Label style="margin-right:30px" for="name"> Name: </Label>
-              <input id="name" style="border-radius: 15px;" type="text" >
+              <input id="name" style="border-radius: 15px;" type="text" [formControl]="name">
               <Label style="margin-right:12px" for="surname"> Surname: </Label>
-              <input id="surname" style="border-radius: 15px;" type="text" >
+              <input id="surname" style="border-radius: 15px;" type="text" [formControl]="surname">
               <Label style="margin-right:23px" for="email"> E-mail: </Label>
-              <input id="email" style="border-radius: 15px;" type="text" >
+              <input id="email" style="border-radius: 15px;" type="text" [formControl]="email">
               <Label style="margin-right:25px" for="phone"> Phone: </Label>
-              <input id="phone" style="border-radius: 15px;" type="text" >
+              <input id="phone" style="border-radius: 15px;" type="text" [formControl]="phone">
           </div>
       </div>
       <div class="centeringDiv">
           <div class="input" >
               <Label style="margin-right:17px" for="address"> Address: </Label>
-              <input id="address" style="border-radius: 15px;" type="text" >
+              <input id="address" style="border-radius: 15px;" type="text" [formControl]="address">
               <Label style="margin-right:40px" for="city"> City: </Label>
-              <input id="city" style="border-radius: 15px;" type="text" >
+              <input id="city" style="border-radius: 15px;" type="text" [formControl]="city">
               <Label style="margin-right:17px" for="country"> Country: </Label>
-              <input id="country" style="border-radius: 15px;" type="text" >
+              <input id="country" style="border-radius: 15px;" type="text" [formControl]="country">
               <label for="password"> Password: </label>
-              <input id="password" style="border-radius: 15px;" type="password" >
+              <input id="password" style="border-radius: 15px;" type="password" [formControl]="password">
           </div>
       </div>
   </div>
