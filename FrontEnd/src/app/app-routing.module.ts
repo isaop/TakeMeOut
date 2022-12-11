@@ -8,6 +8,9 @@ import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { VenueViewComponent } from './venue-view/venue-view.component';
 import { VenueEditComponent } from './venue-edit/venue-edit.component';
+import { BaViewComponent } from './ba-view/ba-view.component';
+import { BaEditComponent } from './ba-edit/ba-edit.component';
+import { BaChangePasswdComponent } from './ba-change-passwd/ba-change-passwd.component';
 
 const routes: Routes = [
   {
@@ -48,6 +51,21 @@ const routes: Routes = [
   {
     path: 'venue-edit',
     component: VenueEditComponent,
+    title: 'TakeMeOut',
+  },
+  {
+    path: 'ba-view',
+    component: BaViewComponent,
+    title: 'TakeMeOut',
+  },
+  {
+    path: 'ba-edit',
+    component: BaEditComponent,
+    title: 'TakeMeOut',
+  },
+  {
+    path: 'ba-change-passwd',
+    component: BaChangePasswdComponent,
     title: 'TakeMeOut',
   }
 ];
