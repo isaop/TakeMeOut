@@ -12,6 +12,9 @@ import { DisplayEventsComponent } from './display-events/display-events.componen
 import { UserPageComponent } from './user-page/user-page.component';
 import { VenueViewComponent } from './venue-view/venue-view.component';
 import { VenueEditComponent } from './venue-edit/venue-edit.component';
+import { BaViewComponent } from './ba-view/ba-view.component';
+import { BaEditComponent } from './ba-edit/ba-edit.component';
+import { BaChangePasswdComponent } from './ba-change-passwd/ba-change-passwd.component';
 
 
 @NgModule({
@@ -24,7 +27,10 @@ import { VenueEditComponent } from './venue-edit/venue-edit.component';
     CreateEventComponent,
     DisplayEventsComponent,
     VenueViewComponent,
-    VenueEditComponent
+    VenueEditComponent,
+    BaViewComponent,
+    BaEditComponent,
+    BaChangePasswdComponent
   ],
   imports: [
     BrowserModule,
