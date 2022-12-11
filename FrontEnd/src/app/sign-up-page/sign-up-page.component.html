@@ -4,21 +4,15 @@
 </div>
 <form>
   <h3>Sign-up</h3>
-  <div class="centeringDiv row">
+  <div class="centeringDivMain">
       <div class="centeringDiv" style="margin-right: 15px;">
           <div class="input">
               <Label style="margin-right:30px" for="name"> Name: </Label>
               <input id="name" style="border-radius: 15px;" type="text" >
-          </div>
-          <div class="input">
               <Label style="margin-right:12px" for="surname"> Surname: </Label>
               <input id="surname" style="border-radius: 15px;" type="text" >
-          </div>
-          <div class="input">
               <Label style="margin-right:23px" for="email"> E-mail: </Label>
               <input id="email" style="border-radius: 15px;" type="text" >
-          </div>
-          <div class="input">
               <Label style="margin-right:25px" for="phone"> Phone: </Label>
               <input id="phone" style="border-radius: 15px;" type="text" >
           </div>
@@ -27,16 +21,10 @@
           <div class="input" >
               <Label style="margin-right:17px" for="address"> Address: </Label>
               <input id="address" style="border-radius: 15px;" type="text" >
-          </div>
-          <div class="input">
               <Label style="margin-right:40px" for="city"> City: </Label>
               <input id="city" style="border-radius: 15px;" type="text" >
-          </div>
-          <div class="input">
               <Label style="margin-right:17px" for="country"> Country: </Label>
               <input id="country" style="border-radius: 15px;" type="text" >
-          </div>
-          <div class="input">
               <label for="password"> Password: </label>
               <input id="password" style="border-radius: 15px;" type="password" >
           </div>
@@ -44,100 +32,3 @@
   </div>
   <button class="button-85" type="submit" (click)="Register()">Register</button>
 </form>
-
-<!-- <div class="container">
-<label>Are you a party person or a business person ? 🤔 </label>
-<div class="container-choices">
-    <button class="button-85" type="submit" style="margin-right:15px" (click)="User()">Party person</button>
-    <button class="button-89" type="submit" (click)="BusinessUser()">Business Person</button>
-</div>
-</div>
-<div class="container-register">
-<div *ngIf="displayU">
-    <label>🎉 Party person 🎉</label>
-    <form style="margin-top:15px">
-        <div class="input" style="margin-bottom:5px">
-            <Label style="margin-right:30px"> Name: </Label>
-            <input style="width: 130px;border-radius: 15px;"type="text" name="name">
-        </div>
-        <div class="input" style="margin-bottom:5px">
-            <Label style="margin-right:12px"> Surname: </Label>
-            <input style="width: 130px;border-radius: 15px;"type="text" name="surname">
-        </div>
-        <div class="input" style="margin-bottom:5px">
-            <Label style="margin-right:23px"> E-mail: </Label>
-            <input style="width: 130px;border-radius: 15px;"type="text" name="email">
-        </div>
-        <div class="input" style="margin-bottom:5px">
-            <Label style="margin-right:25px"> Phone: </Label>
-            <input style="width: 130px;border-radius: 15px;"type="text" name="phone">
-        </div>
-        <div class="input" style="margin-bottom:5px">
-            <Label style="margin-right:17px"> Address: </Label>
-            <input style="width: 130px;border-radius: 15px;"type="text" name="address">
-        </div>
-        <div class="input" style="margin-bottom:5px">
-            <Label style="margin-right:40px"> City: </Label>
-            <input style="width: 130px;border-radius: 15px;"type="text" name="city">
-        </div>
-        <div class="input" style="margin-bottom:5px">
-            <Label style="margin-right:17px"> Country: </Label>
-            <input style="width: 130px;border-radius: 15px;"type="text" name="country">
-        </div>
-        <div class="input" style="margin-bottom:17px">
-            <label> Password: </label>
-            <input style="width: 130px;border-radius: 15px;"type="password" name="password">
-        </div>
-        <div class="input">
-            <button style="margin-top:15px"class="button-85"type="submit" (click)="Register()">Register</button>
-        </div>
-    </form>
-</div>
-<div class="separator" *ngIf="displayU && displayB">
-    😎🤙
-</div>
-<div *ngIf="displayB">
-    <label>💼 Business person 💼</label>
-    <form style="margin-top:15px">
-        <div class="input" style="margin-bottom:5px">
-            <Label style="margin-right:30px"> Name: </Label>
-            <input style="width: 130px;border-radius: 15px;"type="text" name="name">
-        </div>
-        <div class="input" style="margin-bottom:5px">
-            <Label style="margin-right:23px"> E-mail: </Label>
-            <input style="width: 130px;border-radius: 15px;"type="text" name="email">
-        </div>
-        <div class="input" style="margin-bottom:5px">
-            <Label style="margin-right:30px"> Venue: </Label>
-            <input style="width: 130px;border-radius: 15px;"type="text" name="venue">
-        </div>
-        <div class="input" style="margin-bottom:5px">
-            <Label style="margin-right:25px"> Phone: </Label>
-            <input style="width: 130px;border-radius: 15px;"type="text" name="phone">
-        </div>
-        <div class="input" style="margin-bottom:5px">
-            <Label style="margin-right:25px"> Phone: </Label>
-            <input style="width: 130px;border-radius: 15px;"type="text" name="phone">
-        </div>
-        <div class="input" style="margin-bottom:5px">
-            <Label style="margin-right:17px"> Address: </Label>
-            <input style="width: 130px;border-radius: 15px;"type="text" name="address">
-        </div>
-        <div class="input" style="margin-bottom:5px">
-            <Label style="margin-right:40px"> City: </Label>
-            <input style="width: 130px;border-radius: 15px;"type="text" name="city">
-        </div>
-        <div class="input" style="margin-bottom:5px">
-            <Label style="margin-right:17px"> Country: </Label>
-            <input style="width: 130px;border-radius: 15px;"type="text" name="country">
-        </div>
-        <div class="input" style="margin-bottom:17px">
-            <label> Password: </label>
-            <input style="width: 130px;border-radius: 15px;"type="password" name="password">
-        </div>
-        <div class="input">
-            <button class="button-89" type="submit" (click)="Register()">Register</button>
-        </div>
-    </form>
-</div>
-</div> -->

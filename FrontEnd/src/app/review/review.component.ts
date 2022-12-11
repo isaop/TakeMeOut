@@ -7,7 +7,7 @@ import { Event } from '../models/event'
   styleUrls: ['./review.component.scss']
 })
 export class ReviewComponent implements OnInit {
-  initialText: Event = {
+  event: Event = {
     name: 'Event name',
     description: 'quick yoga cred'
   };

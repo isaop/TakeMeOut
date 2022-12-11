@@ -1,18 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 /*basic reset*/
 * {
     margin: 0;
     padding: 0;
 }
 
-html {
-    height: 100%;
-    background-color: #080710; /* fallback for old browsers */
+//background color in styles.scss
+.row{
+    display: flex;
+    justify-content: center;
 }
-
 body {
     font-family: 'Poppins', sans-serif;
-    background: transparent;
+    background: rgb(37, 36, 40);
 }
 
 /*form styles*/
@@ -42,7 +43,8 @@ body {
 }*/
 
 /*inputs*/
-#msform input, #msform textarea {
+#msform input,
+#msform textarea {
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 0px;
@@ -55,13 +57,14 @@ body {
 }
 
 #msform select {
-  font-size: 13px;
-  width: 100%;
-  padding: 15px;
-  margin-bottom: 10px;
+    font-size: 13px;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
 }
 
-#msform input:focus, #msform textarea:focus {
+#msform input:focus,
+#msform textarea:focus {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
@@ -86,7 +89,8 @@ body {
     margin: 10px 5px;
 }
 
-#msform .action-button:hover, #msform .action-button:focus {
+#msform .action-button:hover,
+#msform .action-button:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px #9A8C98;
 }
 
@@ -102,7 +106,8 @@ body {
     margin: 10px 5px;
 }
 
-#msform .action-button-previous:hover, #msform .action-button-previous:focus {
+#msform .action-button-previous:hover,
+#msform .action-button-previous:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px #C5C5F1;
 }
 
@@ -166,7 +171,8 @@ body {
     position: absolute;
     left: -50%;
     top: 9px;
-    z-index: -1; /*put it behind the numbers*/
+    z-index: -1;
+    /*put it behind the numbers*/
 }
 
 #progressbar li:first-child:after {
@@ -176,8 +182,8 @@ body {
 
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
-#progressbar li.active:before, #progressbar li.active:after {
+#progressbar li.active:before,
+#progressbar li.active:after {
     background: #22223B;
     color: white;
 }
-

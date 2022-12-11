@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-forgot-password',
@@ -12,7 +13,9 @@ export class ForgotPasswordComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  email=new FormControl('');
+
   ResetPassword(){
-    //
+    //backend function
   }
 }

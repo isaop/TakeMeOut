@@ -44,13 +44,13 @@
 
         <li *ngIf="ChangePass">
           <div id="ContentPassReq">
-            <div *ngIf="checkPassword">
+            <div *ngIf="checkPassword" id="ContentPassReq">
               <h4>Enter your current password to know that it's you</h4>
               <input type="text" [(ngModel)]="inputText" />
               <button id="ConfirmPass" *ngIf="editing" (click)="CheckInputText(initialText)">Confirm</button>
               <h1 *ngIf="WrongPassword" style="color: red;">Wrong Password. Try again!</h1>
             </div>
-            <div *ngIf="ContentPass" ContentPassReq>
+            <div *ngIf="ContentPass" id="ContentPassReq">
               <h4>Please Enter New password</h4>
               <input type="text" [(ngModel)]="inputPassword" />
               <h4>Please Re-Enter New password</h4>

@@ -1,5 +1,9 @@
 // /* You can add global styles to this file, and also import other style files */
-body{
+html {
   background-color: rgb(37, 36, 40);
 }
+.row{
+  background-color: rgb(37, 36, 40);
+}
+
 @import "~bootstrap/dist/css/bootstrap.css";
