@@ -80,7 +80,7 @@ namespace BackEnd.Controllers
 
 
         }
-
+     
         [HttpGet("get-list-events-by-name")]
         public async Task<ActionResult<List<Event>>> GetAllEventsByName(string name)
         {
