@@ -25,14 +25,15 @@ namespace BackEnd.Controllers
         private readonly IReviewService _reviewService;
         private readonly IUserService _userService;
 
-        public ReviewController(IReviewService reviewService)
+        public ReviewController(IReviewService reviewService, IUserService userService)
         {
             _reviewService = reviewService;
+            _userService = userService;
         }
 
         [HttpPost("add-review")]
-        public async Task<ActionResult<int>> AddReview(int idReview,
-         int idEvent, int idUser, int idPayment, string comment)
+        public async Task<ActionResult<int>> AddReview(int idReview, int idEvent, int idUser, 
+            int idPayment, string comment)
         {
             Review r = new Review();
             r.IdReview = idReview;
