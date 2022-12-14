@@ -7,20 +7,23 @@ namespace BackEnd.Controllers
 {
     public struct ReviewStruct
     {
-        public ReviewStruct(string name, string description)
+        public ReviewStruct(int idUser, string userName, string userSurname, string comment)
         {
-            Name = name;
-            Description = description;
+            IDUser = idUser;
+            UserName = userName;
+            UserSurname = userSurname;
+            Comment = comment;
         }
 
-        public string Name { get; }
-        public string Description { get; }
-
-        public override string ToString() => $"({Name}, {Description})";
+        public int IDUser { get; }
+        public string UserName { get; }
+        public string UserSurname { get; }
+        public string Comment { get; } 
     }
     public class ReviewController : ControllerBase
     {
         private readonly IReviewService _reviewService;
+        private readonly IUserService _userService;
 
         public ReviewController(IReviewService reviewService)
         {
@@ -31,33 +34,6 @@ namespace BackEnd.Controllers
         public async Task<ActionResult<int>> AddReview(int idReview,
          int idEvent, int idUser, int idPayment, string comment)
         {
-            /*Console.WriteLine(my_event);
-            bool result = await _eventService.AddEventToDatabase(my_event);
-            var newEvent = await _eventService.GetLastEvent();
-            if (result == true)
-            {
-                return Ok(newEvent.IdEvent);
-            }
-            else
-            {
-                return BadRequest("failed to add");
-            }*/
-
-
-            /*
-            bool result = await _eventService.AddEventToDatabase(myEvent);
-            var newEvent = await _eventService.GetLastEvent();
-            if (result == true)
-            {
-                return Ok(newEvent.IdEvent);
-            }
-            else
-            {
-                return BadRequest("failed");
-            }*/
-
-
-
             Review r = new Review();
             r.IdReview = idReview;
             r.IdEvent = idEvent;
@@ -73,9 +49,30 @@ namespace BackEnd.Controllers
             {
                 return BadRequest("failed");
             }
+        }
 
+        [HttpGet("get-review-by-id")]
+        public async Task<ActionResult<ReviewStruct>> GetReviewByID(int idReview)
+        {
+            var reviews = await _reviewService.GetReviewById(idReview);
+            var user = await _userService.GetUserByID((int)reviews.IdUser);
+            ReviewStruct r = new ReviewStruct((int)reviews.IdUser, user.Name, user.Surname, reviews.Comment);
+            return (reviews == null) ? NotFound("No reviews found") : r;
+        }
 
+        [HttpGet("get-all-reviews-by-user")]
+        public async Task<ActionResult<List<ReviewStruct>>> GetAllReviewsByUser(int idUser)
+        {
+            List<ReviewStruct> reviewList = new List<ReviewStruct>();
+            var reviews = await _reviewService.GetAllReviewsByUser(idUser);
+            var user = await _userService.GetUserByID(idUser);
 
+            for (int i = 0; i < reviews.Count; i++)
+            {
+                ReviewStruct r = new ReviewStruct((int)reviews[i].IdUser, user.Name, user.Surname, reviews[i].Comment);
+                reviewList.Add(r);
+            }
+            return (reviewList == null) ? NotFound("No reviews found") : reviewList;
         }
     }
 }
