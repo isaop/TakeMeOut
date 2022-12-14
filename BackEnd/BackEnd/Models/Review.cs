@@ -5,7 +5,7 @@ namespace BackEnd.Models;
 
 public partial class Review
 {
-    public int IdReview { get; set; }
+    public int? IdReview { get; set; }
 
     public int? IdEvent { get; set; }
 
