@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BackEnd.Models;
 
-public partial class Event
+public class Event
 {
     public int? IdEvent { get; set; }
 

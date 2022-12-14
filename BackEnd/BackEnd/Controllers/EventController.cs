@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BackEnd.Models;
 using BackEnd.Services;
+using System.ComponentModel.DataAnnotations;
 
 namespace BackEnd.Controllers
 {
@@ -27,20 +28,18 @@ namespace BackEnd.Controllers
         }
 
         [HttpPost("add-event")]
-        public async Task<ActionResult<int>> AddEvent(string eventName, int idBA,
-            int startingHour, int endingHour, int day, int month, int year, int idUser, int idCategory, string description, int idVenue)
+        public async Task<ActionResult<int>> AddEvent([FromBody]Event newEvent)
         {
-            /*Console.WriteLine(my_event);
-            bool result = await _eventService.AddEventToDatabase(my_event);
-            var newEvent = await _eventService.GetLastEvent();
+            bool result = await _eventService.AddEventToDatabase(newEvent);
+            var myEvent = await _eventService.GetLastEvent();
             if (result == true)
             {
-                return Ok(newEvent.IdEvent);
+                return Ok(myEvent.IdEvent);
             }
             else
             {
                 return BadRequest("failed to add");
-            }*/
+            }
 
 
             /*
@@ -55,7 +54,7 @@ namespace BackEnd.Controllers
                 return BadRequest("failed");
             }*/
 
-            DateTime startingDate = new DateTime(year, month, day, startingHour, 0, 0);
+            /*DateTime startingDate = new DateTime(year, month, day, startingHour, 0, 0);
             DateTime endingDate = new DateTime(year, month, day, endingHour, 0, 0);
             TimeSpan timeInterval = endingDate - startingDate;
 
@@ -66,16 +65,18 @@ namespace BackEnd.Controllers
           //  e.Time = timeInterval;
             e.IdCategory = idCategory;
             e.Description = description;
-            e.IdVenue = idVenue;
-            bool result = await _eventService.AddEventToDatabase(e);
-            if (result == true)
-            {
-                return Ok(e.IdEvent);
-            }
-            else
-            {
-                return BadRequest("failed");
-            }
+            e.IdVenue = idVenue;*/
+            // bool result = await _eventService.AddEventToDatabase(newEvent);
+            /* if (result == true)
+             {
+                 return Ok(newEvent.IdEvent);
+             }
+             else
+             {
+                 return BadRequest("failed");
+             }*/
+
+            return Ok();
 
 
 
