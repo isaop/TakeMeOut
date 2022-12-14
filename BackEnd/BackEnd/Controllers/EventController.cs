@@ -62,8 +62,8 @@ namespace BackEnd.Controllers
             Event e = new Event();
             e.EventName = eventName;
             e.IdBusinessAccount = idBA;
-            e.Date = startingDate;
-            e.Time = timeInterval;
+           // e.Date = startingDate;
+          //  e.Time = timeInterval;
             e.IdCategory = idCategory;
             e.Description = description;
             e.IdVenue = idVenue;

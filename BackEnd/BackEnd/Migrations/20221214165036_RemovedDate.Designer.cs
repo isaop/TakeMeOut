@@ -4,6 +4,7 @@ using BackEnd.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackEnd.Migrations
 {
     [DbContext(typeof(TakeMeOutDbContext))]
-    partial class TakeMeOutDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221214165036_RemovedDate")]
+    partial class RemovedDate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -143,18 +146,6 @@ namespace BackEnd.Migrations
                     b.Property<int>("IdVenue")
                         .HasColumnType("int")
                         .HasColumnName("idVenue");
-
-                    b.Property<string>("endDate")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("endHour")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("startDate")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("startHour")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdEvent")
                         .HasName("PK__Event__B7EA7D76162FB28D");
