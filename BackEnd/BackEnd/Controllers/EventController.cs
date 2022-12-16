@@ -2,6 +2,7 @@
 using BackEnd.Models;
 using BackEnd.Services;
 using System.ComponentModel.DataAnnotations;
+using BackEnd.Dtos;
 
 namespace BackEnd.Controllers
 {
@@ -28,9 +29,23 @@ namespace BackEnd.Controllers
         }
 
         [HttpPost("add-event")]
-        public async Task<ActionResult<int>> AddEvent([FromBody]Event newEvent)
+        public async Task<ActionResult<int>> AddEvent([FromBody] EventDto newEvent)
         {
-            bool result = await _eventService.AddEventToDatabase(newEvent);
+
+
+            Event e = new Event();
+            e.EventName = newEvent.EventName;
+            e.endDate = newEvent.endDate;
+            e.startDate = newEvent.startDate;
+            e.endHour =  newEvent.endHour;
+            e.startHour = newEvent.startHour;
+            e.IdCategory = newEvent.IdCategory;
+            e.IdBusinessAccount = newEvent.IdBusinessAccount;
+            e.IdVenue = newEvent.IdVenue;
+
+
+
+            bool result = await _eventService.AddEventToDatabase(e);
             var myEvent = await _eventService.GetLastEvent();
             if (result == true)
             {
@@ -42,46 +57,8 @@ namespace BackEnd.Controllers
             }
 
 
-            /*
-            bool result = await _eventService.AddEventToDatabase(myEvent);
-            var newEvent = await _eventService.GetLastEvent();
-            if (result == true)
-            {
-                return Ok(newEvent.IdEvent);
-            }
-            else
-            {
-                return BadRequest("failed");
-            }*/
-
-            /*DateTime startingDate = new DateTime(year, month, day, startingHour, 0, 0);
-            DateTime endingDate = new DateTime(year, month, day, endingHour, 0, 0);
-            TimeSpan timeInterval = endingDate - startingDate;
-
-            Event e = new Event();
-            e.EventName = eventName;
-            e.IdBusinessAccount = idBA;
-           // e.Date = startingDate;
-          //  e.Time = timeInterval;
-            e.IdCategory = idCategory;
-            e.Description = description;
-            e.IdVenue = idVenue;*/
-            // bool result = await _eventService.AddEventToDatabase(newEvent);
-            /* if (result == true)
-             {
-                 return Ok(newEvent.IdEvent);
-             }
-             else
-             {
-                 return BadRequest("failed");
-             }*/
-
-            return Ok();
-
-
-
         }
-     
+
         [HttpGet("get-list-events-by-name")]
         public async Task<ActionResult<List<Event>>> GetAllEventsByName(string name)
         {
@@ -119,6 +96,8 @@ namespace BackEnd.Controllers
             var events = await _eventService.GetEventById(id);
             return (events == null) ? NotFound("No events found") : events;
         }
+
+       
 
     }
 }

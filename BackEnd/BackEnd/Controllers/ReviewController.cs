@@ -2,6 +2,7 @@
 using BackEnd.Models;
 using BackEnd.Services;
 using System.ComponentModel;
+using BackEnd.Dtos;
 
 namespace BackEnd.Controllers
 {
@@ -28,54 +29,25 @@ namespace BackEnd.Controllers
         }
 
         [HttpPost("add-review")]
-        public async Task<ActionResult<int>> AddReview(int idReview,
-         int idEvent, int idUser, int idPayment, string comment)
+        public async Task<ActionResult<int>> AddReview([FromBody]ReviewDto newReview)
         {
-            /*Console.WriteLine(my_event);
-            bool result = await _eventService.AddEventToDatabase(my_event);
-            var newEvent = await _eventService.GetLastEvent();
+
+            Review r = new Review();
+            r.Comment = newReview.Comment;
+            r.IdPayment = newReview.IdPayment;
+            r.IdEvent = newReview.IdEvent;
+            r.IdUser = newReview.IdUser;
+
+            bool result = await _reviewService.AddReviewToDatabase(r);
+            var newEvent = await _reviewService.GetLastReview();
             if (result == true)
             {
-                return Ok(newEvent.IdEvent);
+                return Ok(newEvent.IdReview);
             }
             else
             {
                 return BadRequest("failed to add");
-            }*/
-
-
-            /*
-            bool result = await _eventService.AddEventToDatabase(myEvent);
-            var newEvent = await _eventService.GetLastEvent();
-            if (result == true)
-            {
-                return Ok(newEvent.IdEvent);
             }
-            else
-            {
-                return BadRequest("failed");
-            }*/
-
-
-
-            Review r = new Review();
-            r.IdReview = idReview;
-            r.IdEvent = idEvent;
-            r.IdUser = idUser;
-            r.IdPayment = idPayment;
-            r.Comment = comment;
-            bool result = await _reviewService.AddReviewToDatabase(r);
-            if (result == true)
-            {
-                return Ok(r.IdReview);
-            }
-            else
-            {
-                return BadRequest("failed");
-            }
-
-
-
         }
     }
 }

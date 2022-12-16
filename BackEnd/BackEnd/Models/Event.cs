@@ -9,11 +9,11 @@ public class Event
 
     public string? EventName { get; set; }
 
-    public int IdVenue { get; set; }
+    public int? IdVenue { get; set; }
 
     public string? Description { get; set; }
 
-    public int IdBusinessAccount { get; set; }
+    public int? IdBusinessAccount { get; set; }
 
     public string? startHour { get; set; }
 
@@ -23,7 +23,7 @@ public class Event
 
     public string? endDate { get; set; }
 
-    public int IdCategory { get; set; }
+    public int? IdCategory { get; set; }
 
     public virtual BusinessAccount IdBusinessAccountNavigation { get; set; } = null!;
 
