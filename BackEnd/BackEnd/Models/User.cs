@@ -5,7 +5,7 @@ namespace BackEnd.Models;
 
 public partial class User
 {
-    public int IdUser { get; set; }
+    public int? IdUser { get; set; }
 
     public string? Name { get; set; }
 

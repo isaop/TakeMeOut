@@ -3,23 +3,27 @@ using System.Collections.Generic;
 
 namespace BackEnd.Models;
 
-public partial class Event
+public class Event
 {
     public int? IdEvent { get; set; }
 
     public string? EventName { get; set; }
 
-    public int IdVenue { get; set; }
-
-    public TimeSpan? Time { get; set; }
-
-    public DateTime? Date { get; set; }
+    public int? IdVenue { get; set; }
 
     public string? Description { get; set; }
 
-    public int IdBusinessAccount { get; set; }
+    public int? IdBusinessAccount { get; set; }
 
-    public int IdCategory { get; set; }
+    public string? startHour { get; set; }
+
+    public string? endHour { get; set; }
+
+    public string? startDate { get; set; }
+
+    public string? endDate { get; set; }
+
+    public int? IdCategory { get; set; }
 
     public virtual BusinessAccount IdBusinessAccountNavigation { get; set; } = null!;
 

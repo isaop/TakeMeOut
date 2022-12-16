@@ -7,6 +7,7 @@ namespace BackEnd.Services
         public Task<bool> AddReviewToDatabase(Review myReview);
 
         //public Task<List<Event>> GetAllReviewsByUser(int idUser);
+        public Task<Review> GetLastReview();
 
         //public Task<Review> GetReviewById(int IdReview);
 

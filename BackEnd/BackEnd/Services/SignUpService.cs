@@ -22,7 +22,7 @@ namespace BackEnd.Services
                 {
 
                     user.Password = Hasher.CreateMD5(user.Password);
-                    var addedUser = await AddToDataBase(user);
+                    var addedUser = await AddUserToDataBase(user);
                 }
             }
             else
@@ -32,7 +32,7 @@ namespace BackEnd.Services
             return false;
         }
         
-        public async Task<bool> AddToDataBase(User user)
+        public async Task<bool> AddUserToDataBase(User user)
         {
             _context.Users.Add(user);
             await(_context.SaveChangesAsync());
