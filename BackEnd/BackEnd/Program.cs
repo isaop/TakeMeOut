@@ -27,6 +27,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<IEventService, EventService>();
 builder.Services.AddTransient<ISignUpService, SignUpService>();
+builder.Services.AddTransient<IReviewService, ReviewService>();
+builder.Services.AddTransient<IVenueService, VenueService>();
+
 
 builder.Services.AddDbContext<TakeMeOutDbContext>(options => {
     options.UseLazyLoadingProxies();

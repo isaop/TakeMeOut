@@ -10,12 +10,16 @@ import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { DisplayEventsComponent } from './display-events/display-events.component';
 import { UserPageComponent } from './user-page/user-page.component';
-import { VenueViewComponent } from './venue-view/venue-view.component';
+import { VenueViewComponent, VenueViewComponent } from './venue-view/venue-view.component';
 import { VenueEditComponent } from './venue-edit/venue-edit.component';
+import { BaViewComponent } from './ba-view/ba-view.component';
+import { BaEditComponent } from './ba-edit/ba-edit.component';
+import { BaChangePasswdComponent } from './ba-change-passwd/ba-change-passwd.component';
+
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { FormsModule } from '@angular/forms';
 import { ReviewComponent } from './review/review.component';
-import { ReactiveFormsModule  } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,10 @@ import { ReactiveFormsModule  } from '@angular/forms';
     VenueViewComponent,
     VenueEditComponent,
     ForgotPasswordComponent,
-    ReviewComponent
+    ReviewComponent,
+    BaViewComponent,
+    BaEditComponent,
+    BaChangePasswdComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
-﻿using BackEnd.Models;
+﻿using BackEnd.Dtos;
+using BackEnd.Models;
 using BackEnd.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,22 +15,25 @@ namespace BackEnd.Controllers
             _signUpService = signUpService;
         }
 
-        [HttpPost("sign-up")]
-        public async Task<IActionResult> SignUp(string name, string surname, string password, string email, string phoneNumber)
+        [HttpPost("sign-up-user")]
+        public async Task<IActionResult> SignUpUser([FromBody]UserDto user)
         {
-            User user = new User();
-            user.Name = name;
-            user.Surname = surname;
-            user.PhoneNumber = phoneNumber;
-            user.Email = email;
-            user.Password = password;
+
+            User u = new User();
+            u.Name = user.Name;
+            u.PhoneNumber = user.PhoneNumber;
+            u.Surname = user.Surname;
+            u.Email = user.Email;
+            u.Password = user.Password;
+
+
 
             if (user is null)
             {
                 return BadRequest("Invalid client request");
             }
 
-            bool result = await _signUpService.CheckIfUserExists(user);
+            bool result = await _signUpService.CheckIfUserExists(u);
 
             if (result == true)
             {
@@ -38,6 +42,35 @@ namespace BackEnd.Controllers
             else
             {
                 return Ok(user);
+            }
+        }
+
+        [HttpPost("sign-up-business-account")]
+        public async Task<IActionResult> SignUpBA([FromBody] BusinessAccountDto businessAccount)
+        {
+
+            BusinessAccount b = new BusinessAccount();
+            b.ContactNumber = businessAccount.ContactNumber;
+            b.Name = businessAccount.Name;
+            b.Description = businessAccount.Description;
+            b.Email = businessAccount.Email;
+            b.Password = businessAccount.Password;
+            b.IdVenue = businessAccount.IdVenue;
+
+            if (b is null)
+            {
+                return BadRequest("Business Account is null");
+            }
+
+            bool result = await _signUpService.CheckIfBAExists(b);
+
+            if (result == true)
+            {
+                return BadRequest("Business Account Already Exists");
+            }
+            else
+            {
+                return Ok(b);
             }
         }
 

@@ -22,7 +22,7 @@ namespace BackEnd.Services
                 {
 
                     user.Password = Hasher.CreateMD5(user.Password);
-                    var addedUser = await AddToDataBase(user);
+                    var addedUser = await AddUserToDataBase(user);
                 }
             }
             else
@@ -32,13 +32,37 @@ namespace BackEnd.Services
             return false;
         }
         
-        public async Task<bool> AddToDataBase(User user)
+        public async Task<bool> AddUserToDataBase(User user)
         {
             _context.Users.Add(user);
             await(_context.SaveChangesAsync());
             return true;
         }
 
-        
+        public async Task<bool> CheckIfBAExists(BusinessAccount ba)
+        {
+            var baEmail = await _context.Users.FirstOrDefaultAsync(b => b.Email == ba.Email);
+            if (baEmail == null)
+            {
+                if (ba.Password != null)
+                {
+
+                    ba.Password = Hasher.CreateMD5(ba.Password);
+                    var addedBusinessAccount = await AddBAToDataBase(ba);
+                }
+            }
+            else
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public async Task<bool> AddBAToDataBase(BusinessAccount ba)
+        {
+            _context.BusinessAccounts.Add(ba);
+            await (_context.SaveChangesAsync());
+            return true;
+        }
     }
 }

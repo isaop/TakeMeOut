@@ -11,5 +11,6 @@ namespace BackEnd.Services
         public Task<Event> GetEventById(int id);
 
         public Task<List<Event>> GetAllEvents();
+        public Task<Event> EditEvent(Event @event);
     }
 }

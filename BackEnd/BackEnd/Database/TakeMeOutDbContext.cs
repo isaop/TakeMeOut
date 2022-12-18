@@ -102,9 +102,7 @@ public partial class TakeMeOutDbContext : DbContext
             entity.ToTable("Event");
 
             entity.Property(e => e.IdEvent).HasColumnName("idEvent");
-            entity.Property(e => e.Date)
-                .HasColumnType("date")
-                .HasColumnName("date");
+            
             entity.Property(e => e.Description)
                 .HasMaxLength(2500)
                 .IsUnicode(false)
@@ -116,7 +114,6 @@ public partial class TakeMeOutDbContext : DbContext
             entity.Property(e => e.IdBusinessAccount).HasColumnName("idBusinessAccount");
             entity.Property(e => e.IdCategory).HasColumnName("idCategory");
             entity.Property(e => e.IdVenue).HasColumnName("idVenue");
-            entity.Property(e => e.Time).HasColumnName("time");
 
             entity.HasOne(d => d.IdBusinessAccountNavigation).WithMany(p => p.Events)
                 .HasForeignKey(d => d.IdBusinessAccount)
