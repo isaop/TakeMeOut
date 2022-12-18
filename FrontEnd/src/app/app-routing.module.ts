@@ -8,6 +8,8 @@ import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { VenueViewComponent } from './venue-view/venue-view.component';
 import { VenueEditComponent } from './venue-edit/venue-edit.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ReviewComponent } from './review/review.component';
 import { BaViewComponent } from './ba-view/ba-view.component';
 import { BaEditComponent } from './ba-edit/ba-edit.component';
 import { BaChangePasswdComponent } from './ba-change-passwd/ba-change-passwd.component';
@@ -67,7 +69,17 @@ const routes: Routes = [
     path: 'ba-change-passwd',
     component: BaChangePasswdComponent,
     title: 'TakeMeOut',
-  }
+  },
+  {
+    path: 'forgot-password',
+    component: ForgotPasswordComponent,
+    title: 'TakeMeOut',
+  },
+  {
+    path: 'review',
+    component: ReviewComponent,
+    title: 'TakeMeOut',
+  },
 ];
 
 @NgModule({

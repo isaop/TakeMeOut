@@ -1,0 +1,31 @@
+<div id="MobileView">
+
+  <div id="Content">
+
+    <h3 id="Title"><strong>{{ event.name }}</strong></h3>
+    <div class="HR"></div>
+    <menu>
+      <ul>
+        <li>
+          <div id="Content">
+            <h4>Name</h4>
+            <input class="label" type="text" name="score" placeholder="score????">
+            <!-- facem cu stelute sau ce ?? -->
+            <label for="score"></label>
+          </div>
+        </li>
+        <li>
+          <div id="Content">
+            <h4>Description</h4>
+            <textarea class="label" type="text" name="description"
+              placeholder="Pleae write how you felt during that event!"></textarea>
+          </div>
+        </li>
+
+      </ul>
+    </menu>
+    <button class="button-28" type="submit" (click)="PublishReview()">Publish review!</button>
+  
+  </div>
+
+</div>

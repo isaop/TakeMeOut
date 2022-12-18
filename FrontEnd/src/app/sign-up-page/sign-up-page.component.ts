@@ -12,25 +12,16 @@ export class SignUpPageComponent implements OnInit {
   surname=new FormControl('');
   phone=new FormControl('');
   password=new FormControl('');
-  venue=new FormControl('');
   email=new FormControl('');
   address=new FormControl('');
   city=new FormControl('');
   country=new FormControl('');
-  displayU=false;
-  displayB=false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  User(){
-    this.displayU=true;
-  }
-  BusinessUser(){
-    this.displayB=true;
-  }
   Register(){
     console.log("you are registered!")
   }

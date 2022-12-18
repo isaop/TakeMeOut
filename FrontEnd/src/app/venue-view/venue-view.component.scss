@@ -1,18 +1,19 @@
 *{transition: all 0.2s;}
 
-#MobileView{
+#MobileView {
   font-family: "Noto Sans";
-  width: 80%;
-  height:80%;
-  margin:0 auto; 
+  background-color: rgb(37, 36, 40);
+  display: flex;
+  justify-content: center;
 }
 
-#MobileView > #Content{
+#MobileView>#Content {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px 0;
+  width: 50%;
 }
 
 #MobileView > #Content > h3#Title{
@@ -30,18 +31,18 @@
 }
 
 #MobileView > #Content > nav > a{
-  color: #666;
+  color: rgb(255, 255, 255);
   text-decoration: none;
 }
 
 #MobileView > #Content > nav > a:nth-child(2){
   font-weight:bold;
-  color: #E71212;
+  color: #faf9f9;
 }
 
 #MobileView > #Content > nav > a:nth-child(2):before{
   content: " | ";
-  color: #CCC;
+  color: rgb(255, 255, 255);
 }
 
 .HR{
@@ -85,7 +86,7 @@
 
 #MobileView > #Content > menu > ul > li > #Icon > i{
   font-size: 28px;
-  color: #444;
+  color: rgb(255, 255, 255);
 }
 
 #MobileView > #Content > menu > ul > li > #Content{
@@ -96,10 +97,10 @@
 
 #MobileView > #Content > menu > ul > li > #Content > h4{
   font-size: 25px;
-  color: #444;
+  color: rgb(255, 255, 255);
 }
 
 #MobileView > #Content > menu > ul > li > #Content > span{
   font-size: 20px;
-  color: #666;
+  color: rgb(255, 255, 255);
 }

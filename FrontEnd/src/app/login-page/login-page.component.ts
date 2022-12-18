@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-login-page',
@@ -7,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
 
-  username:string | undefined;
-  password:string | undefined;
+  usernameInput= new FormControl('');
+  passwordInput= new FormControl('');
   display=false;
-
+  username=new FormControl('');
+  password=new FormControl('');
 
   constructor() { }
 
@@ -18,12 +20,10 @@ export class LoginPageComponent implements OnInit {
   }
 
   LoginUser(){
-    if(this.username=="admin" && this.password=="12345"){
-      console.log("Signed in!")
-    }
+    //backend job
   }
   SignupUser(){
-    this.display=true;
+    //backend job
   }
 
 }
