@@ -34,11 +34,16 @@ namespace BackEnd.Controllers
         }
 
         [HttpGet("get-venue-by-id")]
-        public async Task<ActionResult<VenueStruct>> GetVenueByID(int id)
+        public async Task<ActionResult<VenueDto>> GetVenueByID(int id)
         {
             var venues = await _venueService.GetVenueByID(id);
-            VenueStruct v = new VenueStruct(venues.Name, venues.Address, venues.Description, venues.ContactNumber);
-            return (venues == null) ? NotFound("No venues found") : v;
+            VenueDto requestedVenue = new VenueDto();
+            requestedVenue.Name = venues.Name;
+            requestedVenue.Address = venues.Address;
+            requestedVenue.Description = venues.Description;
+            requestedVenue.ContactNumber = venues.ContactNumber;
+            //VenueStruct v = new VenueStruct(venues.Name, venues.Address, venues.Description, venues.ContactNumber);
+            return (venues == null) ? NotFound("No venues found") : requestedVenue;
         }
 
         [HttpGet("get-all-venues")]
@@ -64,14 +69,11 @@ namespace BackEnd.Controllers
             v.Address = venue.Address;
             v.ContactNumber = venue.ContactNumber;
 
-
             if (venue == null)
                 return BadRequest("Venue is empty");
             else
             {
-
                 var result = await _venueService.EditVenue(v);
-
                 return Ok(result);
             }
         }

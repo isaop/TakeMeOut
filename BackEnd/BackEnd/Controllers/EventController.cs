@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BackEnd.Models;
 using BackEnd.Services;
-using System.ComponentModel.DataAnnotations;
 using BackEnd.Dtos;
 
 namespace BackEnd.Controllers
@@ -31,8 +30,6 @@ namespace BackEnd.Controllers
         [HttpPost("add-event")]
         public async Task<ActionResult<int>> AddEvent([FromBody] EventDto newEvent)
         {
-
-
             Event e = new Event();
             e.EventName = newEvent.EventName;
             e.endDate = newEvent.endDate;
@@ -42,8 +39,6 @@ namespace BackEnd.Controllers
             e.IdCategory = newEvent.IdCategory;
             e.IdBusinessAccount = newEvent.IdBusinessAccount;
             e.IdVenue = newEvent.IdVenue;
-
-
 
             bool result = await _eventService.AddEventToDatabase(e);
             var myEvent = await _eventService.GetLastEvent();
@@ -55,21 +50,23 @@ namespace BackEnd.Controllers
             {
                 return BadRequest("failed to add");
             }
-
-
         }
 
         [HttpGet("get-list-events-by-name")]
-        public async Task<ActionResult<List<Event>>> GetAllEventsByName(string name)
+        public async Task<ActionResult<List<EventDtoGetter>>> GetAllEventsByName(string name)
         {
             var events = await _eventService.GetAllEventsByName(name);
-
-            return (events == null) ? NotFound("No quizzes available") : events;
-
+            List<EventDtoGetter> requestedEvents = new List<EventDtoGetter>();
+            
+            for (int i = 0; i <  events.Count; i++)
+            {
+                EventDtoGetter e = new EventDtoGetter(events[i].EventName, events[i].Description);
+                requestedEvents.Add(e);
+            }
+            return (requestedEvents == null) ? NotFound("No quizzes available") : requestedEvents;
         }
 
         [HttpGet("get-all-events")]
-
         public async Task<ActionResult<List<EventStruct>>> GetAllEvents()
         {
             List<string> names = new List<string>();
@@ -79,24 +76,18 @@ namespace BackEnd.Controllers
             var events = await _eventService.GetAllEvents();
             for (int i = 0; i < events.Count; i++)
             {
-
                 EventStruct e = new EventStruct(events[i].EventName, events[i].Description);
                 eventStruct.Add(e);
-
             }
-
-
             return (eventStruct == null) ? NotFound("No events found") : eventStruct;
         }
 
         [HttpGet("get-event-by-id")]
-
         public async Task<ActionResult<Event>> GetEventById(int id)
         {
             var events = await _eventService.GetEventById(id);
             return (events == null) ? NotFound("No events found") : events;
         }
-
 
         [HttpPut("edit-event")]
         public async Task<ActionResult> EditEvent([FromBody] EventDto @event)
@@ -117,9 +108,7 @@ namespace BackEnd.Controllers
                 return BadRequest("Event is empty");
             else
             {
-
                 var result = await _eventService.EditEvent(e);
-
                 return Ok(result);
             }
         }
