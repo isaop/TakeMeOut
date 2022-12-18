@@ -10,7 +10,7 @@ import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { DisplayEventsComponent } from './display-events/display-events.component';
 import { UserPageComponent } from './user-page/user-page.component';
-import { VenueViewComponent, VenueViewComponent } from './venue-view/venue-view.component';
+import { VenueViewComponent } from './venue-view/venue-view.component';
 import { VenueEditComponent } from './venue-edit/venue-edit.component';
 import { BaViewComponent } from './ba-view/ba-view.component';
 import { BaEditComponent } from './ba-edit/ba-edit.component';
