@@ -11,8 +11,18 @@ namespace BackEnd.Services
         public VenueService(TakeMeOutDbContext context)
         {
             _context = context;
-
         }
+
+        public async Task<Venue> GetVenueByID(int id)
+        {
+            return await _context.Venues.Where(v => v.IdVenue == id).FirstOrDefaultAsync();
+        }
+
+        public async Task<List<Venue>> GetAllVenues()
+        {
+            return await _context.Venues.ToListAsync();
+        }
+
         public async Task<Venue> EditVenue(Venue venue)
         {
             var result = await CheckIfVenueExists(venue.IdVenue);
@@ -31,14 +41,9 @@ namespace BackEnd.Services
         {
             var venue = await _context.Venues.FirstOrDefaultAsync(v => v.IdVenue == id);
             if (venue == null)
-            {
                 return null;
-            }
             else
-            {
-
                 return venue;
-            }
         }
     }
 }

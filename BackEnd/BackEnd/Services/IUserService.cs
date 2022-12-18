@@ -1,6 +1,10 @@
-﻿namespace BackEnd.Services
+﻿using BackEnd.Models;
+
+namespace BackEnd.Services
 {
-    public class IUserService
+    public interface IUserService
     {
+        public Task<User> GetUserByID(int id);
+        public Task<List<User>> GetAllUsers();
     }
 }
