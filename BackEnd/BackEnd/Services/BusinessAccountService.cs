@@ -22,5 +22,29 @@ namespace BackEnd.Services
         {
             return await _context.BusinessAccounts.ToListAsync();
         }
+
+        public async Task<BusinessAccount> EditBusinessAccount(BusinessAccount ba)
+        {
+            var result = await CheckIfBusinessAccountExists(ba.IdBusinessAccount);
+            result.Name = ba.Name;
+            result.Description = ba.Description;
+            result.ContactNumber = ba.ContactNumber;
+            result.Email = ba.Email;
+            result.IdVenue = ba.IdVenue;
+
+
+            _context.BusinessAccounts.Update(result);
+            await(_context.SaveChangesAsync());
+            return result;
+        }
+
+        public async Task<BusinessAccount> CheckIfBusinessAccountExists(int? id)
+        {
+            var ba = await _context.BusinessAccounts.FirstOrDefaultAsync(b => b.IdBusinessAccount == id);
+            if (ba == null)
+                return null;
+            else
+                return ba;
+        }
     }
 }

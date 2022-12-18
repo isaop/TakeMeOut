@@ -18,7 +18,12 @@ namespace BackEnd.Controllers
         public async Task<ActionResult<VenueDto>> GetVenueByID(int id)
         {
             var venues = await _venueService.GetVenueByID(id);
-            VenueDto requestedVenue = new VenueDto(venues.Name, venues.Address, venues.ContactNumber, venues.Description);
+            VenueDto requestedVenue = new VenueDto();
+            requestedVenue.Description = venues.Description;
+            requestedVenue.Name = venues.Name;
+            requestedVenue.Address = venues.Address;
+            requestedVenue.ContactNumber = venues.ContactNumber;
+
             return (venues == null) ? NotFound("No venues found") : requestedVenue;
         }
 
@@ -30,14 +35,18 @@ namespace BackEnd.Controllers
         
             for (int i = 0; i < venues.Count; i++)
             {
-                VenueDto v = new VenueDto(venues[i].Name, venues[i].Address, venues[i].Description, venues[i].ContactNumber);
+                VenueDto v = new VenueDto();
+                v.Name = venues[i].Name;
+                v.Address = venues[i].Address;
+                v.Description = venues[i].Description;
+                v.ContactNumber = venues[i].ContactNumber;
                 venuesList.Add(v);
             }
             return (venuesList == null) ? NotFound("No venues found") : venuesList;
         }
 
         [HttpPut("edit-venue")]
-        public async Task<ActionResult> EditVenue([FromBody] VenueDto ven)
+        public async Task<bool> EditVenue([FromBody] VenueDto ven)
         {
             Venue v = new Venue();
             v.IdVenue = ven.IdVenue;
@@ -47,11 +56,11 @@ namespace BackEnd.Controllers
             v.Name = ven.Name;
           
             if (v == null)
-                return BadRequest("Venue is empty");
+                return false;
             else
             {
                 var result = await _venueService.EditVenue(v);
-                return Ok(result);
+                return true;
             }
         }
     }

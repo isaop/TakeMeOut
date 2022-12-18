@@ -3,14 +3,6 @@
     public class VenueDto
     {
 
-        public VenueDto(string? name, string? address, string? contactNo, string? description) 
-        {
-            Name = name;
-            Address = address;
-            ContactNumber = contactNo;
-            Description = description;
-        }
-
         public int? IdVenue { get; set; }
 
         public string? Name { get; set; }

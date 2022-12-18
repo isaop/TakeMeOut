@@ -6,5 +6,7 @@ namespace BackEnd.Services
     {
         public Task<User> GetUserByID(int id);
         public Task<List<User>> GetAllUsers();
+        public Task<User> EditUser(User user);
+
     }
 }

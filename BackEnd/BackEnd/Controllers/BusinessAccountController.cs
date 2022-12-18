@@ -43,5 +43,25 @@ namespace BackEnd.Controllers
             }
             return (requestedBAs == null) ? NotFound("No business accounts found") : requestedBAs;
         }
+
+        [HttpPut("edit-business-account")]
+        public async Task<bool> EditBusinessAccount([FromBody] BusinessAccountEditRequest baDto)
+        {
+            BusinessAccount ba = new BusinessAccount();
+            ba.IdBusinessAccount = baDto.IdBusinessAccount;
+            ba.IdVenue = baDto.IdVenue;
+            ba.Name = baDto.Name;
+            ba.ContactNumber = baDto.ContactNumber;
+            ba.Email = baDto.Email;
+            ba.Description = baDto.Description;
+
+            if (ba == null)
+                return false;
+            else
+            {
+                var result = await _baService.EditBusinessAccount(ba);
+                return true;
+            }
+        }
     }
 }

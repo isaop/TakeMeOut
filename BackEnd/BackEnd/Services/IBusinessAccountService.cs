@@ -6,5 +6,8 @@ namespace BackEnd.Services
     {
         public Task<BusinessAccount> GetBusinessAccountByID(int id);
         public Task<List<BusinessAccount>> GetAllBusinessAccounts();
+
+        public Task<BusinessAccount> EditBusinessAccount(BusinessAccount ba);
+
     }
 }
