@@ -5,23 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BackEnd.Controllers
 {
-    public struct VenueStruct
-    {
-        public VenueStruct(string name, string address,
-            string contactNumber, string description)
-        {
-            Name = name;
-            Address = address;
-            Description = description;
-            ContactNumber = contactNumber;
-        }
-
-        public string Name { get; }
-        public string Address { get; }
-        public string Description { get; }
-        public string ContactNumber { get; }
-    }
-
     [ApiController]
     [Route("[controller]")]
     public class VenueController: ControllerBase
@@ -37,24 +20,19 @@ namespace BackEnd.Controllers
         public async Task<ActionResult<VenueDto>> GetVenueByID(int id)
         {
             var venues = await _venueService.GetVenueByID(id);
-            VenueDto requestedVenue = new VenueDto();
-            requestedVenue.Name = venues.Name;
-            requestedVenue.Address = venues.Address;
-            requestedVenue.Description = venues.Description;
-            requestedVenue.ContactNumber = venues.ContactNumber;
-            //VenueStruct v = new VenueStruct(venues.Name, venues.Address, venues.Description, venues.ContactNumber);
+            VenueDto requestedVenue = new VenueDto(venues.Name, venues.Address, venues.ContactNumber, venues.Description);
             return (venues == null) ? NotFound("No venues found") : requestedVenue;
         }
 
         [HttpGet("get-all-venues")]
-        public async Task<ActionResult<List<VenueStruct>>> GetAllVenues()
+        public async Task<ActionResult<List<VenueDto>>> GetAllVenues()
         {
-            List<VenueStruct> venuesList = new List<VenueStruct>();
-            
             var venues = await _venueService.GetAllVenues();
+            List<VenueDto> venuesList = new List<VenueDto>();
+        
             for (int i = 0; i < venues.Count; i++)
             {
-                VenueStruct v = new VenueStruct(venues[i].Name, venues[i].Address, venues[i].Description, venues[i].ContactNumber);
+                VenueDto v = new VenueDto(venues[i].Name, venues[i].Address, venues[i].Description, venues[i].ContactNumber);
                 venuesList.Add(v);
             }
             return (venuesList == null) ? NotFound("No venues found") : venuesList;

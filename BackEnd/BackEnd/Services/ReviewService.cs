@@ -11,15 +11,12 @@ namespace BackEnd.Services
         public ReviewService(TakeMeOutDbContext context)
         {
             _context = context;
-
         }
 
         public async Task<bool> AddReviewToDatabase(Review myReview)
         {
             myReview.IdReview = null;
-
             _context.Reviews.Add(myReview);
-
             await (_context.SaveChangesAsync());
             return true;
         }

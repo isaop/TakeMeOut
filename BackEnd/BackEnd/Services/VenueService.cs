@@ -40,13 +40,9 @@ namespace BackEnd.Services
         {
             var venue = await _context.Venues.FirstOrDefaultAsync(v => v.IdVenue == id);
             if (venue == null)
-            {
                 return null;
-            }
             else
-            {
                 return venue;
-            }
         }
     }
 }

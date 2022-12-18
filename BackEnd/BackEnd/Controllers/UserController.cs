@@ -1,25 +1,12 @@
 ﻿using BackEnd.Models;
 using BackEnd.Services;
+using BackEnd.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BackEnd.Controllers
 {
-    public struct UserStruct
-    {
-        public UserStruct(string name, string surname, string email, string phNumber)
-        {
-            Name = name;
-            Surname = surname;
-            Email = email;
-            PhoneNumber = phNumber;
-        }
-
-        public string Name { get; }
-        public string Surname { get; }
-        public string Email { get; }
-        public string PhoneNumber { get; }
-    }
-
+    [ApiController]
+    [Route("[controller]")]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -30,25 +17,25 @@ namespace BackEnd.Controllers
         }
 
         [HttpGet("get-user-by-id")]
-        public async Task<ActionResult<UserStruct>> GetUserByID(int id)
+        public async Task<ActionResult<UserDtoGetter>> GetUserByID(int id)
         {
             var users = await _userService.GetUserByID(id);
-            UserStruct u = new UserStruct(users.Name, users.Surname, users.Email, users.PhoneNumber);
-            return (users == null) ? NotFound("No user found") : u;
+            UserDtoGetter requestedUser = new UserDtoGetter(users.Name, users.Surname, users.Email, users.PhoneNumber);
+            return (users == null) ? NotFound("No user found") : requestedUser;
         }
 
         [HttpGet("get-all-users")]
-        public async Task<ActionResult<List<UserStruct>>> GetAllUsers()
+        public async Task<ActionResult<List<UserDtoGetter>>> GetAllUsers()
         {
-            List<UserStruct> userList = new List<UserStruct>();
-
             var users = await _userService.GetAllUsers();
+            List<UserDtoGetter> requestedUsers = new List<UserDtoGetter>();
+            
             for (int i = 0; i < users.Count; i++)
             {
-                UserStruct u = new UserStruct(users[i].Name, users[i].Surname, users[i].Email, users[i].PhoneNumber);
-                userList.Add(u);
+                UserDtoGetter u = new UserDtoGetter(users[i].Name, users[i].Surname, users[i].Email, users[i].PhoneNumber);
+                requestedUsers.Add(u);
             }
-            return (userList == null) ? NotFound("No users found") : userList;
+            return (requestedUsers == null) ? NotFound("No users found") : requestedUsers;
         }
     }
 }

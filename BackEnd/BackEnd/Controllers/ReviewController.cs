@@ -6,21 +6,8 @@ using BackEnd.Dtos;
 
 namespace BackEnd.Controllers
 {
-    public struct ReviewStruct
-    {
-        public ReviewStruct(int idUser, string userName, string userSurname, string comment)
-        {
-            IDUser = idUser;
-            UserName = userName;
-            UserSurname = userSurname;
-            Comment = comment;
-        }
-
-        public int IDUser { get; }
-        public string UserName { get; }
-        public string UserSurname { get; }
-        public string Comment { get; } 
-    }
+    [ApiController]
+    [Route("[controller]")]
     public class ReviewController : ControllerBase
     {
         private readonly IReviewService _reviewService;
@@ -45,37 +32,33 @@ namespace BackEnd.Controllers
             bool result = await _reviewService.AddReviewToDatabase(r);
             var newEvent = await _reviewService.GetLastReview();
             if (result == true)
-            {
                 return Ok(newEvent.IdReview);
-            }
             else
-            {
                 return BadRequest("failed to add");
-            }
         }
 
         [HttpGet("get-review-by-id")]
-        public async Task<ActionResult<ReviewStruct>> GetReviewByID(int idReview)
+        public async Task<ActionResult<ReviewDtoGetter>> GetReviewByID(int idReview)
         {
             var reviews = await _reviewService.GetReviewById(idReview);
             var user = await _userService.GetUserByID((int)reviews.IdUser);
-            ReviewStruct r = new ReviewStruct((int)reviews.IdUser, user.Name, user.Surname, reviews.Comment);
-            return (reviews == null) ? NotFound("No reviews found") : r;
+            ReviewDtoGetter requestedReview = new ReviewDtoGetter((int)reviews.IdUser, user.Name, user.Surname, reviews.Comment);
+            return (requestedReview == null) ? NotFound("No reviews found") : requestedReview;
         }
 
         [HttpGet("get-all-reviews-by-user")]
-        public async Task<ActionResult<List<ReviewStruct>>> GetAllReviewsByUser(int idUser)
+        public async Task<ActionResult<List<ReviewDtoGetter>>> GetAllReviewsByUser(int idUser)
         {
-            List<ReviewStruct> reviewList = new List<ReviewStruct>();
             var reviews = await _reviewService.GetAllReviewsByUser(idUser);
             var user = await _userService.GetUserByID(idUser);
+            List<ReviewDtoGetter> requestedReviews = new List<ReviewDtoGetter>();
 
             for (int i = 0; i < reviews.Count; i++)
             {
-                ReviewStruct r = new ReviewStruct((int)reviews[i].IdUser, user.Name, user.Surname, reviews[i].Comment);
-                reviewList.Add(r);
+                ReviewDtoGetter r = new ReviewDtoGetter((int)reviews[i].IdUser, user.Name, user.Surname, reviews[i].Comment);
+                requestedReviews.Add(r);
             }
-            return (reviewList == null) ? NotFound("No reviews found") : reviewList;
+            return (requestedReviews == null) ? NotFound("No reviews found") : requestedReviews;
         }
     }
 }
