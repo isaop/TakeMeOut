@@ -16,6 +16,10 @@ import { BaViewComponent } from './ba-view/ba-view.component';
 import { BaEditComponent } from './ba-edit/ba-edit.component';
 import { BaChangePasswdComponent } from './ba-change-passwd/ba-change-passwd.component';
 
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { FormsModule } from '@angular/forms';
+import { ReviewComponent } from './review/review.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,6 +32,8 @@ import { BaChangePasswdComponent } from './ba-change-passwd/ba-change-passwd.com
     DisplayEventsComponent,
     VenueViewComponent,
     VenueEditComponent,
+    ForgotPasswordComponent,
+    ReviewComponent,
     BaViewComponent,
     BaEditComponent,
     BaChangePasswdComponent
@@ -35,7 +41,9 @@ import { BaChangePasswdComponent } from './ba-change-passwd/ba-change-passwd.com
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
