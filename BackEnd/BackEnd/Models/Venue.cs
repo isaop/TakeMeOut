@@ -5,7 +5,7 @@ namespace BackEnd.Models;
 
 public partial class Venue
 {
-    public int IdVenue { get; set; }
+    public int? IdVenue { get; set; }
 
     public string? Name { get; set; }
 

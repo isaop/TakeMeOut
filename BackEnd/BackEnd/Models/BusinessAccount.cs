@@ -5,7 +5,7 @@ namespace BackEnd.Models;
 
 public partial class BusinessAccount
 {
-    public int IdBusinessAccount { get; set; }
+    public int? IdBusinessAccount { get; set; }
 
     public string? Name { get; set; }
 
