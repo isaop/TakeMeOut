@@ -11,31 +11,23 @@ namespace BackEnd.Services
         public EventService(TakeMeOutDbContext context)
         {
             _context = context;
-
         }
+
         public async Task<bool> AddEventToDatabase(Event myEvent)
         {
             myEvent.IdEvent = null;
-
             _context.Events.Add(myEvent);
-
             await(_context.SaveChangesAsync());
             return true;
         }
-
        
         public async Task<Event> CheckIfEventExists(int? id)
         {
             var @event = await _context.Events.FirstOrDefaultAsync(e => e.IdEvent == id);
             if (@event == null)
-            {
                 return null;
-            }
             else
-            {
-
                 return @event;
-            }
         }
 
         public async Task<List<Event>> GetAllEvents()

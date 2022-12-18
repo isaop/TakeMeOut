@@ -1,0 +1,47 @@
+﻿using BackEnd.Models;
+using BackEnd.Services;
+using BackEnd.Dtos;
+using Microsoft.AspNetCore.Mvc;
+
+namespace BackEnd.Controllers
+{
+    [ApiController]
+    [Route("[controller]")]
+    public class BusinessAccountController : ControllerBase
+    {
+        private readonly IBusinessAccountService _baService;
+        private readonly IVenueService _venueService;
+
+        public BusinessAccountController(IBusinessAccountService baService, IVenueService venueService)
+        {
+            _baService = baService;
+            _venueService = venueService;
+        }
+
+        [HttpGet("get-business-account-by-id")]
+        public async Task<ActionResult<BusinessAccountDtoGetter>> GetBusinessAccountByID(int id)
+        {
+            var accounts = await _baService.GetBusinessAccountByID(id);
+            var venue = await _venueService.GetVenueByID((int)accounts.IdVenue);
+            BusinessAccountDtoGetter requestedBA = new BusinessAccountDtoGetter(accounts.Name, accounts.Description,
+            (int)accounts.IdVenue, accounts.Email, accounts.ContactNumber, venue.Name, venue.Description);
+            return (accounts == null) ? NotFound("No business accounts found") : requestedBA;
+        }
+
+        [HttpGet("get-all-business-accounts")]
+        public async Task<ActionResult<List<BusinessAccountDtoGetter>>> GetAllBusinessAccounts()
+        {
+            var accounts = await _baService.GetAllBusinessAccounts();
+            List<BusinessAccountDtoGetter> requestedBAs = new List<BusinessAccountDtoGetter>();
+
+            for (int i = 0; i < accounts.Count; i++)
+            {
+                var venue = await _venueService.GetVenueByID((int)accounts[i].IdVenue);
+                BusinessAccountDtoGetter ba = new BusinessAccountDtoGetter(accounts[i].Name, accounts[i].Description,
+                    (int)accounts[i].IdVenue, accounts[i].Email, accounts[i].ContactNumber, venue.Name, venue.Description);
+                requestedBAs.Add(ba);
+            }
+            return (requestedBAs == null) ? NotFound("No business accounts found") : requestedBAs;
+        }
+    }
+}
