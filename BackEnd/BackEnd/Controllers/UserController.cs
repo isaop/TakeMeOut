@@ -37,5 +37,25 @@ namespace BackEnd.Controllers
             }
             return (requestedUsers == null) ? NotFound("No users found") : requestedUsers;
         }
+
+
+        [HttpPut("edit-user")]
+        public async Task<bool> EditUser([FromBody] UserEditRequest userDto)
+        {
+            User u = new User();
+            u.IdUser = userDto.IdUser;
+            u.Name = userDto.Name;
+            u.Surname = userDto.Surname;
+            u.PhoneNumber = userDto.PhoneNumber;
+            u.Email = userDto.Email;
+
+            if (u == null)
+                return false;
+            else
+            {
+                var result = await _userService.EditUser(u);
+                return true;
+            }
+        }
     }
 }

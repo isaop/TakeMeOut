@@ -75,7 +75,7 @@ namespace BackEnd.Controllers
         }
 
         [HttpPut("edit-event")]
-        public async Task<ActionResult> EditEvent([FromBody] EventDto @event)
+        public async Task<bool> EditEvent([FromBody] EventDto @event)
         {
             Event e = new Event();
             e.IdEvent = @event.IdEvent;
@@ -90,11 +90,11 @@ namespace BackEnd.Controllers
             e.IdVenue = @event.IdVenue;
 
             if (@event == null)
-                return BadRequest("Event is empty");
+                return false;
             else
             {
                 var result = await _eventService.EditEvent(e);
-                return Ok(result);
+                return true;
             }
         }
     }
