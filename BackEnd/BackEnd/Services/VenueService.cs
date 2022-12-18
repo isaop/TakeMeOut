@@ -17,12 +17,13 @@ namespace BackEnd.Services
         {
             var result = await CheckIfVenueExists(venue.IdVenue);
             result.Address = venue.Address;
+            result.Name = venue.Name;
             result.Description = venue.Description;
             result.ContactNumber = venue.ContactNumber;
-            result.Name = venue.Name;
+
 
             _context.Venues.Update(result);
-            await (_context.SaveChangesAsync());
+            await(_context.SaveChangesAsync());
             return result;
         }
 
