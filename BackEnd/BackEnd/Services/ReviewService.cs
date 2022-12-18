@@ -13,6 +13,7 @@ namespace BackEnd.Services
             _context = context;
 
         }
+
         public async Task<bool> AddReviewToDatabase(Review myReview)
         {
             myReview.IdReview = null;
@@ -31,6 +32,12 @@ namespace BackEnd.Services
         public async Task<List<Review>> GetAllReviewsByUser(int idUser)
         {
             return await _context.Reviews.Where(r => r.IdUser == idUser).ToListAsync();
+        }
+       
+        public async Task<Review> GetLastReview()
+        {
+            var review = _context.Reviews.OrderByDescending(q => q.IdEvent).FirstOrDefaultAsync();
+            return await review;
         }
     }
 }

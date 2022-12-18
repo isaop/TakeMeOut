@@ -1,4 +1,5 @@
-﻿using BackEnd.Models;
+using BackEnd.Dtos;
+using BackEnd.Models;
 using BackEnd.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,7 +22,9 @@ namespace BackEnd.Controllers
         public string ContactNumber { get; }
     }
 
-    public class VenueController : ControllerBase
+    [ApiController]
+    [Route("[controller]")]
+    public class VenueController: ControllerBase
     {
         private readonly IVenueService _venueService;
 
@@ -50,6 +53,27 @@ namespace BackEnd.Controllers
                 venuesList.Add(v);
             }
             return (venuesList == null) ? NotFound("No venues found") : venuesList;
+        }
+
+        [HttpPut("edit-venue")]
+        public async Task<ActionResult> EditEvent([FromBody] VenueDto venue)
+        {
+            Venue v = new Venue();
+            v.Name = venue.Name;
+            v.Description = venue.Description;
+            v.Address = venue.Address;
+            v.ContactNumber = venue.ContactNumber;
+
+
+            if (venue == null)
+                return BadRequest("Venue is empty");
+            else
+            {
+
+                var result = await _venueService.EditVenue(v);
+
+                return Ok(result);
+            }
         }
     }
 }
