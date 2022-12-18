@@ -23,22 +23,14 @@ namespace BackEnd.Services
             return true;
         }
 
-        
-
-        public async Task<List<Event>> GetAllEventsByName(string eventName)
+        public async Task<Review> GetReviewById(int idReview)
         {
-            return await _context.Events.Where(e => e.EventName == eventName).ToListAsync();
+            return await _context.Reviews.Where(r => r.IdReview == idReview).FirstOrDefaultAsync();
         }
 
-        public async Task<Event> GetEventById(int id)
+        public async Task<List<Review>> GetAllReviewsByUser(int idUser)
         {
-            return await _context.Events.Where(e => e.IdEvent == id).FirstOrDefaultAsync();
-        }
-
-        public async Task<Event> GetLastEvent()
-        {
-            var eventt = _context.Events.OrderByDescending(q => q.IdEvent).FirstOrDefaultAsync();
-            return await eventt;
+            return await _context.Reviews.Where(r => r.IdUser == idUser).ToListAsync();
         }
     }
 }
