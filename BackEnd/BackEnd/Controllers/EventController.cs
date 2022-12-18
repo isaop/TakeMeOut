@@ -97,7 +97,33 @@ namespace BackEnd.Controllers
             return (events == null) ? NotFound("No events found") : events;
         }
 
-       
+
+        [HttpPut("edit-event")]
+        public async Task<ActionResult> EditEvent([FromBody] EventDto @event)
+        {
+            Event e = new Event();
+            e.IdEvent = @event.IdEvent;
+            e.endHour = @event.endHour;
+            e.startHour = @event.startHour;
+            e.startDate = @event.startDate;
+            e.endDate = @event.endDate;
+            e.Description = @event.Description;
+            e.EventName = @event.EventName;
+            e.IdCategory = @event.IdCategory;
+            e.IdBusinessAccount = @event.IdBusinessAccount;
+            e.IdVenue = @event.IdVenue;
+
+            if (@event == null)
+                return BadRequest("Event is empty");
+            else
+            {
+
+                var result = await _eventService.EditEvent(e);
+
+                return Ok(result);
+            }
+        }
+
 
     }
 }

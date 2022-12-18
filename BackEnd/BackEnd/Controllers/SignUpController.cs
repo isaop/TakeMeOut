@@ -45,6 +45,35 @@ namespace BackEnd.Controllers
             }
         }
 
+        [HttpPost("sign-up-business-account")]
+        public async Task<IActionResult> SignUpBA([FromBody] BusinessAccountDto businessAccount)
+        {
+
+            BusinessAccount b = new BusinessAccount();
+            b.ContactNumber = businessAccount.ContactNumber;
+            b.Name = businessAccount.Name;
+            b.Description = businessAccount.Description;
+            b.Email = businessAccount.Email;
+            b.Password = businessAccount.Password;
+            b.IdVenue = businessAccount.IdVenue;
+
+            if (b is null)
+            {
+                return BadRequest("Business Account is null");
+            }
+
+            bool result = await _signUpService.CheckIfBAExists(b);
+
+            if (result == true)
+            {
+                return BadRequest("Business Account Already Exists");
+            }
+            else
+            {
+                return Ok(b);
+            }
+        }
+
 
     }
 }
