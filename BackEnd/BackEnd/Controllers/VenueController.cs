@@ -5,8 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BackEnd.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
     public class VenueController: ControllerBase
     {
         private readonly IVenueService _venueService;
@@ -17,16 +15,17 @@ namespace BackEnd.Controllers
         }
 
         [HttpPut("edit-venue")]
-        public async Task<ActionResult> EditEvent([FromBody] VenueDto venue)
+        public async Task<ActionResult> EditVenue([FromBody] VenueDto ven)
         {
             Venue v = new Venue();
-            v.Name = venue.Name;
-            v.Description = venue.Description;
-            v.Address = venue.Address;
-            v.ContactNumber = venue.ContactNumber;
+            v.IdVenue = ven.IdVenue;
+            v.Description = ven.Description;
+            v.ContactNumber = ven.ContactNumber;
+            v.Address = ven.Address;
+            v.Name = ven.Name;
 
-
-            if (venue == null)
+          
+            if (v == null)
                 return BadRequest("Venue is empty");
             else
             {
@@ -36,7 +35,5 @@ namespace BackEnd.Controllers
                 return Ok(result);
             }
         }
-
-      
     }
 }
