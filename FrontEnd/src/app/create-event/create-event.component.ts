@@ -1,4 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import { CreateEvent } from '../models/create-event';
 //import $ from "jquery";
 
 @Component({
@@ -8,95 +13,60 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateEventComponent implements OnInit {
 
-  // animating: any;
-  // current_fs: any;
-  // previous_fs: any;
-  // next_fs: any;
-
-
-  constructor() { }
+  name=new FormControl('');
+  venue=new FormControl('');
+  startDate=new FormControl('');
+  endDate=new FormControl('');
+  startTime=new FormControl('');
+  endTime=new FormControl('');
+  category=new FormControl('');
+  description=new FormControl('');
+  
+  constructor(
+    private router: Router,
+    private http: HttpClient
+    ) { }
 
   ngOnInit(): void {
   }
 
-//   SubmitClick() {}
+  createEventForm = new FormGroup({
+    name: new FormControl(),
+    venue: new FormControl(),
+    startDate: new FormControl(),
+    endDate: new FormControl(),
+    startTime: new FormControl(),
+    endTime: new FormControl(),
+    category: new FormControl(),
+    description: new FormControl(),
+  });
 
+  CreateEvent(){
+    let event: CreateEvent = {
+      eventName: this.createEventForm.get('name')?.value,
+      VenueID: 1,
+      venue: this.createEventForm.get('venue')?.value,
+      startDate: this.createEventForm.get('startDate')?.value,
+      endDate: this.createEventForm.get('endDate')?.value,
+      startTime: this.createEventForm.get('startTime')?.value,
+      endTime: this.createEventForm.get('endTime')?.value,
+      description: this.createEventForm.get('description')?.value,
+      category: this.createEventForm.get('category')?.value,
+    }
 
-// PreviousClick() {
-//   if(this.animating) return false;
-//   this.animating = true;
+    this.createEvent(event).subscribe((response) => {
+      console.log(response);
+      if(response.statusText == "OK")
+          this.router.navigate(['success']);
+    });
+  }
 
-//   this.current_fs = $(this).parent();
-//   this.previous_fs = $(this).parent().prev();
-
-//   //de-activate current step on progressbar
-//   $("#progressbar li").eq($("fieldset").index(this.current_fs)).removeClass("active");
-
-//   //show the previous fieldset
-//   this.previous_fs.show();
-//   //hide the current fieldset with style
-//   this.current_fs.animate({opacity: 0}, {
-//     step: function(now: number, mx: any) {
-//       //as the opacity of current_fs reduces to 0 - stored in "now"
-//       //1. scale previous_fs from 80% to 100%
-//       var scale = 0.8 + (1 - now) * 0.2;
-//       //2. take current_fs to the right(50%) - from 0%
-//       var left = ((1-now) * 50)+"%";
-//       //3. increase opacity of previous_fs to 1 as it moves in
-//       var opacity = 1 - now;
-//       this.current_fs.scss({'left': left});
-//       this.previous_fs.scss({'transform': 'scale('+scale+')', 'opacity': opacity});
-//     },
-//     duration: 800,
-//     complete: function(){
-//       this.current_fs.hide();
-//       this.animating = false;
-//     },
-//     //this comes from the custom easing plugin
-//     easing: 'easeInOutBack'
-//   });
-// }
-
-
-
-// NextClick(){
-//   if(this.animating) return false;
-//   this.animating = true;
-
-//   this.current_fs = $(this).parent();
-//   this.next_fs = $(this).parent().next();
-
-//   //activate next step on progressbar using the index of next_fs
-//   $("#progressbar li").eq($("fieldset").index(this.next_fs)).addClass("active"),
-
-//   //show the next fieldset
-//   this.next_fs.show(),
-//   //hide the current fieldset with style
-//   this.current_fs.animate({opacity: 0}, {
-//     step: function(now: number, mx: any) {
-//       //as the opacity of current_fs reduces to 0 - stored in "now"
-//       //1. scale current_fs down to 80%
-//       var scale = 1 - (1 - now) * 0.2;
-//       //2. bring next_fs from the right(50%)
-//       var left = (now * 50)+"%";
-//       //3. increase opacity of next_fs to 1 as it moves in
-//       var opacity = 1 - now;
-//       this.current_fs.css({
-//         'transform': 'scale('+scale+')',
-//         'position': 'absolute'
-//       });
-//       this.next_fs.scss({'left': left, 'opacity': opacity});
-//     },
-//     duration: 800,
-//     complete: function(){
-//       this.current_fs.hide();
-//       this.animating = false;
-//     },
-//     //this comes from the custom easing plugin
-//     easing: 'easeInOutBack'
-//   });
-// }
-
+  createEvent(event: any){
+    return this.http.post(`${environment.BaseUrl}/Event/add-event`, event, {
+      observe: 'response',
+      responseType: 'text',
+    });
+  }
 }
 
 
