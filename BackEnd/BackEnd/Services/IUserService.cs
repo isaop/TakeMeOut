@@ -8,5 +8,7 @@ namespace BackEnd.Services
         public Task<List<User>> GetAllUsers();
         public Task<User> EditUser(User user);
 
+        public Task<bool> ChangeUserPassword(int idUser, string oldPassword, string newPassword);
+
     }
 }

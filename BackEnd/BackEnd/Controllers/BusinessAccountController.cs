@@ -63,5 +63,21 @@ namespace BackEnd.Controllers
                 return true;
             }
         }
+
+        [HttpPut("change-password-ba")]
+        public async Task<bool> ChangeBAPassword([FromBody] ChangePasswordRequest req)
+        {
+
+            int id = req.Id;
+            string oldPassword = req.OldPassword;
+            string newPassword = req.NewPassword;
+
+            var result = await _baService.ChangeBAPassword(id, oldPassword, newPassword);
+            if (result == true)
+                return true;
+            else
+                return false;
+
+        }
     }
 }
