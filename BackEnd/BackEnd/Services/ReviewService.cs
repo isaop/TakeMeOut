@@ -36,5 +36,19 @@ namespace BackEnd.Services
             var review = _context.Reviews.OrderByDescending(q => q.IdEvent).FirstOrDefaultAsync();
             return await review;
         }
+        public async Task<Review> CheckIfReviewExists(int? id)
+        {
+            var @review = await _context.Reviews.FirstOrDefaultAsync(e => e.IdReview == id);
+            if (@review == null)
+                return null;
+            else
+                return @review;
+        }
+        public async Task<bool> DeleteReview(Review r)
+        {
+            _context.Reviews.Remove(r);
+            await _context.SaveChangesAsync();
+            return true;
+        }
     }
 }

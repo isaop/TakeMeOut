@@ -30,9 +30,9 @@ namespace BackEnd.Controllers
             r.IdUser = newReview.IdUser;
 
             bool result = await _reviewService.AddReviewToDatabase(r);
-            var newEvent = await _reviewService.GetLastReview();
+            var myReview = await _reviewService.GetLastReview();
             if (result == true)
-                return Ok(newEvent.IdReview);
+                return Ok(myReview.IdReview);
             else
                 return BadRequest("failed to add");
         }
@@ -59,6 +59,23 @@ namespace BackEnd.Controllers
                 requestedReviews.Add(r);
             }
             return (requestedReviews == null) ? NotFound("No reviews found") : requestedReviews;
+        }
+
+        [HttpDelete("delete-Review")]
+        public async Task<ActionResult> DeleteReview(int id)
+        {
+            Review result = await _reviewService.CheckIfReviewExists(id);
+
+            if (result != null)
+            {
+                bool delete = await _reviewService.DeleteReview(result);
+                return Ok(delete);
+            }
+            else
+            {
+                return BadRequest("failed to delete");
+            }
+
         }
     }
 }
