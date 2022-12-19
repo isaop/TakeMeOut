@@ -16,7 +16,7 @@ namespace BackEnd.Services
 
         public Task<bool> DeleteBusinessAccount(BusinessAccount ba);
 
-
+        public bool CheckIfEventHasBA(int idba); 
 
     }
 }
