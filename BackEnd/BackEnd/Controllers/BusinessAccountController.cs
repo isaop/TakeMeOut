@@ -86,16 +86,22 @@ namespace BackEnd.Controllers
         {
             BusinessAccount result = await _baService.CheckIfBusinessAccountExists(id);
 
-            if (result != null)
-            {
-                bool delete = await _baService.DeleteBusinessAccount(result);
-                return Ok(delete);
-            }
+            var exists = _baService.CheckIfEventHasBA(id);
+            if (exists == true)
+                return BadRequest("Delete the Events of this BA first!");
             else
             {
-                return BadRequest("failed to delete");
-            }
 
+                if (result != null)
+                {
+                    bool delete = await _baService.DeleteBusinessAccount(result);
+                    return Ok(delete);
+                }
+                else
+                {
+                    return BadRequest("failed to delete");
+                }
+            }
         }
     }
 }
