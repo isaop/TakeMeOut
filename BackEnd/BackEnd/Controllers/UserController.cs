@@ -84,6 +84,61 @@ namespace BackEnd.Controllers
                 bool delete = await _userService.DeleteUser(result);
                 return Ok(delete);
             }
+
+            var exists = _userService.CheckIfUserActionHasUser(id);
+            if (exists == true)
+                return BadRequest("Delete the UserActions of this User first!");
+            else
+            {
+                return BadRequest("failed to delete");
+            }
+
+            if (result != null)
+            {
+                bool delete = await _userService.DeleteUser(result);
+                return Ok(delete);
+            }
+            
+            var exists1 = _userService.CheckIfPaymentHasUser(id);
+            if (exists1 == true)
+                return BadRequest("Delete the Payment of this User first!");
+            else
+            {
+                return BadRequest("failed to delete");
+            }
+
+            if (result != null)
+            {
+                bool delete = await _userService.DeleteUser(result);
+                return Ok(delete);
+            }
+            var exists3 = _userService.CheckIfReviewHasUser(id);
+            if (exists3 == true)
+                return BadRequest("Delete the Review of this User first!");
+            else
+            {
+                return BadRequest("failed to delete");
+            }
+
+            if (result != null)
+            {
+                bool delete = await _userService.DeleteUser(result);
+                return Ok(delete);
+            }
+            var exists4 = _userService.CheckIfOrderHasUser(id);
+            if (exists4 == true)
+                return BadRequest("Delete the Order of this User first!");
+            else
+            {
+                return BadRequest("failed to delete");
+            }
+
+            if (result != null)
+            {
+                bool delete = await _userService.DeleteUser(result);
+                return Ok(delete);
+            }
+
             else
             {
                 return BadRequest("failed to delete");

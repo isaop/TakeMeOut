@@ -72,5 +72,14 @@ namespace BackEnd.Services
             await _context.SaveChangesAsync();
             return true;
         }
+        public bool CheckIfEventHasBA(int idBa)
+        {
+            bool exists = false;
+            foreach (var eventt in _context.Events)
+                if (eventt.IdBusinessAccount == idBa)
+                    exists = true;
+
+            return exists;
+        }
     }
 }

@@ -12,9 +12,10 @@ namespace BackEnd.Services
         public Task<bool> ChangeBAPassword(int idBA, string oldPassword, string newPassword);
 
         public Task<BusinessAccount> CheckIfBusinessAccountExists(int? id);
-
-
+        
         public Task<bool> DeleteBusinessAccount(BusinessAccount ba);
+
+        public bool CheckIfEventHasBA(int idBa);
 
 
 

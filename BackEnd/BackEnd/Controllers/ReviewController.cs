@@ -30,9 +30,9 @@ namespace BackEnd.Controllers
             r.IdUser = newReview.IdUser;
 
             bool result = await _reviewService.AddReviewToDatabase(r);
-            var newEvent = await _reviewService.GetLastReview();
+            var myReview = await _reviewService.GetLastReview();
             if (result == true)
-                return Ok(newEvent.IdReview);
+                return Ok(myReview.IdReview);
             else
                 return BadRequest("failed to add");
         }

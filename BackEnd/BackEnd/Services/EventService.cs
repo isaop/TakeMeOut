@@ -74,5 +74,33 @@ namespace BackEnd.Services
             await _context.SaveChangesAsync();
             return true;
         }
+        public bool CheckIfOrderHasEvent(int idEv)
+        {
+            bool exists = false;
+            foreach (var orderr in _context.Orders)
+                if (orderr.IdEvent == idEv)
+                    exists = true;
+
+            return exists;
+        }
+        public bool CheckIfReviewHasEvent(int idEv)
+        {
+            bool exists = false;
+            foreach (var revieww in _context.Reviews)
+                if (revieww.IdEvent == idEv)
+                    exists = true;
+
+            return exists;
+        }
+        public bool CheckIfUserActionHasEvent(int idEv)
+        {
+            bool exists = false;
+            foreach (var usactionss in _context.UserActions)
+                if (usactionss.IdEvent == idEv)
+                    exists = true;
+
+            return exists;
+        }
+
     }
 }
