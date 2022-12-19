@@ -97,5 +97,21 @@ namespace BackEnd.Controllers
                 return true;
             }
         }
+        [HttpDelete("delete-Event")]
+        public async Task<ActionResult> DeleteEvent(int id)
+        {
+            Event result = await _eventService.CheckIfEventExists(id);
+
+            if (result != null)
+            {
+                bool delete = await _eventService.DeleteEvent(result);
+                return Ok(delete);
+            }
+            else
+            {
+                return BadRequest("failed to delete");
+            }
+
+        }
     }
 }

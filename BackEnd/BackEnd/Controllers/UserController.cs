@@ -2,6 +2,7 @@
 using BackEnd.Services;
 using BackEnd.Dtos;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace BackEnd.Controllers
 {
@@ -71,6 +72,22 @@ namespace BackEnd.Controllers
                 return true;
             else
                 return false;
+
+        }
+        [HttpDelete("delete-User")]
+        public async Task<ActionResult> DeleteUser(int id)
+        {
+            User result = await _userService.CheckIfUserExists(id);
+
+            if (result != null)
+            {
+                bool delete = await _userService.DeleteUser(result);
+                return Ok(delete);
+            }
+            else
+            {
+                return BadRequest("failed to delete");
+            }
 
         }
     }

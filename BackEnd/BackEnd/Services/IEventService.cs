@@ -12,5 +12,7 @@ namespace BackEnd.Services
 
         public Task<List<Event>> GetAllEvents();
         public Task<Event> EditEvent(Event @event);
+        public Task<bool> DeleteEvent(Event e);
+        public Task<Event> CheckIfEventExists(int? id);
     }
 }

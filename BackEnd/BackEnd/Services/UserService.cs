@@ -1,6 +1,7 @@
 ﻿using BackEnd.Database;
 using BackEnd.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace BackEnd.Services
 {
@@ -64,6 +65,12 @@ namespace BackEnd.Services
             {
                 return false;
             }
+        }
+        public async Task<bool> DeleteUser(User u)
+        {
+            _context.Users.Remove(u);
+            await _context.SaveChangesAsync();
+            return true;
         }
     }
 }

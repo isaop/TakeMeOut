@@ -60,5 +60,22 @@ namespace BackEnd.Controllers
             }
             return (requestedReviews == null) ? NotFound("No reviews found") : requestedReviews;
         }
+
+        [HttpDelete("delete-Review")]
+        public async Task<ActionResult> DeleteReview(int id)
+        {
+            Review result = await _reviewService.CheckIfReviewExists(id);
+
+            if (result != null)
+            {
+                bool delete = await _reviewService.DeleteReview(result);
+                return Ok(delete);
+            }
+            else
+            {
+                return BadRequest("failed to delete");
+            }
+
+        }
     }
 }

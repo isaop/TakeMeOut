@@ -68,5 +68,11 @@ namespace BackEnd.Services
             await(_context.SaveChangesAsync());
             return result;
         }
+        public async Task<bool> DeleteEvent(Event e)
+        {
+            _context.Events.Remove(e);
+            await _context.SaveChangesAsync();
+            return true;
+        }
     }
 }
