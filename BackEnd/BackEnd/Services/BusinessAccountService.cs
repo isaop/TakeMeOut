@@ -72,8 +72,6 @@ namespace BackEnd.Services
             await _context.SaveChangesAsync();
             return true;
         }
-
-
         public bool CheckIfEventHasBA(int idBa)
         {
             bool exists = false;

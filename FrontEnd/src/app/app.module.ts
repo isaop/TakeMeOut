@@ -22,6 +22,7 @@ import { ReviewComponent } from './review/review.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SuccessPageComponent } from './success-page/success-page.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
+import { SignupBaComponent } from './signup-ba/signup-ba.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { EditEventComponent } from './edit-event/edit-event.component';
     BaEditComponent,
     BaChangePasswdComponent,
     SuccessPageComponent,
-    EditEventComponent
+    EditEventComponent,
+    SignupBaComponent
   ],
   imports: [
     BrowserModule,
