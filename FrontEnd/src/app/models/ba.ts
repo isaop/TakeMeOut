@@ -1,8 +1,8 @@
-export interface BusinessAccountEdit {
-    userId: string;
+export interface BA{
+    BAId: number;
     name: string;
-    venueName: string;
-    phoneNumber: string;
-    address: string;
     description: string;
+    email: string;
+    contactNumber: string;
+    password: string;
 }
