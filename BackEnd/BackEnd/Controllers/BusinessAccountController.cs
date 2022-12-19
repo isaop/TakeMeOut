@@ -79,5 +79,23 @@ namespace BackEnd.Controllers
                 return false;
 
         }
+
+
+        [HttpDelete("delete-BA")]
+        public async Task<ActionResult> DeleteBusinessAccount(int id)
+        {
+            BusinessAccount result = await _baService.CheckIfBusinessAccountExists(id);
+
+            if (result != null)
+            {
+                bool delete = await _baService.DeleteBusinessAccount(result);
+                return Ok(delete);
+            }
+            else
+            {
+                return BadRequest("failed to delete");
+            }
+
+        }
     }
 }

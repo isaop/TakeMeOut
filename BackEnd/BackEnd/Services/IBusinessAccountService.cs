@@ -8,7 +8,14 @@ namespace BackEnd.Services
         public Task<List<BusinessAccount>> GetAllBusinessAccounts();
 
         public Task<BusinessAccount> EditBusinessAccount(BusinessAccount ba);
+
         public Task<bool> ChangeBAPassword(int idBA, string oldPassword, string newPassword);
+
+        public Task<BusinessAccount> CheckIfBusinessAccountExists(int? id);
+
+
+        public Task<bool> DeleteBusinessAccount(BusinessAccount ba);
+
 
 
     }

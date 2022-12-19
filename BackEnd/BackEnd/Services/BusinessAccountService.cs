@@ -65,5 +65,12 @@ namespace BackEnd.Services
                 return false;
             }
         }
+
+        public async Task<bool> DeleteBusinessAccount(BusinessAccount ba)
+        {
+            _context.BusinessAccounts.Remove(ba);
+            await _context.SaveChangesAsync();
+            return true;
+        }
     }
 }
