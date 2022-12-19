@@ -1,6 +1,7 @@
 ﻿using BackEnd.Database;
 using BackEnd.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace BackEnd.Services
 {
@@ -64,6 +65,49 @@ namespace BackEnd.Services
             {
                 return false;
             }
+        }
+        public async Task<bool> DeleteUser(User u)
+        {
+            _context.Users.Remove(u);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public bool CheckIfUserActionHasUser(int idUs)
+        {
+            bool exists = false;
+            foreach (var usactionss in _context.UserActions)
+                if (usactionss.IdUser == idUs)
+                    exists = true;
+
+            return exists;
+        }
+        public bool CheckIfReviewHasUser(int idUs)
+        {
+            bool exists = false;
+            foreach (var revieww in _context.Reviews)
+                if (revieww.IdUser == idUs)
+                    exists = true;
+
+            return exists;
+        }
+        public bool CheckIfPaymentHasUser(int idUs)
+        {
+            bool exists = false;
+            foreach (var paymentt in _context.Payments)
+                if (paymentt.IdUser == idUs)
+                    exists = true;
+
+            return exists;
+        }
+        public bool CheckIfOrderHasUser(int idUs)
+        {
+            bool exists = false;
+            foreach (var orderr in _context.Orders)
+                if (orderr.IdEvent == idUs)
+                    exists = true;
+
+            return exists;
         }
     }
 }
