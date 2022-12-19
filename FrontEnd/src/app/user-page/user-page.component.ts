@@ -14,13 +14,12 @@ export class UserPageComponent implements OnInit {
   ChangePass = false;
   ContentPass = false;
   initialText: User = {
+    userId:0,
     name: 'John',
     surname: 'Doe',
     email: 'john.doe@example.com',
-    phone_number: '1234567890',
-    city: 'New York',
-    country: 'USA',
-    address: '123 Main Street',
+    phoneNumber: '1234567890',
+
     password: 'secret'
   };
   inputText = '';

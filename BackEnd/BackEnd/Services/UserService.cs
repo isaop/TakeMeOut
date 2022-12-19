@@ -45,5 +45,25 @@ namespace BackEnd.Services
             else
                 return user;
         }
+
+        public async Task<bool> ChangeUserPassword(int idUser, string oldPassword, string newPassword)
+        {
+
+            var user = await CheckIfUserExists(idUser);
+
+            var hashedOldPassword = Hasher.CreateMD5(oldPassword);
+            var hashedNewPassword = Hasher.CreateMD5(newPassword);
+
+
+            if (user.Password == hashedOldPassword)
+            {
+                user.Password = hashedNewPassword;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

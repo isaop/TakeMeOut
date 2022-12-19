@@ -46,5 +46,24 @@ namespace BackEnd.Services
             else
                 return ba;
         }
+
+        public async Task<bool> ChangeBAPassword(int idBA, string oldPassword, string newPassword)
+        {
+            var ba = await CheckIfBusinessAccountExists(idBA);
+
+            var hashedOldPassword = Hasher.CreateMD5(oldPassword);
+            var hashedNewPassword = Hasher.CreateMD5(newPassword);
+
+
+            if (ba.Password == hashedOldPassword)
+            {
+                ba.Password = hashedNewPassword;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

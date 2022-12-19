@@ -17,30 +17,11 @@
         <li>
           <div id="Content">
             <h4>Phone Number</h4>
-            <span #textToEdit [contentEditable]="editing">{{ initialText.phone_number }}</span>
+            <span #textToEdit [contentEditable]="editing">{{ initialText.phoneNumber }}</span>
           </div>
         </li>
 
-        <li>
-          <div id="Content">
-            <h4>City</h4>
-            <span #textToEdit [contentEditable]="editing">{{ initialText.city }}</span>
-          </div>
-        </li>
 
-        <li>
-          <div id="Content">
-            <h4>Country</h4>
-            <span #textToEdit [contentEditable]="editing">{{ initialText.country }}</span>
-          </div>
-        </li>
-
-        <li>
-          <div id="Content">
-            <h4>Address</h4>
-            <span #textToEdit [contentEditable]="editing">{{ initialText.address }}</span>
-          </div>
-        </li>
 
         <li *ngIf="ChangePass">
           <div id="ContentPassReq">
