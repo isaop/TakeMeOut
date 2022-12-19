@@ -1,80 +1,83 @@
 <div id="MobileView">
   <div id="Content">
     <div id="UserImg"></div>
-    <h3 id="Title"><strong>{{initialText.name}} {{initialText.surname}}</strong></h3>
+    <div *ngFor="let user of users; let i = index">
 
-    <div class="HR"></div>
+        <h3 id="Title"><strong>{{initialText.name}} {{initialText.surname}}</strong></h3>
 
-    <menu>
-      <ul>
-        <li>
-          <div id="Content">
-            <h4>Email</h4>
-            <span #textToEdit [contentEditable]="editing">{{ initialText.email }}</span>
-          </div>
-        </li>
+        <div class="HR"></div>
 
-        <li>
-          <div id="Content">
-            <h4>Phone Number</h4>
-            <span #textToEdit [contentEditable]="editing">{{ initialText.phoneNumber }}</span>
-          </div>
-        </li>
+        <menu>
+          <ul>
+            <li>
+              <div id="Content">
+                <h4>Email</h4>
+                <span #textToEdit [contentEditable]="editing">{{ initialText.email }}</span>
+              </div>
+            </li>
+
+            <li>
+              <div id="Content">
+                <h4>Phone Number</h4>
+                <span #textToEdit [contentEditable]="editing">{{ initialText.phoneNumber }}</span>
+              </div>
+            </li>
 
 
 
-        <li *ngIf="ChangePass">
-          <div id="ContentPassReq">
-            <div *ngIf="checkPassword" id="ContentPassReq">
-              <h4>Enter your current password to know that it's you</h4>
-              <input type="text" [(ngModel)]="inputText" />
-              <button id="ConfirmPass" *ngIf="editing" (click)="CheckInputText(initialText)">Confirm</button>
-              <h1 *ngIf="WrongPassword" style="color: red;">Wrong Password. Try again!</h1>
-            </div>
-            <div *ngIf="ContentPass" id="ContentPassReq">
-              <h4>Please Enter New password</h4>
-              <input type="text" [(ngModel)]="inputPassword" />
-              <h4>Please Re-Enter New password</h4>
-              <input type="text" [(ngModel)]="inputPasswordVerification" />
-              <button id="ConfirmPass" (click)="ResetPassword()">Confirm Reset</button>
-              <h1 *ngIf="WrongPassword" style="color: red;">Wrong Password. Try again!</h1>
-            </div>
-          </div>
-        </li>
+            <li *ngIf="ChangePass">
+              <div id="ContentPassReq">
+                <div *ngIf="checkPassword" id="ContentPassReq">
+                  <h4>Enter your current password to know that it's you</h4>
+                  <input type="text" [(ngModel)]="inputText" />
+                  <button id="ConfirmPass" *ngIf="editing" (click)="CheckInputText(initialText)">Confirm</button>
+                  <h1 *ngIf="WrongPassword" style="color: red;">Wrong Password. Try again!</h1>
+                </div>
+                <div *ngIf="ContentPass" id="ContentPassReq">
+                  <h4>Please Enter New password</h4>
+                  <input type="text" [(ngModel)]="inputPassword" />
+                  <h4>Please Re-Enter New password</h4>
+                  <input type="text" [(ngModel)]="inputPasswordVerification" />
+                  <button id="ConfirmPass" (click)="ResetPassword()">Confirm Reset</button>
+                  <h1 *ngIf="WrongPassword" style="color: red;">Wrong Password. Try again!</h1>
+                </div>
+              </div>
+            </li>
 
-      </ul>
-    </menu>
-    <div id="EditingButtons">
-      <button *ngIf="!editing" (click)="editing = true ; OpenEditForm=true">Edit</button>
-      <button *ngIf="editing" (click)="saveText()">Save Modifications</button>
-      <button *ngIf="editing" (click)="cancelEdit()">Cancel Modifications</button>
-      <button *ngIf="editing" (click)="ChangePass=true;checkPassword=true">Change Password</button>
-    </div>
-    <div *ngIf="successfullyReset">
-      <h1 style="color: red;">Password successfully reset</h1>
-    </div>
-    <form *ngIf="OpenEditForm" [formGroup]="signUpFormEdit">
-      <h3>Sign-up</h3>
-      <div class="centeringDivMain">
-          <div class="centeringDiv" style="margin-right: 15px;">
-              <div class="input">
-                  <Label style="margin-right:30px;color: red;" > Name: </Label>
-                  <input id="name" style="border-radius: 15px;" type="text" formControlName="nameEdit" value={{initialText.name}}>
-                  <Label style="margin-right:12px;color: red;" for="surname"> Surname: </Label>
-                  <input id="surname" style="border-radius: 15px;" type="text" formControlName="surnameEdit" value={{initialText.surname}}>
-                  <Label style="margin-right:23px;color: red;" for="email"> E-mail: </Label>
-                  <input id="email" style="border-radius: 15px;" type="text" formControlName="emailEdit" value={{initialText.email}}>
-    
+          </ul>
+        </menu>
+        <div id="EditingButtons">
+          <button *ngIf="!editing" (click)="editing = true ; OpenEditForm=true">Edit</button>
+          <button *ngIf="editing" (click)="saveText()">Save Modifications</button>
+          <button *ngIf="editing" (click)="cancelEdit()">Cancel Modifications</button>
+          <button *ngIf="editing" (click)="ChangePass=true;checkPassword=true">Change Password</button>
+        </div>
+        <div *ngIf="successfullyReset">
+          <h1 style="color: red;">Password successfully reset</h1>
+        </div>
+        <form *ngIf="OpenEditForm" [formGroup]="signUpFormEdit">
+          <h3>Sign-up</h3>
+          <div class="centeringDivMain">
+              <div class="centeringDiv" style="margin-right: 15px;">
+                  <div class="input">
+                      <Label style="margin-right:30px;color: red;" > Name: </Label>
+                      <input id="name" style="border-radius: 15px;" type="text" formControlName="nameEdit" value={{initialText.name}}>
+                      <Label style="margin-right:12px;color: red;" for="surname"> Surname: </Label>
+                      <input id="surname" style="border-radius: 15px;" type="text" formControlName="surnameEdit" value={{initialText.surname}}>
+                      <Label style="margin-right:23px;color: red;" for="email"> E-mail: </Label>
+                      <input id="email" style="border-radius: 15px;" type="text" formControlName="emailEdit" value={{initialText.email}}>
+        
+                  </div>
+              </div>
+              <div class="centeringDiv">
+                  <div class="input" >
+                      <Label style="margin-right:25px;color: red;" for="phone"> Phone: </Label>
+                      <input id="phone" style="border-radius: 15px;" type="text" formControlName="phoneNumberEdit" value={{initialText.phoneNumber}}>
+                  </div>
               </div>
           </div>
-          <div class="centeringDiv">
-              <div class="input" >
-                  <Label style="margin-right:25px;color: red;" for="phone"> Phone: </Label>
-                  <input id="phone" style="border-radius: 15px;" type="text" formControlName="phoneNumberEdit" value={{initialText.phoneNumber}}>
-              </div>
-          </div>
-      </div>
-      <button class="button-85" type="submit" (click)="FinalizeEdit()">Finalize Edit User</button>
-    </form>
+          <button class="button-85" type="submit" (click)="FinalizeEdit()">Finalize Edit User</button>
+        </form>
   </div>
+</div>
 </div>
