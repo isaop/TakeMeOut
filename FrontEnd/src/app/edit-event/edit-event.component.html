@@ -1,0 +1,26 @@
+<div id="MobileView">
+    <div id="Content">
+      <h3 id="Title"><strong>*BAname*</strong></h3>
+  
+      <div class="HR"></div>
+  
+      <form class="FormVenueEdit">
+        <h3>Edit user credentials</h3>
+        <div class="centeringDivMain">
+          <div class="centeringDiv" style="margin-right: 15px;">
+            <div class="input">
+              <Label style="margin-right:30px;color: red;"> Name: </Label>
+              <input id="name" style="border-radius: 15px;" type="text" formControlName="nameEDIT" value={{CurrentEvent.name}}>
+              <Label style="margin-right:12px;color: red;" for="description"> description: </Label>
+              <input id="description" style="border-radius: 15px;" type="text" formControlName="descriptionEDIT"
+                value={{CurrentEvent.description}}>
+
+            </div>
+          </div>
+        </div>
+        <button class="button-85" type="submit" (click)="FinalizeEdit()">Finalize Edit User</button>
+      </form>
+  
+  
+    </div>
+  </div>

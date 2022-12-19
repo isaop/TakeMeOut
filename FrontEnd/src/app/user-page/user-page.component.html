@@ -53,28 +53,29 @@
     <div *ngIf="successfullyReset">
       <h1 style="color: red;">Password successfully reset</h1>
     </div>
-    <form *ngIf="OpenEditForm" [formGroup]="signUpFormEdit">
-      <h3>Sign-up</h3>
-      <div class="centeringDivMain">
-          <div class="centeringDiv" style="margin-right: 15px;">
-              <div class="input">
-                  <Label style="margin-right:30px;color: red;" > Name: </Label>
-                  <input id="name" style="border-radius: 15px;" type="text" formControlName="nameEdit" value={{initialText.name}}>
-                  <Label style="margin-right:12px;color: red;" for="surname"> Surname: </Label>
-                  <input id="surname" style="border-radius: 15px;" type="text" formControlName="surnameEdit" value={{initialText.surname}}>
-                  <Label style="margin-right:23px;color: red;" for="email"> E-mail: </Label>
-                  <input id="email" style="border-radius: 15px;" type="text" formControlName="emailEdit" value={{initialText.email}}>
     
-              </div>
+    <form *ngIf="OpenEditForm" [formGroup]="signUpFormEdit" class="FormVenueEdit">
+      <h3>Edit user credentials</h3>
+      <div class="centeringDivMain">
+        <div class="centeringDiv" style="margin-right: 15px;">
+          <div class="input">
+            <Label style="margin-right:30px;color: red;"> Name: </Label>
+            <input id="name" style="border-radius: 15px;" type="text" formControlName="nameEdit"
+              value={{initialText.name}}>
+            <Label style="margin-right:12px;color: red;" for="surname"> Surname: </Label>
+            <input id="surname" style="border-radius: 15px;" type="text" formControlName="surnameEdit"
+              value={{initialText.surname}}>
+            <Label style="margin-right:23px;color: red;" for="email"> E-mail: </Label>
+            <input id="email" style="border-radius: 15px;" type="text" formControlName="emailEdit"
+              value={{initialText.email}}>
+            <Label style="margin-right:25px;color: red;" for="phone"> Phone: </Label>
+            <input id="phone" style="border-radius: 15px;" type="text" formControlName="phoneNumberEdit"
+              value={{initialText.phoneNumber}}>
           </div>
-          <div class="centeringDiv">
-              <div class="input" >
-                  <Label style="margin-right:25px;color: red;" for="phone"> Phone: </Label>
-                  <input id="phone" style="border-radius: 15px;" type="text" formControlName="phoneNumberEdit" value={{initialText.phoneNumber}}>
-              </div>
-          </div>
+        </div>
       </div>
       <button class="button-85" type="submit" (click)="FinalizeEdit()">Finalize Edit User</button>
     </form>
+
   </div>
 </div>

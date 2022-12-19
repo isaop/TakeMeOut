@@ -1,7 +1,4 @@
-
-
-export interface Event {
+export interface EventEdit {
   name: string;
   description: string;
-
-}
+} 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Event } from '../models/event'
+import { EventEdit } from '../models/event'
 
 @Component({
   selector: 'app-review',
@@ -7,7 +7,7 @@ import { Event } from '../models/event'
   styleUrls: ['./review.component.scss']
 })
 export class ReviewComponent implements OnInit {
-  event: Event = {
+  event: EventEdit = {
     name: 'Event name',
     description: 'quick yoga cred'
   };
