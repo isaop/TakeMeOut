@@ -1,45 +1,30 @@
 <div id="MobileView">
     <div id="Content">
-      <h3 id="Title"><strong>*name*</strong></h3>
+        <h3 id="Title"><strong>*name*</strong></h3>
+        <div class="HR"></div>
 
-      <div class="HR"></div>
-  
-      <menu>
-        <ul>
-          <li>
-            <div id="Content">
-              <h4>Name</h4>
-              <input class="label" type="text" name="name" placeholder="name*">
-              <label for="name"></label>
+        <form class="FormVenueEdit">
+            <h3>Edit venue edit</h3>
+            <div class="centeringDivMain">
+                <div class="centeringDiv" style="margin-right: 15px;">
+                    <div class="input">
+                        <Label style="margin-right:30px;color: red;"> Name: </Label>
+                        <input id="name" style="border-radius: 15px;" type="text" formControlName="nameEdit"
+                            value={{VenueInfo.name}}>
+                        <Label style="margin-right:12px;color: red;" for="contactNumber"> contactNumber: </Label>
+                        <input id="contactNumber" style="border-radius: 15px;" type="text" formControlName="phoneNumberEdit"
+                            value={{VenueInfo.contactNumber}}>
+                        <Label style="margin-right:23px;color: red;" for="address"> address: </Label>
+                        <input id="address" style="border-radius: 15px;" type="text" formControlName="addressEdit"
+                            value={{VenueInfo.address}}>
+                        <Label style="margin-right:23px;color: red;" for="description"> description: </Label>
+                        <input id="description" style="border-radius: 15px;" type="text" formControlName="descriptionEdit"
+                            value={{VenueInfo.description}}>
+                    </div>
+                </div>
             </div>
-          </li>
-          
-          <li>
-            <div id="Content">
-              <h4>Contact Number</h4>
-              <input class="label" type="text" name="contactNumber" placeholder="contactNumber*">
-              <label for="contactNumber"></label>
-            </div>
-          </li>
+            <button class="button-85" type="submit" (click)="FinalizeEdit()">Finalize Edit Venue</button>
+        </form>
 
-          <li>
-            <div id="Content">
-              <h4>Address</h4>
-              <input class="label" type="text" name="address" placeholder="address*">
-              <label for="address"></label>
-            </div>
-          </li>
-          
-          <li>
-            <div id="Content">
-              <h4>Description</h4>
-              <input class="label" type="text" name="description" placeholder="description*">
-              <label for="description"></label>
-            </div>
-          </li>
-                    
-        </ul>
-      </menu>
-      <button class="saveChanges" type="button">Save Changes</button>
     </div>
-  </div>
+</div>

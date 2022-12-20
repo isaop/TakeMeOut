@@ -5,6 +5,11 @@ namespace BackEnd.Models;
 
 public partial class User
 {
+    public User()
+    {
+        UserRefreshTokens = new HashSet<UserRefreshToken>();
+    }
+
     public int? IdUser { get; set; }
 
     public string? Name { get; set; }
@@ -24,4 +29,6 @@ public partial class User
     public virtual ICollection<Review> Reviews { get; } = new List<Review>();
 
     public virtual ICollection<UserAction> UserActions { get; } = new List<UserAction>();
+
+    public virtual ICollection<UserRefreshToken> UserRefreshTokens { get; set; }
 }
