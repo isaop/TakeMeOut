@@ -1,3 +1,4 @@
+<form [formGroup]="reviewForm">
 <div id="MobileView">
 
   <div id="Content">
@@ -9,7 +10,7 @@
         <li>
           <div id="Content">
             <h4>Name</h4>
-            <input class="label" type="text" name="score" placeholder="score????">
+            <input class="label" type="text" name="score" placeholder="score????" formControlName="score">
             <!-- facem cu stelute sau ce ?? -->
             <label for="score"></label>
           </div>
@@ -17,15 +18,15 @@
         <li>
           <div id="Content">
             <h4>Description</h4>
-            <textarea class="label" type="text" name="description"
-              placeholder="Pleae write how you felt during that event!"></textarea>
+            <textarea class="label" type="text" name="description" placeholder="Pleae write how you felt during that event!" formControlName="description"></textarea>
           </div>
         </li>
 
       </ul>
     </menu>
-    <button class="button-28" type="submit" (click)="PublishReview()">Publish review!</button>
+    <button class="saveChanges" type="submit" (click)="PublishReview()">Publish review!</button>
   
   </div>
 
 </div>
+</form>
