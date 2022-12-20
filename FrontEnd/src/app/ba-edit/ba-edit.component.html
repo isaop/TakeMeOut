@@ -1,65 +1,34 @@
 <div id="MobileView">
-    <div id="Content">
-      <h3 id="Title"><strong>*BAname*</strong></h3>
+  <div id="Content">
+    <h3 id="Title"><strong>*BAname*</strong></h3>
 
-      <div class="HR"></div>
-  
-      <menu>
-        <ul>
-          <li>
-            <div id="Content">
-              <h4>Name</h4>
-              <input class="label" type="text" name="name" placeholder="name*">
-              <label for="name"></label>
-            </div>
-          </li>
+    <div class="HR"></div>
 
-          <li>
-            <div id="Content">
-              <h4>Venue Name</h4>
-              <input class="label" type="text" name="venueName" placeholder="venueName*">
-              <label for="venueName"></label>
-            </div>
-          </li>
+    <form class="FormVenueEdit">
+      <h3>Edit BusinessUser credentials</h3>
+      <div class="centeringDivMain">
+        <div class="centeringDiv" style="margin-right: 15px;">
+          <div class="input">
+            <Label style="margin-right:30px;color: red;"> Name: </Label>
+            <input id="name" style="border-radius: 15px;" type="text" formControlName="nameEdit" value={{BA.name}}>
+            <Label style="margin-right:12px;color: red;" for="venueName"> Venue Name: </Label>
+            <input id="venueName" style="border-radius: 15px;" type="text" formControlName="venueNameEdit"
+              value={{BA.venueName}}>
+            <Label style="margin-right:23px;color: red;" for="address"> address: </Label>
+            <input id="address" style="border-radius: 15px;" type="text" formControlName="addressEdit"
+              value={{BA.address}}>
+            <Label style="margin-right:25px;color: red;" for="phone"> Phone: </Label>
+            <input id="phone" style="border-radius: 15px;" type="text" formControlName="phoneNumberEdit"
+              value={{BA.phoneNumber}}>
+            <Label style="margin-right:25px;color: red;" for="description"> Description: </Label>
+            <input id="description" style="border-radius: 15px;" type="text" formControlName="descriptionEdit"
+              value={{BA.phoneNumber}}>
+          </div>
+        </div>
+      </div>
+      <button class="button-85" type="submit" (click)="FinalizeEdit()">Finalize Edit User</button>
+    </form>
 
-          <li>
-            <div id="Content">
-              <h4>Email</h4>
-              <input class="label" type="text" name="email" placeholder="email*">
-              <label for="email"></label>
-            </div>
-          </li>
 
-          
-          <li>
-            <div id="Content">
-              <h4>Contact Number</h4>
-              <input class="label" type="text" name="contactNumber" placeholder="contactNumber*">
-              <label for="contactNumber"></label>
-            </div>
-          </li>
-
-          <li>
-            <div id="Content">
-              <h4>Address</h4>
-              <input class="label" type="text" name="address" placeholder="address*">
-              <label for="address"></label>
-            </div>
-          </li>
-          
-          <li>
-            <div id="Content">
-              <h4>Description</h4>
-              <input class="label" type="text" name="description" placeholder="description*">
-              <label for="description"></label>
-            </div>
-          </li>
-
-          
-                    
-        </ul>
-      </menu>
-      <button class="saveChanges" type="button">Save Changes</button>
-    </div>
   </div>
-
+</div>
