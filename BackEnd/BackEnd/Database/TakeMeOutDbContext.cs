@@ -34,6 +34,8 @@ public partial class TakeMeOutDbContext : DbContext
 
     public virtual DbSet<Venue> Venues { get; set; }
 
+    public virtual DbSet<UserRefreshToken> UserRefreshTokens { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=TakeMeOutDB;Integrated Security=True;trusted_connection=true;encrypt=false");
@@ -278,6 +280,26 @@ public partial class TakeMeOutDbContext : DbContext
                 .HasColumnName("name");
         });
 
+        modelBuilder.Entity<UserRefreshToken>(entity =>
+        {
+            entity.HasKey(e => e.IDUserRefreshToken).HasName("PK_UserRefreshToken");
+
+            entity.ToTable("UserRefreshToken");
+
+            entity.Property(e => e.RefreshToken)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+
+            entity.Property(e => e.RefreshTokenExpiryTime).HasColumnType("datetime");
+
+            entity.HasOne(d => d.User)
+                .WithMany(p => p.UserRefreshTokens)
+                .HasForeignKey(d => d.IDUser)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_UserRefreshToken_User_IDUser");
+        });
+
+        //modelBuilder.Entity<UserRefreshToken>().ToTable("UserRefreshToken");
         OnModelCreatingPartial(modelBuilder);
     }
 

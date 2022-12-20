@@ -45,9 +45,25 @@ export class UserPageComponent implements OnInit {
     );
   }
 
-  constructor(private router: Router, private http: HttpClient) {
+  constructor(private router: Router, private http: HttpClient) {  }
 
+  users: any;
+
+  ngOnInit(): void {
+    this.getListUsers().subscribe((response) =>{
+     localStorage.setItem('venues', JSON.stringify(response)); 
+    });
+    
+    this.users = localStorage.getItem('venues');
+    var arrOfUsers = JSON.parse(this.users);
+    this.users = arrOfUsers;
   }
+
+  getListUsers() {
+    return this.http.get<User[]>(`${environment.BaseUrl}/get-all-users`, {
+    });
+  }
+
 
   signUpFormEdit = new FormGroup({
     nameEdit: new FormControl(),
@@ -67,9 +83,6 @@ export class UserPageComponent implements OnInit {
     this.editUser(userToEdit).subscribe((response) => {
       console.log(response);
     })
-  }
-
-  ngOnInit(): void {
   }
 
   saveText() {
