@@ -20,6 +20,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { FormsModule } from '@angular/forms';
 import { ReviewComponent } from './review/review.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SuccessPageComponent } from './success-page/success-page.component';
+import { EditEventComponent } from './edit-event/edit-event.component';
+import { SignupBaComponent } from './signup-ba/signup-ba.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReviewComponent,
     BaViewComponent,
     BaEditComponent,
-    BaChangePasswdComponent
+    BaChangePasswdComponent,
+    SuccessPageComponent,
+    EditEventComponent,
+    SignupBaComponent
   ],
   imports: [
     BrowserModule,

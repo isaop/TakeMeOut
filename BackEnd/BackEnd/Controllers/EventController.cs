@@ -75,7 +75,7 @@ namespace BackEnd.Controllers
         }
 
         [HttpPut("edit-event")]
-        public async Task<ActionResult> EditEvent([FromBody] EventDto @event)
+        public async Task<bool> EditEvent([FromBody] EventDto @event)
         {
             Event e = new Event();
             e.IdEvent = @event.IdEvent;
@@ -90,12 +90,71 @@ namespace BackEnd.Controllers
             e.IdVenue = @event.IdVenue;
 
             if (@event == null)
-                return BadRequest("Event is empty");
+                return false;
             else
             {
                 var result = await _eventService.EditEvent(e);
-                return Ok(result);
+                return true;
             }
+        }
+        [HttpDelete("delete-Event")]
+        public async Task<ActionResult> DeleteEvent(int id)
+        {
+            Event result = await _eventService.CheckIfEventExists(id);
+
+            if (result != null)
+            {
+                bool delete = await _eventService.DeleteEvent(result);
+                return Ok(delete);
+            }
+
+            var exists = _eventService.CheckIfOrderHasEvent(id);
+            if (exists == true)
+                return BadRequest("Delete the Orders of this Event first!");
+            else
+            {
+                return BadRequest("failed to delete");
+            }
+
+            if (result != null)
+            {
+                bool delete = await _eventService.DeleteEvent(result);
+                return Ok(delete);
+            }
+
+            var exists2 = _eventService.CheckIfReviewHasEvent(id);
+            if (exists2 == true)
+                return BadRequest("Delete the Reviews of this Event first!");
+            else
+            {
+                return BadRequest("failed to delete");
+            }
+
+            if (result != null)
+            {
+                bool delete = await _eventService.DeleteEvent(result);
+                return Ok(delete);
+            }
+
+            var exists3 = _eventService.CheckIfUserActionHasEvent(id);
+            if (exists3 == true)
+                return BadRequest("Delete the UserActions of this Event first!");
+            else
+            {
+                return BadRequest("failed to delete");
+            }
+
+            if (result != null)
+            {
+                bool delete = await _eventService.DeleteEvent(result);
+                return Ok(delete);
+            }
+
+            else
+            {
+                return BadRequest("failed to delete");
+            }
+
         }
     }
 }

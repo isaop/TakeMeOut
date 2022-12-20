@@ -43,5 +43,65 @@ namespace BackEnd.Controllers
             }
             return (requestedBAs == null) ? NotFound("No business accounts found") : requestedBAs;
         }
+
+        [HttpPut("edit-business-account")]
+        public async Task<bool> EditBusinessAccount([FromBody] BusinessAccountEditRequest baDto)
+        {
+            BusinessAccount ba = new BusinessAccount();
+            ba.IdBusinessAccount = baDto.IdBusinessAccount;
+            ba.IdVenue = baDto.IdVenue;
+            ba.Name = baDto.Name;
+            ba.ContactNumber = baDto.ContactNumber;
+            ba.Email = baDto.Email;
+            ba.Description = baDto.Description;
+
+            if (ba == null)
+                return false;
+            else
+            {
+                var result = await _baService.EditBusinessAccount(ba);
+                return true;
+            }
+        }
+
+        [HttpPut("change-password-ba")]
+        public async Task<bool> ChangeBAPassword([FromBody] ChangePasswordRequest req)
+        {
+
+            int id = req.Id;
+            string oldPassword = req.OldPassword;
+            string newPassword = req.NewPassword;
+
+            var result = await _baService.ChangeBAPassword(id, oldPassword, newPassword);
+            if (result == true)
+                return true;
+            else
+                return false;
+
+        }
+
+
+        [HttpDelete("delete-BA")]
+        public async Task<ActionResult> DeleteBusinessAccount(int id)
+        {
+            BusinessAccount result = await _baService.CheckIfBusinessAccountExists(id);
+
+            var exists = _baService.CheckIfEventHasBA(id);
+            if (exists == true)
+                return BadRequest("Delete the Events of this BA first!");
+            else
+            {
+
+                if (result != null)
+                {
+                    bool delete = await _baService.DeleteBusinessAccount(result);
+                    return Ok(delete);
+                }
+                else
+                {
+                    return BadRequest("failed to delete");
+                }
+            }
+        }
     }
 }

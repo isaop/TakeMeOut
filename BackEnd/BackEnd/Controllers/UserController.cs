@@ -2,6 +2,7 @@
 using BackEnd.Services;
 using BackEnd.Dtos;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace BackEnd.Controllers
 {
@@ -36,6 +37,113 @@ namespace BackEnd.Controllers
                 requestedUsers.Add(u);
             }
             return (requestedUsers == null) ? NotFound("No users found") : requestedUsers;
+        }
+
+
+        [HttpPut("edit-user")]
+        public async Task<bool> EditUser([FromBody] UserEditRequest userDto)
+        {
+            User u = new User();
+            u.IdUser = userDto.IdUser;
+            u.Name = userDto.Name;
+            u.Surname = userDto.Surname;
+            u.PhoneNumber = userDto.PhoneNumber;
+            u.Email = userDto.Email;
+
+            if (u == null)
+                return false;
+            else
+            {
+                var result = await _userService.EditUser(u);
+                return true;
+            }
+        }
+
+        [HttpPut("change-password-user")]
+        public async Task<bool> ChangeUserPassword([FromBody]ChangePasswordRequest req)
+        {
+
+            int id = req.Id;
+            string oldPassword = req.OldPassword;
+            string newPassword = req.NewPassword;
+
+            var result = await _userService.ChangeUserPassword(id,oldPassword,newPassword);
+            if (result == true)
+                return true;
+            else
+                return false;
+
+        }
+        [HttpDelete("delete-User")]
+        public async Task<ActionResult> DeleteUser(int id)
+        {
+            User result = await _userService.CheckIfUserExists(id);
+
+            if (result != null)
+            {
+                bool delete = await _userService.DeleteUser(result);
+                return Ok(delete);
+            }
+
+            var exists = _userService.CheckIfUserActionHasUser(id);
+            if (exists == true)
+                return BadRequest("Delete the UserActions of this User first!");
+            else
+            {
+                return BadRequest("failed to delete");
+            }
+
+            if (result != null)
+            {
+                bool delete = await _userService.DeleteUser(result);
+                return Ok(delete);
+            }
+            
+            var exists1 = _userService.CheckIfPaymentHasUser(id);
+            if (exists1 == true)
+                return BadRequest("Delete the Payment of this User first!");
+            else
+            {
+                return BadRequest("failed to delete");
+            }
+
+            if (result != null)
+            {
+                bool delete = await _userService.DeleteUser(result);
+                return Ok(delete);
+            }
+            var exists3 = _userService.CheckIfReviewHasUser(id);
+            if (exists3 == true)
+                return BadRequest("Delete the Review of this User first!");
+            else
+            {
+                return BadRequest("failed to delete");
+            }
+
+            if (result != null)
+            {
+                bool delete = await _userService.DeleteUser(result);
+                return Ok(delete);
+            }
+            var exists4 = _userService.CheckIfOrderHasUser(id);
+            if (exists4 == true)
+                return BadRequest("Delete the Order of this User first!");
+            else
+            {
+                return BadRequest("failed to delete");
+            }
+
+            if (result != null)
+            {
+                bool delete = await _userService.DeleteUser(result);
+                return Ok(delete);
+            }
+
+            else
+            {
+                return BadRequest("failed to delete");
+            }
+
         }
     }
 }

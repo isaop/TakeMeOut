@@ -13,6 +13,8 @@ import { ReviewComponent } from './review/review.component';
 import { BaViewComponent } from './ba-view/ba-view.component';
 import { BaEditComponent } from './ba-edit/ba-edit.component';
 import { BaChangePasswdComponent } from './ba-change-passwd/ba-change-passwd.component';
+import { SuccessPageComponent } from './success-page/success-page.component';
+import { SignupBaComponent } from './signup-ba/signup-ba.component';
 
 const routes: Routes = [
   {
@@ -80,6 +82,16 @@ const routes: Routes = [
     component: ReviewComponent,
     title: 'TakeMeOut',
   },
+  {
+    path: 'success',
+    component: SuccessPageComponent,
+    title: 'TakeMeOut',
+  },
+  {
+    path: 'signup-ba',
+    component: SignupBaComponent,
+    title: 'TakeMeOut',
+  }
 ];
 
 @NgModule({

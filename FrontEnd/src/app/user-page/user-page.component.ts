@@ -1,6 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { ElementRef } from '@angular/core';
-import { User } from '../models/user'
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import { User } from '../models/user';
+import { UserEdit } from '../models/userEdit';
 
 @Component({
   selector: 'app-user-page',
@@ -13,24 +18,55 @@ export class UserPageComponent implements OnInit {
   editing = false;
   ChangePass = false;
   ContentPass = false;
-  initialText: User = {
-    name: 'John',
-    surname: 'Doe',
-    email: 'john.doe@example.com',
-    phone_number: '1234567890',
-    city: 'New York',
-    country: 'USA',
-    address: '123 Main Street',
-    password: 'secret'
-  };
   inputText = '';
   inputPassword = '';
   inputPasswordVerification = '';
   successfullyReset = false;
   checkPassword = false;
   WrongPassword = false;
+  OpenEditForm = false;
 
-  constructor() {
+  initialText: User = {
+    userId: 0,
+    name: 'John',
+    surname: 'Doe',
+    email: 'john.doe@example.com',
+    phoneNumber: '1234567890',
+    password: 'secret'
+  };
+
+  editUser(userToEdit: UserEdit) {
+
+    return this.http.put<Boolean>(
+      `${environment.BaseUrl}/User/edit-user`, {
+      observe: 'response',
+      responseType: 'text',
+    }
+    );
+  }
+
+  constructor(private router: Router, private http: HttpClient) {
+
+  }
+
+  signUpFormEdit = new FormGroup({
+    nameEdit: new FormControl(),
+    surnameEdit: new FormControl(),
+    emailEdit: new FormControl(),
+    phoneNumberEdit: new FormControl(),
+  });
+
+  FinalizeEdit() {
+    let userToEdit: UserEdit = {
+      userId: 0,
+      name: this.signUpFormEdit.get('nameEdit')?.value,
+      surname: this.signUpFormEdit.get('surnameEdit')?.value,
+      email: this.signUpFormEdit.get('emailEdit')?.value,
+      phoneNumber: this.signUpFormEdit.get('phoneNumberEdit')?.value,
+    }
+    this.editUser(userToEdit).subscribe((response) => {
+      console.log(response);
+    })
   }
 
   ngOnInit(): void {
