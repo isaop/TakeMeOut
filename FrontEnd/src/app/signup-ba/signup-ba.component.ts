@@ -32,6 +32,7 @@ export class SignupBaComponent implements OnInit {
   Register(){
     let ba: BA = {
       BAId: 0,
+      VenueID: 1,
       name: this.signUpForm.get('name')?.value,
       description: this.signUpForm.get('description')?.value,
       email: this.signUpForm.get('email')?.value,
@@ -54,5 +55,5 @@ export class SignupBaComponent implements OnInit {
         });
     
       }
-      
+
 }
