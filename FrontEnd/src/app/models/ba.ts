@@ -1,8 +1,9 @@
 export interface BA{
-    BAId: number;
-    name: string;
-    description: string;
-    email: string;
-    contactNumber: string;
-    password: string;
+  BAId: number;
+  VenueID: number;
+  name: string;
+  description: string;
+  email: string;
+  contactNumber: string;
+  password: string;
 }
