@@ -3,7 +3,7 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { BusinessAccountEdit } from '../models/ba';
+import { BusinessAccountEdit } from '../models/business-account-edit';
 
 @Component({
   selector: 'app-ba-edit',
@@ -11,13 +11,13 @@ import { BusinessAccountEdit } from '../models/ba';
   styleUrls: ['./ba-edit.component.scss']
 })
 export class BaEditComponent implements OnInit {
-  
-  BA: BusinessAccountEdit = {
-    userId: '21',
+
+  businessAccount: BusinessAccountEdit = {
+    BAId: 21,
     name: 'John Ioan',
-    venueName: 'La tevi',
-    phoneNumber: '0273333333',
-    address: 'acasa',
+    VenueID: 1,
+    contactNumber: '0273333333',
+    email: 'acasa',
     description: 'buzunarul lui tata',
   };
 
@@ -46,11 +46,11 @@ export class BaEditComponent implements OnInit {
 
   FinalizeEdit() {
     let BA_ToEdit: BusinessAccountEdit = {
-      userId: "21",
+      BAId: 21,
       name: this.BAFormEdit.get('nameEdit')?.value,
-      venueName: this.BAFormEdit.get('venueNameEdit')?.value,
-      phoneNumber: this.BAFormEdit.get('addressEdit')?.value,
-      address: this.BAFormEdit.get('phoneNumberEdit')?.value,
+      VenueID: this.BAFormEdit.get('venueNameEdit')?.value,
+      contactNumber: this.BAFormEdit.get('addressEdit')?.value,
+      email: this.BAFormEdit.get('phoneNumberEdit')?.value,
       description: this.BAFormEdit.get('descriptionEdit')?.value,
     }
     this.editUser(BA_ToEdit).subscribe((response) => {
