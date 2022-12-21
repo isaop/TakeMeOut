@@ -1,11 +1,11 @@
-<div id="MobileView">
+<div id="MobileView" style="background-color:white">
     <div id="Content">
       <div *ngFor="let venue of venues; let i = index">
 
         <h3 id="Title"><strong>{{venue.name}}</strong></h3>
 
         <div class="HR"></div>
-    
+
         <menu>
           <ul>
             <li>
@@ -14,7 +14,7 @@
                 <span>{{venue.name}}</span>
               </div>
             </li>
-            
+
             <li>
               <div id="Content">
                 <h4>Contact Number</h4>
@@ -28,14 +28,14 @@
                 <span>{{venue.address}}</span>
               </div>
             </li>
-            
+
             <li>
               <div id="Content">
                 <h4>Description</h4>
                 <span>{{venue.description}}</span>
               </div>
             </li>
-                      
+
           </ul>
         </menu>
       </div>

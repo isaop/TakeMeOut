@@ -57,7 +57,6 @@ export class CreateEventComponent implements OnInit {
     console.log(event);
 
     this.createEvent(event).subscribe((response) => {
-      console.log(response);
       if(response.statusText == "OK")
           this.router.navigate(['success']);
     });

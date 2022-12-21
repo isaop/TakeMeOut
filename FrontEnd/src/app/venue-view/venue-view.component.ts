@@ -16,11 +16,12 @@ export class VenueViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.getListVenues().subscribe((response) =>{
-     localStorage.setItem('venues', JSON.stringify(response)); 
+     localStorage.setItem('venues', JSON.stringify(response));
     });
-    
+
     this.venues = localStorage.getItem('venues');
     var arrOfVenues = JSON.parse(this.venues);
+    console.log(arrOfVenues);
     this.venues = arrOfVenues;
   }
 
