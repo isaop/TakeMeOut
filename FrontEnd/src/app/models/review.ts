@@ -1,4 +1,7 @@
 export interface Review {
-    score: number;
-    description: string;
-  }
+  idReview: number,
+  idEvent: number,
+  idUser: number,
+  idPayment: number,
+  comment: string
+}

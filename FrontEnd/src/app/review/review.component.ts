@@ -17,8 +17,16 @@ export class ReviewComponent implements OnInit {
   description = new FormControl('');
 
   event: Event = {
-   name: 'Event name',
-    description: 'quick yoga cred'
+    idEvent: 16,
+    eventName: "InterestingEvent",
+    idVenue: 1,
+    description: "descrrrr",
+    idBusinessAccount: 1,
+    startHour: "00:12",
+    endHour: "14:11",
+    startDate: "0012-12-12",
+    endDate: "0003-12-12",
+    idCategory: 1
   };
 
   constructor(
@@ -30,19 +38,21 @@ export class ReviewComponent implements OnInit {
   }
 
   reviewForm = new FormGroup({
-    score: new FormControl(),
-    description: new FormControl(),
+    comment: new FormControl(),
   })
 
   PublishReview(){
     let review : Review = {
-      score: this.reviewForm.get('score')?.value,
-      description: this.reviewForm.get('description')?.value,
+      idReview: 0,
+      idEvent: 1,
+      idUser: 3,
+      idPayment: 1,
+      comment: this.reviewForm.get('comment')?.value,
     }
 
     this.addReview(review).subscribe((response) => {
       console.log(response);
-      if(response.statusText == "OK")
+
           this.router.navigate(['success']);
     });
   }

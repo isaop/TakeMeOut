@@ -23,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SuccessPageComponent } from './success-page/success-page.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
 import { SignupBaComponent } from './signup-ba/signup-ba.component';
+import { ViewEventComponent } from './view-event/view-event.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { SignupBaComponent } from './signup-ba/signup-ba.component';
     BaChangePasswdComponent,
     SuccessPageComponent,
     EditEventComponent,
-    SignupBaComponent
+    SignupBaComponent,
+    ViewEventComponent
   ],
   imports: [
     BrowserModule,

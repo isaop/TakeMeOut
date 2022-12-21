@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { BA } from '../models/BA';
+import { BA } from '../models/ba';
 
 
 @Component({
@@ -32,14 +32,17 @@ export class SignupBaComponent implements OnInit {
   Register(){
     let ba: BA = {
       BAId: 0,
-      VenueID: 1,
       name: this.signUpForm.get('name')?.value,
+      password: this.signUpForm.get('password')?.value,
       description: this.signUpForm.get('description')?.value,
       email: this.signUpForm.get('email')?.value,
       contactNumber: this.signUpForm.get('contactNumber')?.value,
-      password: this.signUpForm.get('password')?.value,
+      VenueID: 1,
+
+
+
     }
-  
+
 
       this.addBA(ba).subscribe((response) => {
         console.log(response);
@@ -53,7 +56,7 @@ export class SignupBaComponent implements OnInit {
           observe: 'response',
           responseType: 'text',
         });
-    
+
       }
 
 }

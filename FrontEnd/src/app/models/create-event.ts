@@ -1,12 +1,12 @@
 export interface CreateEvent {
+    idEvent:number;
     eventName: string;
-    VenueID: number;
-    venue: string;
-    startDate: number;
-    endDate: number;
-    startTime: number;
-    endTime: number;
+    idVenue: number;
     description: string;
-    category: string;
+    idBusinessAccount:number;
+    startHour: string;
+    endHour: string;
+    startDate: string;
+    endDate: string;
+    idCategory: number;
   }
-  

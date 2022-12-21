@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { EventService } from '../services/event.service';
 
@@ -11,13 +12,15 @@ import { EventService } from '../services/event.service';
 export class DisplayEventsComponent implements OnInit {
 
     constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private _router: Router,
       // public eventService: EventService,
      ) { }
 
     name:any;
     events:any;
     ngOnInit(): void {
+      console.log("aici");
     this.getListEvents().subscribe((response) => {
       localStorage.setItem('events', JSON.stringify(response));
       this.name = response.at(0);
@@ -29,8 +32,15 @@ export class DisplayEventsComponent implements OnInit {
    }
 
    getListEvents() {
-    return this.http.get<Event[]>(`${environment.BaseUrl}/get-all-events`, {
+    console.log("aici");
+    return this.http.get<any[]>(`${environment.BaseUrl}/Event/get-all-events`, {
     });
+  }
+
+  goToCardInfo(id:number){
+    console.log(id);
+    localStorage.setItem('currentEventId', JSON.stringify(id));
+    this._router.navigate(['view-event']);
   }
 
 

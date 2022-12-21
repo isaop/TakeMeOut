@@ -15,6 +15,8 @@ import { BaEditComponent } from './ba-edit/ba-edit.component';
 import { BaChangePasswdComponent } from './ba-change-passwd/ba-change-passwd.component';
 import { SuccessPageComponent } from './success-page/success-page.component';
 import { SignupBaComponent } from './signup-ba/signup-ba.component';
+import { ViewEventComponent } from './view-event/view-event.component';
+import { EditEventComponent } from './edit-event/edit-event.component';
 
 const routes: Routes = [
   {
@@ -90,6 +92,16 @@ const routes: Routes = [
   {
     path: 'signup-ba',
     component: SignupBaComponent,
+    title: 'TakeMeOut',
+  },
+  {
+    path: 'view-event',
+    component: ViewEventComponent,
+    title: 'TakeMeOut',
+  },
+  {
+    path: 'edit-event',
+    component: EditEventComponent,
     title: 'TakeMeOut',
   }
 ];
