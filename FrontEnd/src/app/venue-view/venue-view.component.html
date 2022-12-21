@@ -1,4 +1,4 @@
-<div id="MobileView" style="background-color:white">
+<!-- <div id="MobileView" style="background-color:white">
     <div id="Content">
       <div *ngFor="let venue of venues; let i = index">
 
@@ -39,5 +39,29 @@
           </ul>
         </menu>
       </div>
+  </div>
+</div> -->
+<div class="wrapper">
+  <div *ngFor="let venue of venues; let i = index">
+
+    <div class="blog-card">
+      <div class="meta">
+        <div class="photo" style="background-image: url(../../assets/images/background-image.jpg)"></div>
+        <ul class="details">
+          <li class="author">{{venue.contactNumber}}</li>
+          <li class="date">{{venue.address}}</li>
+
+        </ul>
+      </div>
+      <div class="description">
+        <h1>{{venue.name}}</h1>
+        <br>
+
+        <p>{{venue.description}}</p>
+        <p class="read-more">
+          <a>Read More</a>
+        </p>
+      </div>
+    </div>
   </div>
 </div>
