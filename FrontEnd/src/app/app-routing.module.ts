@@ -17,6 +17,7 @@ import { SuccessPageComponent } from './success-page/success-page.component';
 import { SignupBaComponent } from './signup-ba/signup-ba.component';
 import { ViewEventComponent } from './view-event/view-event.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
+import { ChooseAccountComponent } from './choose-account/choose-account.component';
 
 const routes: Routes = [
   {
@@ -102,6 +103,11 @@ const routes: Routes = [
   {
     path: 'edit-event',
     component: EditEventComponent,
+    title: 'TakeMeOut',
+  },
+  {
+    path: 'choose-account',
+    component: ChooseAccountComponent,
     title: 'TakeMeOut',
   }
 ];

@@ -24,6 +24,7 @@ import { SuccessPageComponent } from './success-page/success-page.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
 import { SignupBaComponent } from './signup-ba/signup-ba.component';
 import { ViewEventComponent } from './view-event/view-event.component';
+import { ChooseAccountComponent } from './choose-account/choose-account.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ViewEventComponent } from './view-event/view-event.component';
     SuccessPageComponent,
     EditEventComponent,
     SignupBaComponent,
-    ViewEventComponent
+    ViewEventComponent,
+    ChooseAccountComponent
   ],
   imports: [
     BrowserModule,
