@@ -12,46 +12,48 @@ import { BusinessAccountEdit } from '../models/business-account-edit';
 })
 export class BaEditComponent implements OnInit {
 
-  businessAccount: BusinessAccountEdit = {
-    BAId: 21,
-    name: 'John Ioan',
-    VenueID: 1,
-    contactNumber: '0273333333',
-    email: 'acasa',
-    description: 'buzunarul lui tata',
-  };
-
   constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
   }
 
-  BAFormEdit = new FormGroup({
-    nameEdit: new FormControl(),
-    venueNameEdit: new FormControl(),
-    addressEdit: new FormControl(),
-    phoneNumberEdit: new FormControl(),
-    descriptionEdit: new FormControl(),
+  businessAccount: BusinessAccountEdit = {
+    idBusinessAccount: 6,
+    name: 'After',
+    description: 'business accuont interesant',
+    email: 'business_account@yahoo.com',
+    contactNumber: '0273333333',
+    idVenue: 1,
+  };
+
+
+
+  editBusinessAccountForm = new FormGroup({
+      idBusinessAccount: new FormControl(),
+      name: new FormControl(),
+      description:  new FormControl(),
+      email: new FormControl(),
+      contactNumber: new FormControl(),
+      idVenue:new FormControl(),
   });
 
   editUser(BA_ToEdit: BusinessAccountEdit) {
 
     return this.http.put<Boolean>(
-      `${environment.BaseUrl}/BusinessAccount/edit-business-account`, {
+      `${environment.BaseUrl}/BusinessAccount/edit-business-account`, BA_ToEdit , {
       observe: 'response',
-      responseType: 'text',
     }
     );
   }
 
   FinalizeEdit() {
     let BA_ToEdit: BusinessAccountEdit = {
-      BAId: 21,
-      name: this.BAFormEdit.get('nameEdit')?.value,
-      VenueID: this.BAFormEdit.get('venueNameEdit')?.value,
-      contactNumber: this.BAFormEdit.get('addressEdit')?.value,
-      email: this.BAFormEdit.get('phoneNumberEdit')?.value,
-      description: this.BAFormEdit.get('descriptionEdit')?.value,
+      idBusinessAccount: 6,
+      name: this.editBusinessAccountForm.get('name')?.value,
+      description:  this.editBusinessAccountForm.get('description')?.value,
+      email: this.editBusinessAccountForm.get('email')?.value,
+      contactNumber: this.editBusinessAccountForm.get('contactNumber')?.value,
+      idVenue:1,
     }
     this.editUser(BA_ToEdit).subscribe((response) => {
       console.log(response);

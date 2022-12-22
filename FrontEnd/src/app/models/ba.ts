@@ -6,7 +6,4 @@ export interface BA{
   email: string;
   contactNumber: string;
   VenueID: number;
-
-
-
 }

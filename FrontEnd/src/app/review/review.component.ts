@@ -53,7 +53,7 @@ export class ReviewComponent implements OnInit {
     this.addReview(review).subscribe((response) => {
       console.log(response);
 
-          this.router.navigate(['success']);
+          this.router.navigate(['success1']);
     });
   }
 

@@ -18,6 +18,9 @@ import { SignupBaComponent } from './signup-ba/signup-ba.component';
 import { ViewEventComponent } from './view-event/view-event.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
 import { ChooseAccountComponent } from './choose-account/choose-account.component';
+import { Success1Component } from './success1/success1.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
+import { DisplayReviewsComponent } from './display-reviews/display-reviews.component';
 
 const routes: Routes = [
   {
@@ -109,6 +112,21 @@ const routes: Routes = [
     path: 'choose-account',
     component: ChooseAccountComponent,
     title: 'TakeMeOut',
+  },
+  {
+    path: 'success1',
+    component: Success1Component,
+    title: 'TakeMeOut',
+  },
+  {
+    path: 'user-edit',
+    component: UserEditComponent,
+    title: 'TakeMeOut',
+  },
+  {
+    path:'display-reviews',
+    component: DisplayReviewsComponent,
+    title: 'TakeMeOut'
   }
 ];
 

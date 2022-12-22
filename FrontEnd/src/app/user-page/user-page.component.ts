@@ -51,9 +51,9 @@ export class UserPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getListUsers().subscribe((response) =>{
-     localStorage.setItem('venues', JSON.stringify(response)); 
+     localStorage.setItem('venues', JSON.stringify(response));
     });
-    
+
     this.users = localStorage.getItem('venues');
     var arrOfUsers = JSON.parse(this.users);
     this.users = arrOfUsers;
@@ -72,18 +72,7 @@ export class UserPageComponent implements OnInit {
     phoneNumberEdit: new FormControl(),
   });
 
-  FinalizeEdit() {
-    let userToEdit: UserEdit = {
-      userId: 0,
-      name: this.signUpFormEdit.get('nameEdit')?.value,
-      surname: this.signUpFormEdit.get('surnameEdit')?.value,
-      email: this.signUpFormEdit.get('emailEdit')?.value,
-      phoneNumber: this.signUpFormEdit.get('phoneNumberEdit')?.value,
-    }
-    this.editUser(userToEdit).subscribe((response) => {
-      console.log(response);
-    })
-  }
+
 
   saveText() {
     this.initialText = this.textToEdit.nativeElement.innerText;

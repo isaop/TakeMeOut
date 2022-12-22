@@ -1,31 +1,33 @@
-<form id="msform" [formGroup]="editEventForm">
-    <fieldset>
+<div class="wrapper">
+  <form id="msform" [formGroup]="editEventForm">
+      <fieldset>
 
-        <label>Which event would you like to edit? </label>
-        <input type="text" formControlName="idEvent" name="idEvent" placeholder="Event id" formControlName="idEvent" required/>
-        <h2 class="fs-title">Edit your event here:</h2>
+          <label>Which event would you like to edit? </label>
+          <input type="text" formControlName="idEvent" name="idEvent" placeholder="Event id" formControlName="idEvent" required/>
+          <h2 class="fs-title">Edit your event here:</h2>
 
-        <input type="text" formControlName="eventName" name="name" placeholder="Event name" required/>
-        <input type="text" formControlName="description" name="venue" placeholder="Venue" required/>
-        <input type="text" formControlName="startDate" name="event-start" placeholder="Start Date" onfocus="(this.type='date')" onblur="(this.type='text')" required/>
-        <input type="text" formControlName="endDate" name="event-start" placeholder="End Date" onfocus="(this.type='date')" onblur="(this.type='text')"required/>
-        <input type="text" formControlName="startHour" name="start-time" placeholder="Start Time" onfocus="(this.type='time')" onblur="(this.type='text')" required/>
-        <input type="text" formControlName="endHour" name="end-time" placeholder="End Time" onfocus="(this.type='time')" onblur="(this.type='text')" required/>
+          <input type="text" formControlName="eventName" name="name" placeholder="Event name" required/>
+          <input type="text" formControlName="description" name="venue" placeholder="Venue" required/>
+          <input type="text" formControlName="startDate" name="event-start" placeholder="Start Date" onfocus="(this.type='date')" onblur="(this.type='text')" required/>
+          <input type="text" formControlName="endDate" name="event-start" placeholder="End Date" onfocus="(this.type='date')" onblur="(this.type='text')"required/>
+          <input type="text" formControlName="startHour" name="start-time" placeholder="Start Time" onfocus="(this.type='time')" onblur="(this.type='text')" required/>
+          <input type="text" formControlName="endHour" name="end-time" placeholder="End Time" onfocus="(this.type='time')" onblur="(this.type='text')" required/>
 
-        <textarea name = "description" class="textarea" placeholder="Description..." formControlName="description" required></textarea>
-        <br>
-        <select name="category" id="category-select" required>
-            <option value="">Please choose a category </option>
-            <option value="cultural">cultural</option>
-            <option value="nightLife">nightLife</option>
-            <option value="social">social</option>
-            <option value="entertainment">entertainment</option>
-            <option value="sports">sports</option>
-            <option value="expositions">expositions</option>
-            <option value="otherh">other</option>
-        </select>
-        <br>
-    <br>
-        <input type="submit" name="submit" class="submit action-button" value="Submit"  (click)="FinalizeEdit()"/>
-    </fieldset>
-</form>
+          <textarea name = "description" class="textarea" placeholder="Description..." formControlName="description" required></textarea>
+          <br>
+          <select name="category" id="category-select" required>
+              <option value="">Please choose a category </option>
+              <option value="cultural">cultural</option>
+              <option value="nightLife">nightLife</option>
+              <option value="social">social</option>
+              <option value="entertainment">entertainment</option>
+              <option value="sports">sports</option>
+              <option value="expositions">expositions</option>
+              <option value="otherh">other</option>
+          </select>
+          <br>
+      <br>
+          <input type="submit" name="submit" class="submit action-button" value="Submit"  (click)="FinalizeEdit()"/>
+      </fieldset>
+  </form>
+</div>

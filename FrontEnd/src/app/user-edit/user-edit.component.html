@@ -1,0 +1,50 @@
+<!-- <form *ngIf="OpenEditForm" [formGroup]="signUpFormEdit" class="FormVenueEdit">
+  <h3>Edit user credentials</h3>
+  <div class="centeringDivMain">
+    <div class="centeringDiv" style="margin-right: 15px;">
+      <div class="input">
+        <Label style="margin-right:30px;color: red;"> Name: </Label>
+        <input id="name" style="border-radius: 15px;" type="text" formControlName="nameEdit"
+          value={{initialText.name}}>
+        <Label style="margin-right:12px;color: red;" for="surname"> Surname: </Label>
+        <input id="surname" style="border-radius: 15px;" type="text" formControlName="surnameEdit"
+          value={{initialText.surname}}>
+        <Label style="margin-right:23px;color: red;" for="email"> E-mail: </Label>
+        <input id="email" style="border-radius: 15px;" type="text" formControlName="emailEdit"
+          value={{initialText.email}}>
+        <Label style="margin-right:25px;color: red;" for="phone"> Phone: </Label>
+        <input id="phone" style="border-radius: 15px;" type="text" formControlName="phoneNumberEdit"
+          value={{initialText.phoneNumber}}>
+      </div>
+    </div>
+  </div>
+  <button class="button-85" type="submit" (click)="FinalizeEdit()">Finalize Edit User</button>
+</form> -->
+<div style="background-color: rgb(37, 36, 40);">
+  <form class="FormVenueEdit"  [formGroup]="editUserForm">
+
+    <h1>Edit Form</h1>
+
+    <fieldset>
+      <legend><span class="number">*</span> Want to change your info?</legend>
+      <br> <br>
+              <Label style="margin-right:30px;color: rgb(209, 106, 106);"> Name: </Label>
+              <input id="name" style="border-radius: 15px;" type="text" formControlName="name" value={{user.name}}>
+              <Label style="margin-right:12px;color: rgb(209, 106, 106);" for="venueName"> Surname: </Label>
+              <input id="venueName" style="border-radius: 15px;" type="text" formControlName="surname"
+                value={{user.surname}}>
+              <Label style="margin-right:23px;color: rgb(209, 106, 106);;" for="address"> Email: </Label>
+              <input id="address" style="border-radius: 15px;" type="text" formControlName="email"
+                value={{user.email}}>
+              <Label style="margin-right:25px;color: rgb(209, 106, 106);;" for="phone"> Phone Number: </Label>
+              <input id="phone" style="border-radius: 15px;" type="text" formControlName="phoneNumber"
+                value={{user.phoneNumber}}>
+
+    </fieldset>
+
+
+
+    <button type="submit" (click)="FinalizeEdit()">Save</button>
+
+  </form>
+  </div>
