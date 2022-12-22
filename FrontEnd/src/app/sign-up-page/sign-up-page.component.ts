@@ -54,7 +54,7 @@ export class SignUpPageComponent implements OnInit {
     this.addUser(user).subscribe((response) => {
       console.log(response);
       if(response.statusText == "OK")
-          this.router.navigate(['success']);
+          this.router.navigate(['success1']);
     });
   }
 

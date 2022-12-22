@@ -23,6 +23,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SuccessPageComponent } from './success-page/success-page.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
 import { SignupBaComponent } from './signup-ba/signup-ba.component';
+import { ViewEventComponent } from './view-event/view-event.component';
+import { ChooseAccountComponent } from './choose-account/choose-account.component';
+import { Success1Component } from './success1/success1.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
+import { DisplayReviewsComponent } from './display-reviews/display-reviews.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +47,12 @@ import { SignupBaComponent } from './signup-ba/signup-ba.component';
     BaChangePasswdComponent,
     SuccessPageComponent,
     EditEventComponent,
-    SignupBaComponent
+    SignupBaComponent,
+    ViewEventComponent,
+    ChooseAccountComponent,
+    Success1Component,
+    UserEditComponent,
+    DisplayReviewsComponent
   ],
   imports: [
     BrowserModule,

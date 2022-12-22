@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { EventEdit } from '../models/event';
+import { Event } from '../models/event';
 
 @Component({
   selector: 'app-edit-event',
@@ -12,10 +12,18 @@ import { EventEdit } from '../models/event';
 })
 export class EditEventComponent implements OnInit {
 
-  
-  CurrentEvent: EventEdit = {
-    name: 'yoga',
-    description: 'yoga in parc'
+
+  CurrentEvent: Event = {
+    idEvent: 0,
+    eventName: "uikutu",
+    idVenue: 1,
+    description: "helooo",
+    idBusinessAccount: 1,
+    startHour: "00:12",
+    endHour :"14:11",
+    startDate: "0012-12-12",
+    endDate: "0003-12-12",
+    idCategory: 1
   };
 
   constructor(private router: Router, private http: HttpClient) { }
@@ -23,27 +31,44 @@ export class EditEventComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  EventFormEdit = new FormGroup({
-    nameEDIT: new FormControl(),
-    descriptionEDIT: new FormControl(),
+  editEventForm = new FormGroup({
+    idEvent: new FormControl(),
+    eventName: new FormControl(),
+    idVenue:new FormControl(),
+    description: new FormControl(),
+    idBusinessAccount: new FormControl(),
+    startHour: new FormControl(),
+    endHour: new FormControl(),
+    startDate: new FormControl(),
+    endDate: new FormControl(),
+    idCategory: new FormControl(),
+
+
   });
 
-  editEvent(EventToEdit: EventEdit) {
+  editEvent(eventt:any) {
 
     return this.http.put<Boolean>(
-      `${environment.BaseUrl}/Event/edit-event`, {
+      `${environment.BaseUrl}/Event/edit-event`,eventt, {
       observe: 'response',
-      responseType: 'text',
     }
     );
   }
 
   FinalizeEdit() {
-    let EventToEdit: EventEdit = {
-      name: this.EventFormEdit.get('nameEDIT')?.value,
-      description: this.EventFormEdit.get('descriptionEDIT')?.value,
+    let eventToEdit: Event = {
+      idEvent:this.editEventForm.get('idEvent')?.value,
+      eventName: this.editEventForm.get('eventName')?.value,
+      idVenue: 1,
+      description: this.editEventForm.get('description')?.value,
+      idBusinessAccount: 1,
+      startHour: this.editEventForm.get('startHour')?.value,
+      endHour: this.editEventForm.get('endHour')?.value,
+      startDate: this.editEventForm.get('startDate')?.value,
+      endDate: this.editEventForm.get('endDate')?.value,
+      idCategory: 1,
     }
-    this.editEvent(EventToEdit).subscribe((response) => {
+    this.editEvent(eventToEdit).subscribe((response) => {
       console.log(response);
     })
   }

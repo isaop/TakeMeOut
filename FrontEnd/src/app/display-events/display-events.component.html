@@ -1,8 +1,8 @@
-<div class="cards" style="display:flex">
+<!-- <div class="cards" style="display:grid">
 
   <div *ngFor="let event of events; let i = index">
 
-    <div class="card">
+    <div class="card" (click)="goToCardInfo(event.idEvent)">
       <div class="card__image-holder">
         <img class="card__image" src="../assets/images/museum.jpg" alt="beach" />
       </div>
@@ -16,4 +16,23 @@
             <small>{{event.description}}</small>
         </h2>
   </div>
+</div> -->
+<div class="wrapper">
+<div class="container">
+	<div class="cards">
+    <div *ngFor="let event of events; let i = index">
+      <a class="card" href="#">
+			<div class="card-header" style="background-image: url(../../assets/images/museum.jpg);">
+				<div class="card-title">
+					<h3>{{event.eventName}}</h3>
+        </div>
+			</div>
+			<span class="card-summary">
+        {{event.description}}
+			</span>
+		</a>
+
+  </div>
+  </div>
+	</div>
 </div>

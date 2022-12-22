@@ -39,38 +39,69 @@ namespace BackEnd.Controllers
         }
 
         [HttpGet("get-list-events-by-name")]
-        public async Task<ActionResult<List<EventDtoGetter>>> GetAllEventsByName(string name)
+        public async Task<ActionResult<List<EventDto>>> GetAllEventsByName(string name)
         {
             var events = await _eventService.GetAllEventsByName(name);
-            List<EventDtoGetter> requestedEvents = new List<EventDtoGetter>();
+            List<EventDto> requestedEvents = new List<EventDto>();
             
             for (int i = 0; i < events.Count; i++)
             {
-                EventDtoGetter e = new EventDtoGetter(events[i].EventName, events[i].Description);
+                EventDto e = new EventDto();
+                e.IdEvent = events[i].IdEvent;
+                e.EventName = events[i].EventName;
+                e.Description = events[i].Description;
+                e.endHour = events[i].endHour;
+                e.startHour = events[i].startHour;
+                e.IdVenue = events[i].IdVenue;
+                e.endDate = events[i].endDate;
+                e.startDate = events[i].startDate;
+                e.IdVenue = events[i].IdVenue;
+
                 requestedEvents.Add(e);
             }
             return (requestedEvents == null) ? NotFound("No events found") : requestedEvents;
         }
 
         [HttpGet("get-all-events")]
-        public async Task<ActionResult<List<EventDtoGetter>>> GetAllEvents()
+        public async Task<ActionResult<List<EventDto>>> GetAllEvents()
         {
             var events = await _eventService.GetAllEvents();
-            List<EventDtoGetter> requestedEvents = new List<EventDtoGetter>();
+            List<EventDto> requestedEvents = new List<EventDto>();
 
             for (int i = 0; i < events.Count; i++)
             {
-                EventDtoGetter e = new EventDtoGetter(events[i].EventName, events[i].Description);
+                EventDto e = new EventDto();
+                e.IdEvent = events[i].IdEvent;
+                e.EventName = events[i].EventName;
+                e.Description = events[i].Description;
+                e.endHour = events[i].endHour;
+                e.startHour = events[i].startHour;
+                e.IdVenue = events[i].IdVenue;
+                e.endDate = events[i].endDate;
+                e.startDate = events[i].startDate;
+                e.IdVenue = events[i].IdVenue;
+                e.IdBusinessAccount = events[i].IdBusinessAccount;
                 requestedEvents.Add(e);
             }
             return (requestedEvents == null) ? NotFound("No events found") : requestedEvents;
         }
 
         [HttpGet("get-event-by-id")]
-        public async Task<ActionResult<EventDtoGetter>> GetEventById(int id)
+        public async Task<ActionResult<EventDto>> GetEventById(int id)
         {
-            var events = await _eventService.GetEventById(id);
-            EventDtoGetter requestedEvent = new EventDtoGetter(events.EventName, events.Description);
+            var eventt = await _eventService.GetEventById(id);
+            EventDto requestedEvent = new EventDto();
+            requestedEvent.IdEvent = eventt.IdEvent;
+            requestedEvent.EventName = eventt.EventName;
+            requestedEvent.Description = eventt.Description;
+            requestedEvent.endHour = eventt.endHour;
+            requestedEvent.startHour = eventt.startHour;
+            requestedEvent.IdVenue = eventt.IdVenue;
+            requestedEvent.endDate = eventt.endDate;
+            requestedEvent.startDate = eventt.startDate;
+            requestedEvent.IdVenue = eventt.IdVenue;
+            requestedEvent.IdBusinessAccount = eventt.IdBusinessAccount;
+
             return (requestedEvent == null) ? NotFound("No events found") : requestedEvent;
         }
 

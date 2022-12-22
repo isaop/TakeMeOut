@@ -21,7 +21,7 @@ export class CreateEventComponent implements OnInit {
   endTime=new FormControl('');
   category=new FormControl('');
   description=new FormControl('');
-  
+
   constructor(
     private router: Router,
     private http: HttpClient
@@ -43,19 +43,20 @@ export class CreateEventComponent implements OnInit {
 
   CreateEvent(){
     let event: CreateEvent = {
+      idEvent:1,
       eventName: this.createEventForm.get('name')?.value,
-      VenueID: 1,
-      venue: this.createEventForm.get('venue')?.value,
+      idVenue: 1,
+      description: this.createEventForm.get('description')?.value,
+      idBusinessAccount: 1,
+      startHour: this.createEventForm.get('startTime')?.value,
+      endHour: this.createEventForm.get('endTime')?.value,
       startDate: this.createEventForm.get('startDate')?.value,
       endDate: this.createEventForm.get('endDate')?.value,
-      startTime: this.createEventForm.get('startTime')?.value,
-      endTime: this.createEventForm.get('endTime')?.value,
-      description: this.createEventForm.get('description')?.value,
-      category: this.createEventForm.get('category')?.value,
+      idCategory: 1,
     }
+    console.log(event);
 
     this.createEvent(event).subscribe((response) => {
-      console.log(response);
       if(response.statusText == "OK")
           this.router.navigate(['success']);
     });
