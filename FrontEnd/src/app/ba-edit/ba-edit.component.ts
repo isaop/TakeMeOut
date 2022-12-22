@@ -18,7 +18,7 @@ export class BaEditComponent implements OnInit {
   }
 
   businessAccount: BusinessAccountEdit = {
-    idBusinessAccount: 6,
+    idBusinessAccount: 1,
     name: 'After',
     description: 'business accuont interesant',
     email: 'business_account@yahoo.com',
@@ -48,7 +48,7 @@ export class BaEditComponent implements OnInit {
 
   FinalizeEdit() {
     let BA_ToEdit: BusinessAccountEdit = {
-      idBusinessAccount: 6,
+      idBusinessAccount: 1,
       name: this.editBusinessAccountForm.get('name')?.value,
       description:  this.editBusinessAccountForm.get('description')?.value,
       email: this.editBusinessAccountForm.get('email')?.value,

@@ -46,7 +46,7 @@ export class UserEditComponent implements OnInit {
 
   FinalizeEdit() {
     let userToEdit: UserEdit = {
-      idUser: 21,
+      idUser: 3,
       name: this.editUserForm.get('name')?.value,
       surname:  this.editUserForm.get('surname')?.value,
       email: this.editUserForm.get('email')?.value,

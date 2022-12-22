@@ -38,9 +38,6 @@ export class SignupBaComponent implements OnInit {
       email: this.signUpForm.get('email')?.value,
       contactNumber: this.signUpForm.get('contactNumber')?.value,
       VenueID: 1,
-
-
-
     }
 
 
