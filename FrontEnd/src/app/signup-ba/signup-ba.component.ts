@@ -40,7 +40,7 @@ export class SignupBaComponent implements OnInit {
       VenueID: 1,
     }
 
-
+    console.log(ba);
       this.addBA(ba).subscribe((response) => {
         console.log(response);
         if(response.statusText == "OK")
