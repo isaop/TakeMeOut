@@ -34,7 +34,8 @@ builder.Services.AddScoped<IVenueService, VenueService>();
 builder.Services.AddScoped<IBusinessAccountService, BusinessAccountService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
-builder.Services.AddScoped<ILoginService, LoginService>();
+builder.Services.AddScoped<ILoginUserService, LoginUserService>();
+builder.Services.AddScoped<ILoginBAService, LoginBAService>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

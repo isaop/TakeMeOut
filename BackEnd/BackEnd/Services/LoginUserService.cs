@@ -6,12 +6,12 @@ using System.Security.Claims;
 
 namespace BackEnd.Services
 {
-    public class LoginService : ILoginService
+    public class LoginUserService : ILoginUserService
     {
         private readonly TakeMeOutDbContext _context;
         private readonly ITokenService _tokenService;
 
-        public LoginService(TakeMeOutDbContext context, ITokenService tokenService)
+        public LoginUserService(TakeMeOutDbContext context, ITokenService tokenService)
         {
             _context = context;
             _tokenService = tokenService;

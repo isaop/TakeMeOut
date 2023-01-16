@@ -297,6 +297,12 @@ public partial class TakeMeOutDbContext : DbContext
                 .HasForeignKey(d => d.IDUser)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_UserRefreshToken_User_IDUser");
+
+            entity.HasOne(d => d.BusinessAccount)
+                .WithMany(p => p.UserRefreshTokens)
+                .HasForeignKey(d => d.IDBusinessAccount)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_UserRefreshToken_BusinessAccount_IDBusinessAccount");
         });
 
         //modelBuilder.Entity<UserRefreshToken>().ToTable("UserRefreshToken");
