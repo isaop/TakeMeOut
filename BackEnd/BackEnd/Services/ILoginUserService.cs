@@ -3,7 +3,7 @@ using BackEnd.Dtos;
 
 namespace BackEnd.Services
 {
-    public interface ILoginService
+    public interface ILoginUserService
     {
         public Task<Object> CreateTokenString(UserDtoLogin user);
         public bool isPasswordValid(UserDtoLogin user, User userByEmail);

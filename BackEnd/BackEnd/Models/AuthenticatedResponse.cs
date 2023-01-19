@@ -6,6 +6,7 @@ namespace BackEnd.Models
     {
         public string? Token { get; set; }
         public string? RefreshToken { get; set; }
-        public int IDUser { get; set; }
+        public int? IDUser { get; set; }
+        public int? IDBusinessAccount { get; set; }
     }
 }

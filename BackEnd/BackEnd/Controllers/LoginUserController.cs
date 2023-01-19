@@ -7,11 +7,11 @@ namespace BackEnd.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class LoginController : ControllerBase
+    public class LoginUserController : ControllerBase
     {
-        private readonly ILoginService _loginService;
+        private readonly ILoginUserService _loginService;
 
-        public LoginController(ILoginService loginService)
+        public LoginUserController(ILoginUserService loginService)
         {
             _loginService = loginService;
         }

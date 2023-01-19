@@ -5,6 +5,10 @@ namespace BackEnd.Models;
 
 public partial class BusinessAccount
 {
+    public BusinessAccount() 
+    {
+        UserRefreshTokens = new HashSet<UserRefreshToken>();
+    }
     public int? IdBusinessAccount { get; set; }
 
     public string? Name { get; set; }
@@ -22,4 +26,6 @@ public partial class BusinessAccount
     public virtual ICollection<Event> Events { get; } = new List<Event>();
 
     public virtual Venue? IdVenueNavigation { get; set; }
+
+    public virtual ICollection<UserRefreshToken> UserRefreshTokens { get; set; }
 }
