@@ -45,7 +45,7 @@ export class CreateEventComponent implements OnInit {
     let event: CreateEvent = {
       idEvent:1,
       eventName: this.createEventForm.get('name')?.value,
-      idVenue: 1,
+      venueName: this.createEventForm.get('venue')?.value,
       description: this.createEventForm.get('description')?.value,
       idBusinessAccount: 1,
       startHour: this.createEventForm.get('startTime')?.value,

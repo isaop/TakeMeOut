@@ -19,6 +19,8 @@ namespace BackEnd.Controllers
         [HttpPost("add-event")]
         public async Task<ActionResult<int>> AddEvent([FromBody] EventDto newEvent)
         {
+
+
             Event e = new Event();
             e.EventName = newEvent.EventName;
             e.endDate = newEvent.endDate;
@@ -28,7 +30,7 @@ namespace BackEnd.Controllers
             e.IdCategory = newEvent.IdCategory;
             e.Description = newEvent.Description;
             e.IdBusinessAccount = newEvent.IdBusinessAccount;
-            e.IdVenue = newEvent.IdVenue;
+            e.IdVenue = _eventService.GetFirstEventByName(newEvent.VenueName).IdVenue;
 
             bool result = await _eventService.AddEventToDatabase(e);
             var myEvent = await _eventService.GetLastEvent();

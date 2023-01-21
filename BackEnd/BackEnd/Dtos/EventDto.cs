@@ -6,7 +6,9 @@
 
         public string? EventName { get; set; }
 
+        public string? VenueName { get; set; }
         public int? IdVenue { get; set; }
+
 
         public string? Description { get; set; }
 

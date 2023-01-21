@@ -7,6 +7,7 @@ namespace BackEnd.Services
         public Task<bool> AddEventToDatabase(Event myEvent);
         public Task<Event> GetLastEvent();
         public Task<List<Event>> GetAllEventsByName(string eventName);
+        public Event GetFirstEventByName(string eventName);
 
         public Task<Event> GetEventById(int id);
 

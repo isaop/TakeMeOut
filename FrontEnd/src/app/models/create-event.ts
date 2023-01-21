@@ -1,7 +1,7 @@
 export interface CreateEvent {
     idEvent:number;
     eventName: string;
-    idVenue: number;
+    venueName: string;
     description: string;
     idBusinessAccount:number;
     startHour: string;
