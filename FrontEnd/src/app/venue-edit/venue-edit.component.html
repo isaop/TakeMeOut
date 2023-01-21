@@ -1,30 +1,55 @@
-<div id="MobileView">
-    <div id="Content">
-        <h3 id="Title"><strong>*name*</strong></h3>
-        <div class="HR"></div>
+<div id="Content">
+  <h3 id="Title"><strong>*name*</strong></h3>
+  <div class="HR"></div>
 
-        <form class="FormVenueEdit">
-            <h3>Edit venue edit</h3>
-            <div class="centeringDivMain">
-                <div class="centeringDiv" style="margin-right: 15px;">
-                    <div class="input">
-                        <Label style="margin-right:30px;color: red;"> Name: </Label>
-                        <input id="name" style="border-radius: 15px;" type="text" formControlName="nameEdit"
-                            value={{VenueInfo.name}}>
-                        <Label style="margin-right:12px;color: red;" for="contactNumber"> contactNumber: </Label>
-                        <input id="contactNumber" style="border-radius: 15px;" type="text" formControlName="phoneNumberEdit"
-                            value={{VenueInfo.contactNumber}}>
-                        <Label style="margin-right:23px;color: red;" for="address"> address: </Label>
-                        <input id="address" style="border-radius: 15px;" type="text" formControlName="addressEdit"
-                            value={{VenueInfo.address}}>
-                        <Label style="margin-right:23px;color: red;" for="description"> description: </Label>
-                        <input id="description" style="border-radius: 15px;" type="text" formControlName="descriptionEdit"
-                            value={{VenueInfo.description}}>
-                    </div>
-                </div>
-            </div>
-            <button class="button-85" type="submit" (click)="FinalizeEdit()">Finalize Edit Venue</button>
-        </form>
-
+  <form class="FormVenueEdit">
+    <h3>Edit venue edit</h3>
+    <div class="centeringDivMain">
+      <div class="centeringDiv" style="margin-right: 15px">
+        <div class="input">
+          <Label style="margin-right: 30px; color: red"> Name: </Label>
+          <input
+            id="name"
+            style="border-radius: 15px"
+            type="text"
+            formControlName="nameEdit"
+            value="{{ VenueInfo.name }}"
+          />
+          <Label style="margin-right: 12px; color: red" for="contactNumber">
+            contactNumber:
+          </Label>
+          <input
+            id="contactNumber"
+            style="border-radius: 15px"
+            type="text"
+            formControlName="phoneNumberEdit"
+            value="{{ VenueInfo.contactNumber }}"
+          />
+          <Label style="margin-right: 23px; color: red" for="address">
+            address:
+          </Label>
+          <input
+            id="address"
+            style="border-radius: 15px"
+            type="text"
+            formControlName="addressEdit"
+            value="{{ VenueInfo.address }}"
+          />
+          <Label style="margin-right: 23px; color: red" for="description">
+            description:
+          </Label>
+          <input
+            id="description"
+            style="border-radius: 15px"
+            type="text"
+            formControlName="descriptionEdit"
+            value="{{ VenueInfo.description }}"
+          />
+        </div>
+      </div>
     </div>
+    <button class="button-85" type="submit" (click)="FinalizeEdit()">
+      Finalize Edit Venue
+    </button>
+  </form>
 </div>

@@ -14,10 +14,10 @@ import { Router } from '@angular/router';
 export class VenueEditComponent implements OnInit {
 
   VenueInfo: VenueEdit={
-    name: "La Tevi",
-    description: "ala de roacari",
-    contactNumber: "0722222222",
-    address: "langa facultatea de drept",
+    name: "Venue Name",
+    description: "Venue Description",
+    contactNumber: "Venue contact Number",
+    address: "Venue Address",
   }
 
   constructor(private router: Router, private http: HttpClient) { }
