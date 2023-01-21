@@ -18,41 +18,8 @@ html{
   text-align: center;
 }
 
-
-.background {
-  width: 430px;
-  height: 520px;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-
-}
-
-.background .shape {
-  height: 200px;
-  width: 200px;
-  position: absolute;
-  border-radius: 50%;
-}
-
-.shape:first-child {
-  background: linear-gradient(#b17070,
-      #ffa1a1);
-  left: -80px;
-  top: -80px;
-}
-
-.shape:last-child {
-  background: linear-gradient(to right,
-      #3f8a8d,
-      #64dade);
-  right: -30px;
-  bottom: -80px;
-}
-
 form {
-  height: 550px;
+  height: 630px;
   width: 400px;
   background-color: rgba(255, 255, 255, 0.13);
   position: absolute;
@@ -113,7 +80,7 @@ input {
 button {
   margin-top: 20px;
   width: 100%;
-  background-color: #4d6b7a;
+  background-color: #507fff;
   color: #080710;
   padding: 15px 0;
   font-size: 18px;

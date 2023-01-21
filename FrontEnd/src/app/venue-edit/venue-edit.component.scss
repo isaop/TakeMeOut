@@ -1,127 +1,70 @@
-*{transition: all 0.2s;}
-
-#MobileView {
-  font-family: "Noto Sans";
-  background-color: rgb(37, 36, 40);
-  display: flex;
-  justify-content: center;
-}
-
-#MobileView>#Content {
-  text-align: center;
+#Content {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 20px 0;
-  width: 50%;
-}
-#MobileView > #Content > h3#Title{
-  font-size: 21px;
-  margin-bottom:8px;
-}
-
-#MobileView > #Content > h3#Title > strong{
-  font-weight:bold;
+  margin-top: 20px;
+  margin-left: 42%;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: white;
+  width: 20rem;
 }
 
-#MobileView > #Content > nav{
-  font-size:18px;
-  margin-bottom: 12px;
+#Title {
+  text-align: center;
 }
 
-#MobileView > #Content > nav > a{
-  color: #666;
-  text-decoration: none;
-}
-
-#MobileView > #Content > nav > a:nth-child(2){
-  font-weight:bold;
-  color: #E71212;
-}
-
-#MobileView > #Content > nav > a:nth-child(2):before{
-  content: " | ";
-  color: #CCC;
-}
-
-.HR{
-  width: 100%;
-  clear:both;
-  display: block;
-  border-top: 1px solid #EAEAEA;
+.HR {
+  border: 0;
+  height: 1px;
+  background-color: #333;
   margin: 20px 0;
 }
 
-#MobileView > #Content > menu{
-  width:90%;
-  margin:0 auto;
-}
-
-#MobileView > #Content > menu > ul > li{
-  text-align:left;
-  display:flex;
-  border:1px solid #EAEAEA; 
-  padding: 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  width: 90%;
-  margin-bottom: 8px;
-}
-
-#MobileView > #Content > menu > ul > li:active{
-  box-shadow: 0 0 14px #EAEAEA inset;
-  border-color: #CCC;
-}
-
-#MobileView > #Content > menu > ul > li > #Icon{
+.FormVenueEdit {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  justify-content: center;
-  border-right: 1px solid #EAEAEA;
-  padding-right: 12px;
-  margin-right: 12px;
-  text-align:center;
-}
-
-#MobileView > #Content > menu > ul > li > #Icon > i{
-  font-size: 28px;
-  color: #444;
-}
-
-#MobileView > #Content > menu > ul > li > #Content{
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-#MobileView > #Content > menu > ul > li > #Content > h4{
-  font-size: 25px;
-  color: #444;
-}
-
-#MobileView > #Content > menu > ul > li > #Content > span{
-  font-size: 20px;
-  color: #666;
-}
-
-.label{
-    width: 1290px;
-    border-radius: 10px;
-    padding-left: 20px;
-    border-color: rgb(221, 215, 215);
-}
-
-.saveChanges{
-    height: 40px;
-    border-radius: 10px;
-    border-width: 3px;
-    background-color: #f2e9e4;
-    border-color: #310A31;
-    text-decoration-color: #310A31;
-}
-
-.FormVenueEdit{
-  display: flex;
   flex-direction: column;
+}
+
+.centeringDivMain {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+}
+
+.centeringDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+input[type="text"] {
+  border-radius: 15px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+button.button-85 {
+  margin-top: 20px;
+  width: 100%;
+  background-color: #507fff;
+  color: #080710;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
 }
